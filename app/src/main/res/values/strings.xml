@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">Hangman</string>
+
+    //Menu//Eddy------------------------------
+    <string name="easy">Easy</string>
+    <string name="Medium">Medium</string>
+    <string name="Hard">Hard</string>
+
 </resources>
