@@ -1,0 +1,66 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package com.example.nathanpelletier.hangman;
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.Random;
+import java.util.Scanner;
+
+/**
+ * @author Peter Zeng
+ * @author Nathan Pelletier
+ * @version 0.0.2
+ */
+public class Game {
+
+    private final int WORD_COUNT = 333;
+
+    /**
+     * @param randomNumber
+     * @param wordList
+     * @return String selected word.
+     */
+    private String selectWord(int randomNumber, File wordList) throws FileNotFoundException {
+        Scanner sc = new Scanner(wordList);
+        for(int i = 0; i < randomNumber; i++){
+            sc.nextLine();
+        }//for
+        return sc.nextLine();
+    }//selectWord
+
+    /**
+     * @param difficulty
+     * @return File file contain the right difficulty.
+     */
+    private File openFile(String difficulty) {
+        String fileName = difficulty + ".txt";
+        File wordList = new File(fileName);
+        return wordList;
+    }//openFile(String)
+
+    /**
+     * @return int chosen number
+     */
+    private int getRandomNumber() {
+        Random random = new Random();
+        return random.nextInt(WORD_COUNT);
+    }//getRandomNumber();
+
+    private String getWord(String difficulty) throws FileNotFoundException {
+        final int randomNumber = getRandomNumber();
+        File wordList = openFile(difficulty);
+        return selectWord(randomNumber, wordList);
+    }//getWord(String)
+
+    /**
+     * @param difficulty
+     */
+    public void hangman(String difficulty) throws FileNotFoundException {
+        String word = getWord(difficulty);
+    }//hangman(String);
+
+}//Game
