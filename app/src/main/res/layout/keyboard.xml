@@ -1,0 +1,191 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/LinearLayout1"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="fill_parent"
+        android:background="@color/background"
+        android:layout_weight="0.6"/>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:background="@color/keyboard"
+        android:layout_weight="2"
+        android:layout_gravity="center_horizontal">
+
+        <Button
+            android:layout_width="@dimen/letterButtonWidth"
+            android:layout_height="@dimen/letterButtonHeight"
+            android:text="@string/q"
+            />
+        <Button
+            android:layout_width="@dimen/letterButtonWidth"
+            android:layout_height="@dimen/letterButtonHeight"
+            android:text="@string/w"/>
+        <Button
+            android:layout_width="@dimen/letterButtonWidth"
+            android:layout_height="@dimen/letterButtonHeight"
+            android:text="@string/e"/>
+        <Button
+            android:layout_width="@dimen/letterButtonWidth"
+            android:layout_height="@dimen/letterButtonHeight"
+            android:text="@string/r"/>
+        <Button
+            android:layout_width="@dimen/letterButtonWidth"
+            android:layout_height="@dimen/letterButtonHeight"
+            android:text="@string/t"/>
+        <Button
+            android:layout_width="@dimen/letterButtonWidth"
+            android:layout_height="@dimen/letterButtonHeight"
+            android:text="@string/y"/>
+        <Button
+            android:layout_width="@dimen/letterButtonWidth"
+            android:layout_height="@dimen/letterButtonHeight"
+            android:text="@string/u"/>
+        <Button
+            android:layout_width="@dimen/letterButtonWidth"
+            android:layout_height="@dimen/letterButtonHeight"
+            android:text="@string/i"/>
+        <Button
+            android:layout_width="@dimen/letterButtonWidth"
+            android:layout_height="@dimen/letterButtonHeight"
+            android:text="@string/o"/>
+        <Button
+            android:layout_width="@dimen/letterButtonWidth"
+            android:layout_height="@dimen/letterButtonHeight"
+            android:text="@string/p"/>
+
+
+    </LinearLayout>
+    //The first row of the keyboard
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="fill_parent"
+        android:gravity="center"
+        android:background="@color/keyboard"
+        android:layout_weight="2">
+
+        <Button
+            android:layout_width="@dimen/letterButtonWidth"
+            android:layout_height="@dimen/letterButtonHeight"
+            android:text="@string/a"/>
+        <Button
+            android:layout_width="@dimen/letterButtonWidth"
+            android:layout_height="@dimen/letterButtonHeight"
+            android:text="@string/s"/>
+        <Button
+            android:layout_width="@dimen/letterButtonWidth"
+            android:layout_height="@dimen/letterButtonHeight"
+            android:text="@string/d"/>
+        <Button
+            android:layout_width="@dimen/letterButtonWidth"
+            android:layout_height="@dimen/letterButtonHeight"
+            android:text="@string/f"/>
+        <Button
+            android:layout_width="@dimen/letterButtonWidth"
+            android:layout_height="@dimen/letterButtonHeight"
+            android:text="@string/g"/>
+        <Button
+            android:layout_width="@dimen/letterButtonWidth"
+            android:layout_height="@dimen/letterButtonHeight"
+            android:text="@string/h"/>
+        <Button
+            android:layout_width="@dimen/letterButtonWidth"
+            android:layout_height="@dimen/letterButtonHeight"
+            android:text="@string/j"/>
+        <Button
+            android:layout_width="@dimen/letterButtonWidth"
+            android:layout_height="@dimen/letterButtonHeight"
+            android:text="@string/k"/>
+        <Button
+            android:layout_width="@dimen/letterButtonWidth"
+            android:layout_height="@dimen/letterButtonHeight"
+            android:text="@string/l"/>
+
+    </LinearLayout>
+    //The second row of the keyboard
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="fill_parent"
+        android:gravity="center"
+        android:background="@color/keyboard"
+        android:layout_weight="2">
+
+        <Button
+            android:layout_width="@dimen/letterButtonWidth"
+            android:layout_height="@dimen/letterButtonHeight"
+            android:text="@string/z"/>
+        <Button
+            android:layout_width="@dimen/letterButtonWidth"
+            android:layout_height="@dimen/letterButtonHeight"
+            android:text="@string/x"/>
+        <Button
+            android:layout_width="@dimen/letterButtonWidth"
+            android:layout_height="@dimen/letterButtonHeight"
+            android:text="@string/c"/>
+        <Button
+            android:layout_width="@dimen/letterButtonWidth"
+            android:layout_height="@dimen/letterButtonHeight"
+            android:text="@string/v"/>
+        <Button
+            android:layout_width="@dimen/letterButtonWidth"
+            android:layout_height="@dimen/letterButtonHeight"
+            android:text="@string/b"/>
+        <Button
+            android:layout_width="@dimen/letterButtonWidth"
+            android:layout_height="@dimen/letterButtonHeight"
+            android:text="@string/n"/>
+        <Button
+            android:layout_width="@dimen/letterButtonWidth"
+            android:layout_height="@dimen/letterButtonHeight"
+            android:text="@string/m"/>
+    </LinearLayout>
+    //The third row of the keyboard
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="fill_parent"
+        android:gravity="center"
+        android:background="@color/keyboard"
+        android:layout_weight="2">
+
+
+        <Button
+            android:layout_width="@dimen/letterButtonWidth"
+            android:layout_height="@dimen/letterButtonHeight"
+            android:text=""/>
+
+
+        <ImageButton
+            android:id="@+id/imageButton"
+            android:layout_width="@dimen/letterButtonWidth"
+            android:layout_height="@dimen/letterButtonHeight"
+            android:layout_weight=""
+            app:srcCompat="@android:drawable/ic_menu_sort_by_size" />
+
+        <ImageButton
+            android:id="@+id/imageButton2"
+            android:layout_width="@dimen/letterButtonWidth"
+            android:layout_height="@dimen/letterButtonHeight"
+            android:layout_weight=""
+            app:srcCompat="@android:drawable/ic_menu_save" />
+
+
+    </LinearLayout>
+    //The fourth row of the keyboard
+
+
+
+</LinearLayout>
