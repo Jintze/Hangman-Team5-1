@@ -20,8 +20,8 @@ public class Game {
     private final int WORD_COUNT = 333;
 
     /**
-     * @param randomNumber
-     * @param wordList
+     * @param randomNumber an integer given from Random class
+     * @param wordList a File with words of difficulty
      * @return String selected word.
      */
     private String selectWord(int randomNumber, File wordList) throws FileNotFoundException {
@@ -33,8 +33,8 @@ public class Game {
     }//selectWord
 
     /**
-     * @param difficulty
-     * @return File file contain the right difficulty.
+     * @param difficulty string used to select the correct file
+     * @return File a file containing the right word list for the difficulty selected.
      */
     private File openFile(String difficulty) {
         String fileName = difficulty + ".txt";
@@ -57,7 +57,7 @@ public class Game {
     }//getWord(String)
 
     /**
-     * @param difficulty
+     * @param difficulty string given from button press
      */
     public void hangman(String difficulty) throws FileNotFoundException {
         String word = getWord(difficulty);
