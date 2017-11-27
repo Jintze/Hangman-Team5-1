@@ -37,5 +37,6 @@
     <string name="n">n</string>
     <string name="m">m</string>
 
+    <string name="MenuButton">MenuButton</string>
 
 </resources>

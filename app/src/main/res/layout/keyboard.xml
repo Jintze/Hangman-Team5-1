@@ -11,7 +11,18 @@
         android:layout_width="match_parent"
         android:layout_height="fill_parent"
         android:background="@color/background"
-        android:layout_weight="0.6"/>
+        android:layout_weight="0.6"
+
+
+    >
+
+        <ImageButton
+            android:contentDescription="@string/MenuButton"
+            android:id="@+id/imageButton"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            app:srcCompat="@android:drawable/ic_menu_sort_by_size" />
+    </LinearLayout>
 
 
     <LinearLayout
@@ -24,50 +35,193 @@
         android:layout_gravity="center_horizontal">
 
         <Button
+            android:id="@+id/LetterQ"
             android:layout_width="@dimen/letterButtonWidth"
             android:layout_height="@dimen/letterButtonHeight"
             android:text="@string/q"
+            android:textSize="17sp"
+            android:textColor="@color/background"
+            android:textStyle="bold"
             />
         <Button
+            android:id="@+id/LetterW"
             android:layout_width="@dimen/letterButtonWidth"
             android:layout_height="@dimen/letterButtonHeight"
-            android:text="@string/w"/>
+            android:text="@string/w"
+            android:textSize="17sp"
+            android:textColor="@color/background"
+            android:textStyle="bold"
+            />
         <Button
+            android:id="@+id/LetterE"
             android:layout_width="@dimen/letterButtonWidth"
             android:layout_height="@dimen/letterButtonHeight"
-            android:text="@string/e"/>
+            android:text="@string/e"
+            android:textSize="17sp"
+            android:textColor="@color/background"
+            android:textStyle="bold"
+            />
         <Button
+            android:id="@+id/LetterR"
             android:layout_width="@dimen/letterButtonWidth"
             android:layout_height="@dimen/letterButtonHeight"
-            android:text="@string/r"/>
+            android:text="@string/r"
+            android:textSize="17sp"
+            android:textColor="@color/background"
+            android:textStyle="bold"
+            />
         <Button
+            android:id="@+id/LetterT"
             android:layout_width="@dimen/letterButtonWidth"
             android:layout_height="@dimen/letterButtonHeight"
-            android:text="@string/t"/>
+            android:text="@string/t"
+            android:textSize="17sp"
+            android:textColor="@color/background"
+            android:textStyle="bold"
+            />
         <Button
+            android:id="@+id/LetterY"
             android:layout_width="@dimen/letterButtonWidth"
             android:layout_height="@dimen/letterButtonHeight"
-            android:text="@string/y"/>
+            android:text="@string/y"
+            android:textSize="17sp"
+            android:textColor="@color/background"
+            android:textStyle="bold"
+            />
         <Button
+            android:id="@+id/LetterU"
             android:layout_width="@dimen/letterButtonWidth"
             android:layout_height="@dimen/letterButtonHeight"
-            android:text="@string/u"/>
+            android:text="@string/u"
+            android:textSize="17sp"
+            android:textColor="@color/background"
+            android:textStyle="bold"
+            />
         <Button
+            android:id="@+id/LetterI"
             android:layout_width="@dimen/letterButtonWidth"
             android:layout_height="@dimen/letterButtonHeight"
-            android:text="@string/i"/>
+            android:text="@string/i"
+            android:textSize="17sp"
+            android:textColor="@color/background"
+            android:textStyle="bold"
+            />
         <Button
+            android:id="@+id/LetterO"
             android:layout_width="@dimen/letterButtonWidth"
             android:layout_height="@dimen/letterButtonHeight"
-            android:text="@string/o"/>
+            android:text="@string/o"
+            android:textSize="17sp"
+            android:textColor="@color/background"
+            android:textStyle="bold"
+            />
         <Button
+            android:id="@+id/LetterP"
             android:layout_width="@dimen/letterButtonWidth"
             android:layout_height="@dimen/letterButtonHeight"
-            android:text="@string/p"/>
+            android:text="@string/p"
+            android:textSize="17sp"
+            android:textColor="@color/background"
+            android:textStyle="bold"
+            />
 
 
     </LinearLayout>
-    //The first row of the keyboard
+
+
+    <!--The second row of the keyboard-->
+    <LinearLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="fill_parent"
+        android:gravity="center"
+        android:background="@color/keyboard"
+        android:layout_weight="2">
+
+        <Button
+            android:id="@+id/LetterA"
+            android:layout_width="@dimen/letterButtonWidth"
+            android:layout_height="@dimen/letterButtonHeight"
+            android:text="@string/a"
+            android:textSize="17sp"
+            android:textColor="@color/background"
+            android:textStyle="bold"
+            />
+        <Button
+            android:id="@+id/LetterS"
+            android:layout_width="@dimen/letterButtonWidth"
+            android:layout_height="@dimen/letterButtonHeight"
+            android:text="@string/s"
+            android:textSize="17sp"
+            android:textColor="@color/background"
+            android:textStyle="bold"
+            />
+        <Button
+            android:id="@+id/LetterD"
+            android:layout_width="@dimen/letterButtonWidth"
+            android:layout_height="@dimen/letterButtonHeight"
+            android:text="@string/d"
+            android:textSize="17sp"
+            android:textColor="@color/background"
+            android:textStyle="bold"
+            />
+        <Button
+            android:id="@+id/LetterF"
+            android:layout_width="@dimen/letterButtonWidth"
+            android:layout_height="@dimen/letterButtonHeight"
+            android:text="@string/f"
+            android:textSize="17sp"
+            android:textColor="@color/background"
+            android:textStyle="bold"
+            />
+        <Button
+            android:id="@+id/LetterG"
+            android:layout_width="@dimen/letterButtonWidth"
+            android:layout_height="@dimen/letterButtonHeight"
+            android:text="@string/g"
+            android:textSize="17sp"
+            android:textColor="@color/background"
+            android:textStyle="bold"
+            />
+        <Button
+            android:id="@+id/LetterH"
+            android:layout_width="@dimen/letterButtonWidth"
+            android:layout_height="@dimen/letterButtonHeight"
+            android:text="@string/h"
+            android:textSize="17sp"
+            android:textColor="@color/background"
+            android:textStyle="bold"
+            />
+        <Button
+            android:id="@+id/LetterJ"
+            android:layout_width="@dimen/letterButtonWidth"
+            android:layout_height="@dimen/letterButtonHeight"
+            android:text="@string/j"
+            android:textSize="17sp"
+            android:textColor="@color/background"
+            android:textStyle="bold"
+            />
+        <Button
+            android:id="@+id/LetterK"
+            android:layout_width="@dimen/letterButtonWidth"
+            android:layout_height="@dimen/letterButtonHeight"
+            android:text="@string/k"
+            android:textSize="17sp"
+            android:textColor="@color/background"
+            android:textStyle="bold"
+            />
+        <Button
+            android:id="@+id/LetterL"
+            android:layout_width="@dimen/letterButtonWidth"
+            android:layout_height="@dimen/letterButtonHeight"
+            android:text="@string/l"
+            android:textSize="17sp"
+            android:textColor="@color/background"
+            android:textStyle="bold"
+            />
+
+    </LinearLayout>
+    <!--The third row of the keyboard-->
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -77,115 +231,68 @@
         android:layout_weight="2">
 
         <Button
+            android:id="@+id/LetterZ"
             android:layout_width="@dimen/letterButtonWidth"
             android:layout_height="@dimen/letterButtonHeight"
-            android:text="@string/a"/>
+            android:text="@string/z"
+            android:textSize="17sp"
+            android:textColor="@color/background"
+            android:textStyle="bold"
+            />
         <Button
+            android:id="@+id/LetterX"
             android:layout_width="@dimen/letterButtonWidth"
             android:layout_height="@dimen/letterButtonHeight"
-            android:text="@string/s"/>
+            android:text="@string/x"
+            android:textSize="17sp"
+            android:textColor="@color/background"
+            android:textStyle="bold"
+            />
         <Button
+            android:id="@+id/LetterC"
             android:layout_width="@dimen/letterButtonWidth"
             android:layout_height="@dimen/letterButtonHeight"
-            android:text="@string/d"/>
+            android:text="@string/c"
+            android:textSize="17sp"
+            android:textColor="@color/background"
+            android:textStyle="bold"
+            />
         <Button
+            android:id="@+id/LetterV"
             android:layout_width="@dimen/letterButtonWidth"
             android:layout_height="@dimen/letterButtonHeight"
-            android:text="@string/f"/>
+            android:text="@string/v"
+            android:textSize="17sp"
+            android:textColor="@color/background"
+            android:textStyle="bold"
+            />
         <Button
+            android:id="@+id/LetterB"
             android:layout_width="@dimen/letterButtonWidth"
             android:layout_height="@dimen/letterButtonHeight"
-            android:text="@string/g"/>
+            android:text="@string/b"
+            android:textSize="17sp"
+            android:textColor="@color/background"
+            android:textStyle="bold"
+            />
         <Button
+            android:id="@+id/LetterN"
             android:layout_width="@dimen/letterButtonWidth"
             android:layout_height="@dimen/letterButtonHeight"
-            android:text="@string/h"/>
+            android:text="@string/n"
+            android:textSize="17sp"
+            android:textColor="@color/background"
+            android:textStyle="bold"
+            />
         <Button
+            android:id="@+id/LetterM"
             android:layout_width="@dimen/letterButtonWidth"
             android:layout_height="@dimen/letterButtonHeight"
-            android:text="@string/j"/>
-        <Button
-            android:layout_width="@dimen/letterButtonWidth"
-            android:layout_height="@dimen/letterButtonHeight"
-            android:text="@string/k"/>
-        <Button
-            android:layout_width="@dimen/letterButtonWidth"
-            android:layout_height="@dimen/letterButtonHeight"
-            android:text="@string/l"/>
-
+            android:text="@string/m"
+            android:textSize="17sp"
+            android:textColor="@color/background"
+            android:textStyle="bold"
+            />
     </LinearLayout>
-    //The second row of the keyboard
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="fill_parent"
-        android:gravity="center"
-        android:background="@color/keyboard"
-        android:layout_weight="2">
-
-        <Button
-            android:layout_width="@dimen/letterButtonWidth"
-            android:layout_height="@dimen/letterButtonHeight"
-            android:text="@string/z"/>
-        <Button
-            android:layout_width="@dimen/letterButtonWidth"
-            android:layout_height="@dimen/letterButtonHeight"
-            android:text="@string/x"/>
-        <Button
-            android:layout_width="@dimen/letterButtonWidth"
-            android:layout_height="@dimen/letterButtonHeight"
-            android:text="@string/c"/>
-        <Button
-            android:layout_width="@dimen/letterButtonWidth"
-            android:layout_height="@dimen/letterButtonHeight"
-            android:text="@string/v"/>
-        <Button
-            android:layout_width="@dimen/letterButtonWidth"
-            android:layout_height="@dimen/letterButtonHeight"
-            android:text="@string/b"/>
-        <Button
-            android:layout_width="@dimen/letterButtonWidth"
-            android:layout_height="@dimen/letterButtonHeight"
-            android:text="@string/n"/>
-        <Button
-            android:layout_width="@dimen/letterButtonWidth"
-            android:layout_height="@dimen/letterButtonHeight"
-            android:text="@string/m"/>
-    </LinearLayout>
-    //The third row of the keyboard
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="fill_parent"
-        android:gravity="center"
-        android:background="@color/keyboard"
-        android:layout_weight="2">
-
-
-        <Button
-            android:layout_width="@dimen/letterButtonWidth"
-            android:layout_height="@dimen/letterButtonHeight"
-            android:text=""/>
-
-
-        <ImageButton
-            android:id="@+id/imageButton"
-            android:layout_width="@dimen/letterButtonWidth"
-            android:layout_height="@dimen/letterButtonHeight"
-            android:layout_weight=""
-            app:srcCompat="@android:drawable/ic_menu_sort_by_size" />
-
-        <ImageButton
-            android:id="@+id/imageButton2"
-            android:layout_width="@dimen/letterButtonWidth"
-            android:layout_height="@dimen/letterButtonHeight"
-            android:layout_weight=""
-            app:srcCompat="@android:drawable/ic_menu_save" />
-
-
-    </LinearLayout>
-    //The fourth row of the keyboard
-
-
 
 </LinearLayout>

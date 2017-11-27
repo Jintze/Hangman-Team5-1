@@ -1,5 +1,8 @@
 <resources>
     <dimen name="fab_margin">16dp</dimen>
+
+    //Button//Fatima------------------------
     <dimen name="letterButtonHeight">40dp</dimen>
-    <dimen name="letterButtonWidth">35dp</dimen>
+    <dimen name="letterButtonWidth">38dp</dimen>
+
 </resources>
