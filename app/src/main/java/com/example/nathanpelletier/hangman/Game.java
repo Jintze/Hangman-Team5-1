@@ -5,6 +5,8 @@
  */
 package com.example.nathanpelletier.hangman;
 
+import android.content.Context;
+import android.content.ContextWrapper;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Random;
@@ -16,7 +18,9 @@ import java.util.Scanner;
  * @version 0.0.2
  */
 public class Game {
-
+    /*
+     * Total number of words in our current files
+     */
     private final int WORD_COUNT = 333;
 
     /**
@@ -33,12 +37,14 @@ public class Game {
     }//selectWord
 
     /**
+     * METHOD OPEN FILE IS READY FOR TESTING
      * @param difficulty string used to select the correct file
      * @return File a file containing the right word list for the difficulty selected.
      */
     private File openFile(String difficulty) {
+        Context context = new ContextWrapper(null);
         String fileName = difficulty + ".txt";
-        File wordList = new File(fileName);
+        File wordList = new File(context.getFilesDir(), fileName);
         return wordList;
     }//openFile(String)
 
