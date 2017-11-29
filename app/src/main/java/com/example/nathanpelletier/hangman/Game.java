@@ -120,17 +120,24 @@ public class Game extends AppCompatActivity {
 
   /**
    * Needs description.
-   * @param inputletter
+   * @param inputLetter
    */
-  public void charCompare(char inputletter) {
+  public void charCompare(char inputLetter) {
+
+  //  for(int i = 0; i < CHOSEN_WORD.length(); i++){
+  //    if(CHOSEN_WORD.charAt(i) == inputLetter){
+  //      //TODO disable inputLetter and return true;
+  //    } // if
+  //  } // for
+
     USER_INPUT_ARRAY = new char[CHOSEN_WORD.length()];
 
     for (int c = 0; c < CHECKER_ARRAY.length; c++) {
-      if (inputletter == CHECKER_ARRAY[c]) {
-        USER_INPUT_ARRAY[c] = inputletter;
+      if (inputLetter == CHECKER_ARRAY[c]) {
+        USER_INPUT_ARRAY[c] = inputLetter;
       } // if
     } // for
-    arrayLogPrint(USER_INPUT_ARRAY, "loook at me fuck with me: ");
+    arrayLogPrint(USER_INPUT_ARRAY, "loook at me fuck with me: "); // get rid of this.
   } // charCompare(char)
 
   /**
@@ -171,13 +178,17 @@ public class Game extends AppCompatActivity {
    * @param selectedDifficulty
    */
   public void wordPicker(String selectedDifficulty) {
-    if (selectedDifficulty == "easy") {
-      CHOSEN_WORD = TEST_WORDS[0];
-    } else if (selectedDifficulty == "medium") {
-      CHOSEN_WORD = TEST_WORDS[1];
-    } else {
-      CHOSEN_WORD = TEST_WORDS[2];
-    } // else
+    switch(selectedDifficulty){
+      case "easy":
+        CHOSEN_WORD = TEST_WORDS[0];
+        break;
+      case "medium":
+        CHOSEN_WORD = TEST_WORDS[1];
+        break;
+      case "hard":
+        CHOSEN_WORD = TEST_WORDS[2];
+        break;
+    } // switch
   } // wordPicker(String)
 
 }
