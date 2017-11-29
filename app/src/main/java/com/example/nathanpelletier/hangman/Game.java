@@ -10,6 +10,7 @@ import android.content.ContextWrapper;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Random;
+//Turns out java.util.Scanner is supported by android.
 import java.util.Scanner;
 
 /**
@@ -38,10 +39,11 @@ public class Game {
 
     /**
      * METHOD OPEN FILE IS READY FOR TESTING
+     * Changed to public for testing
      * @param difficulty string used to select the correct file
      * @return File a file containing the right word list for the difficulty selected.
      */
-    private File openFile(String difficulty) {
+    public File openFile(String difficulty) {
         Context context = new ContextWrapper(null);
         String fileName = difficulty + ".txt";
         File wordList = new File(context.getFilesDir(), fileName);
