@@ -66,93 +66,118 @@ public class Game extends AppCompatActivity {
    */
   private Button CHECK_ANSWER;
 
+  /**
+   * Needs description.
+   * @param savedInstanceState
+   */
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.game);
 
-
     // TODO: 2017-11-21 Remove TEXTVIEW_CHOSEN_WORD view/variable
+
     //only meant to reveal random word to dev
     TEXTVIEW_CHOSEN_WORD = findViewById(R.id.random_word);
 
+    TEXTVIEW_GUESS_RESULTS = findViewById(R.id.guess__result); // match or nahh
 
-    //match or nahh
-    TEXTVIEW_GUESS_RESULTS = findViewById(R.id.guess__result);
+    USER_GUESS = findViewById(R.id.guessed_letter); // user single char guess
 
-    //user single char guess
-    USER_GUESS = findViewById(R.id.guessed_letter);
-
-    //Enter button
-    CHECK_ANSWER = findViewById(R.id.enter_answer);
+    CHECK_ANSWER = findViewById(R.id.enter_answer); // Enter button
 
     TEXTVIEW_CHOSEN_WORD.setText(CHOSEN_WORD);
 
-  }
+  } // onCreate(Bundle)
 
+  /**
+   * Needs description.
+   */
   public void onStart() {
     super.onStart();
 
-    WordPicker(SELECTED_DIFFICULTY);
+    wordPicker(SELECTED_DIFFICULTY);
 
     TEXTVIEW_CHOSEN_WORD.setText(CHOSEN_WORD);
 
-    ChosenWord_array();
+    chosenWordArray();
 
-    InputComparison();
+    inputComparison();
     //array that will be used for comparison
 
-  }
+  } // onStart()
 
-  public void ArrayLogPrint(char[] array, String arrayname) {
+  /**
+   * Needs description.
+   * @param array
+   * @param arrayname
+   */
+  public void arrayLogPrint(char[] array, String arrayname) {
     for (int x = 0; x < array.length; x++) {
       Log.d("lets see 0;" + x, ";the final array yay" + arrayname + ":  " + array[x]);
-    }
-  }
+    } // for
+  } // arrayLogPrint(char[], String)
 
-  public void CharCompare(char inputletter) {
+  /**
+   * Needs description.
+   * @param inputletter
+   */
+  public void charCompare(char inputletter) {
     USER_INPUT_ARRAY = new char[CHOSEN_WORD.length()];
 
     for (int c = 0; c < CHECKER_ARRAY.length; c++) {
       if (inputletter == CHECKER_ARRAY[c]) {
         USER_INPUT_ARRAY[c] = inputletter;
-      }
-    }
-    ArrayLogPrint(USER_INPUT_ARRAY, "loook at me fuck with me: ");
-  }
+      } // if
+    } // for
+    arrayLogPrint(USER_INPUT_ARRAY, "loook at me fuck with me: ");
+  } // charCompare(char)
 
-  public void InputComparison() {
+  /**
+   * Needs description.
+   */
+  public void inputComparison() {
     CHECK_ANSWER.setOnClickListener(new View.OnClickListener() {
+
+      /**
+       * Needs description.
+       * @param view
+       */
       @Override
       public void onClick(View view) {
         int UsersGuessLetterAmount = USER_GUESS.getText().toString().length();
 
         if (UsersGuessLetterAmount <= 1) {
-          CharCompare(USER_GUESS.getText().toString().charAt(0));
-        }
-      }
-    });
-  }
+          charCompare(USER_GUESS.getText().toString().charAt(0));
+        } // if
+      } // onClick(View)
+    }); // CHECK_ANSWER.setOnClickListener()
+  } // inputComparison()
 
-  public void ChosenWord_array() {
+  /**
+   * Needs description.
+   */
+  public void chosenWordArray() {
     CHECKER_ARRAY = new char[TEXTVIEW_CHOSEN_WORD.length()];
 
     for (int i = 0; i < CHOSEN_WORD.length(); i++) {
       CHECKER_ARRAY[i] = CHOSEN_WORD.charAt(i);
-    }
-    ArrayLogPrint(CHECKER_ARRAY, "checkerArray");
-  }
+    } // for
+    arrayLogPrint(CHECKER_ARRAY, "checkerArray");
+  } // chosenWordArray()
 
-
-  //data prep
-  public void WordPicker(String selectedDifficulty) {
+  /**
+   * data prep
+   * @param selectedDifficulty
+   */
+  public void wordPicker(String selectedDifficulty) {
     if (selectedDifficulty == "easy") {
       CHOSEN_WORD = TEST_WORDS[0];
     } else if (selectedDifficulty == "medium") {
       CHOSEN_WORD = TEST_WORDS[1];
     } else {
       CHOSEN_WORD = TEST_WORDS[2];
-    }
-  }
+    } // else
+  } // wordPicker(String)
 
 }
