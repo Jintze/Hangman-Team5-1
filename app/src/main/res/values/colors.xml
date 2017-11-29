@@ -4,8 +4,8 @@
     //App theme colors//Fatima------------------------
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
-    <color name="background">#663D5A</color>
-    <color name="keyboard">#000000</color>
+    <color name="background">#663d5a</color>
+    <color name="keyboard">#0d0d0d</color>
 
 
 </resources>
