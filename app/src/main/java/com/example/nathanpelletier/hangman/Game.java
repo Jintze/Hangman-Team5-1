@@ -19,56 +19,60 @@ import java.util.Scanner;
  * @version 0.0.2
  */
 public class Game {
-    /*
-     * Total number of words in our current files
-     */
-    private final int WORD_COUNT = 333;
+  /*
+   * Total number of words in our current files
+   */
+  //private final int WORD_COUNT = 333;
+  private final int WORD_COUNT = 1;
 
-    /**
-     * @param randomNumber an integer given from Random class
-     * @param wordList a File with words of difficulty
-     * @return String selected word.
-     */
-    private String selectWord(int randomNumber, File wordList) throws FileNotFoundException {
-        Scanner sc = new Scanner(wordList);
-        for(int i = 0; i < randomNumber; i++){
-            sc.nextLine();
-        }//for
-        return sc.nextLine();
-    }//selectWord
+  /**
+   * @param randomNumber an integer given from Random class
+   * @param wordList a File with words of difficulty
+   * @return String selected word.
+   */
+  private String selectWord(int randomNumber, File wordList) throws FileNotFoundException {
+    Scanner sc = new Scanner(wordList);
+    for(int i = 0; i < randomNumber; i++){
+      sc.nextLine();
+    }//for
+    return sc.nextLine();
+  }//selectWord
 
-    /**
-     * METHOD OPEN FILE IS READY FOR TESTING
-     * Changed to public for testing
-     * @param difficulty string used to select the correct file
-     * @return File a file containing the right word list for the difficulty selected.
-     */
-    public File openFile(String difficulty) {
-        Context context = new ContextWrapper(null);
-        String fileName = difficulty + ".txt";
-        File wordList = new File(context.getFilesDir(), fileName);
-        return wordList;
-    }//openFile(String)
+  /**
+   * METHOD OPEN FILE IS READY FOR TESTING
+   * Changed to public for testing
+   * currently uses a direct call to file for testing purposes.
+   * A more phone based system is needed to solve current memory issues
+   * @param difficulty string used to select the correct file
+   * @return File a file containing the right word list for the difficulty selected.
+   */
+  private File openFile(String difficulty) {
+    //Context context = new ContextWrapper(null);
+    String fileName = difficulty + ".txt";
+    File wordList = new File(".\\app\\src\\main\\assets\\" + fileName);
+    return wordList;
+  }//openFile(String)
 
-    /**
-     * @return int chosen number
-     */
-    private int getRandomNumber() {
-        Random random = new Random();
-        return random.nextInt(WORD_COUNT);
-    }//getRandomNumber();
+  /**
+   * @return int chosen number
+   */
+  private int getRandomNumber() {
+    Random random = new Random();
+    return random.nextInt(WORD_COUNT);
+  }//getRandomNumber();
 
-    private String getWord(String difficulty) throws FileNotFoundException {
-        final int randomNumber = getRandomNumber();
-        File wordList = openFile(difficulty);
-        return selectWord(randomNumber, wordList);
-    }//getWord(String)
+  private String getWord(String difficulty) throws FileNotFoundException {
+    final int randomNumber = getRandomNumber();
+    File wordList = openFile(difficulty);
+    return selectWord(randomNumber, wordList);
+  }//getWord(String)
 
-    /**
-     * @param difficulty string given from button press
-     */
-    public void hangman(String difficulty) throws FileNotFoundException {
-        String word = getWord(difficulty);
-    }//hangman(String);
+  /**
+   * @param difficulty string given from button press
+   */
+  public String hangman(String difficulty) throws FileNotFoundException {
+    String selectedWord = getWord(difficulty);
+    return selectedWord;
+  }//hangman(String);
 
 }//Game
