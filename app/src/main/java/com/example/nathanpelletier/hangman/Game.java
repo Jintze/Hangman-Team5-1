@@ -5,12 +5,9 @@
  */
 package com.example.nathanpelletier.hangman;
 
-import android.content.Context;
-import android.content.ContextWrapper;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Random;
-//Turns out java.util.Scanner is supported by android.
 import java.util.Scanner;
 
 /**
@@ -19,11 +16,12 @@ import java.util.Scanner;
  * @version 0.0.2
  */
 public class Game {
+
   /*
    * Total number of words in our current files
    */
-  //private final int WORD_COUNT = 333;
-  private final int WORD_COUNT = 1;
+  private final int WORD_COUNT = 333;
+  //private final int WORD_COUNT = 1;
 
   /**
    * @param randomNumber an integer given from Random class
@@ -39,8 +37,6 @@ public class Game {
   }//selectWord
 
   /**
-   * METHOD OPEN FILE IS READY FOR TESTING
-   * Changed to public for testing
    * currently uses a direct call to file for testing purposes.
    * A more phone based system is needed to solve current memory issues
    * @param difficulty string used to select the correct file
