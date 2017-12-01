@@ -1,5 +1,6 @@
 package com.example.nathanpelletier.hangman;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -10,36 +11,39 @@ import android.widget.TextView;
 
 public class Game extends AppCompatActivity {
 
-  /*cannot get intent to work
-  * Intent intentdata = getIntent();
-  * String SELECTED_DIFFICULTY;
-  */
+    /**
+     * keeps track of every time the user makes a wrong guess
+     */
+    int WRONG_GUESSES = 0;
+
+    /**
+     * keeps track of every time the user makes a right guess
+     */
+  int CORRECT_GUESSES = 0;
 
   /**
-   * Needs access modifier;
-   * Needs description.
-   */
-  String SELECTED_DIFFICULTY = "hard";
-
-  /**
-   * Needs description.
+   * the random word selected by computer based on difficulty
    */
   private String CHOSEN_WORD;
 
   /**
-   * Needs description.
+   * Test array to test out word selection
    */
   private String[] TEST_WORDS = {"easy", "medium", "harrrd"};
 
   /**
    * Needs access modifier;
    * Needs description.
+   *
+   * DELETE THIS
    */
   char[] CHECKER_ARRAY;
 
   /**
    * Needs access modifier;
    * Needs description.
+   *
+   * DELETE THIS
    */
   char[] USER_INPUT_ARRAY;
 
@@ -47,12 +51,14 @@ public class Game extends AppCompatActivity {
   //presentation layer
 
   /**
-   * Needs description.
+   *
    */
   private EditText USER_GUESS;
 
   /**
-   * Needs description
+   * for testing
+   *
+   * DELETE THIS
    */
   private TextView TEXTVIEW_CHOSEN_WORD;
 
@@ -75,6 +81,7 @@ public class Game extends AppCompatActivity {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.game);
 
+
     // TODO: 2017-11-21 Remove TEXTVIEW_CHOSEN_WORD view/variable
 
     //only meant to reveal random word to dev
@@ -96,16 +103,37 @@ public class Game extends AppCompatActivity {
   public void onStart() {
     super.onStart();
 
-    wordPicker(SELECTED_DIFFICULTY);
+    wordPicker(getIntentData());
 
     TEXTVIEW_CHOSEN_WORD.setText(CHOSEN_WORD);
 
-    chosenWordArray();
+    //chosenWordArray();
+    if (CORRECT_GUESSES<=CHOSEN_WORD.length()) {
+      if (WRONG_GUESSES <= 3) {
+        inputComparison();
+      } else {
+        //end game
+      }//else
+    }else{
+        //end game
+    }//else
 
-    inputComparison();
-    //array that will be used for comparison
+
 
   } // onStart()
+
+  public String getIntentData(){
+
+    Intent intent = getIntent();
+
+    String SELECTED_DIFFICULTY = intent.getStringExtra("Difficulty");
+
+    Log.d("lets see 0;" , ";the final array yay" + SELECTED_DIFFICULTY);
+
+    return SELECTED_DIFFICULTY;
+
+  }
+
 
   /**
    * Needs description.
@@ -123,8 +151,14 @@ public class Game extends AppCompatActivity {
    * @param inputLetter
    */
   public void charCompare(char inputLetter) {
-
-  //  for(int i = 0; i < CHOSEN_WORD.length(); i++){
+    for(int i = 0; i < CHOSEN_WORD.length(); i++){
+      if(inputLetter == CHOSEN_WORD.charAt(i)){
+        CORRECT_GUESSES= CORRECT_GUESSES+1;
+      }//if
+      else{
+        WRONG_GUESSES= WRONG_GUESSES+1;
+      }//else
+    }
   //    if(CHOSEN_WORD.charAt(i) == inputLetter){
   //      //TODO disable inputLetter and return true;
   //    } // if
@@ -144,22 +178,26 @@ public class Game extends AppCompatActivity {
    * Needs description.
    */
   public void inputComparison() {
-    CHECK_ANSWER.setOnClickListener(new View.OnClickListener() {
 
-      /**
-       * Needs description.
-       * @param view
-       */
-      @Override
-      public void onClick(View view) {
-        int UsersGuessLetterAmount = USER_GUESS.getText().toString().length();
+      CHECK_ANSWER.setOnClickListener(new View.OnClickListener() {
 
-        if (UsersGuessLetterAmount <= 1) {
-          charCompare(USER_GUESS.getText().toString().charAt(0));
-        } // if
-      } // onClick(View)
-    }); // CHECK_ANSWER.setOnClickListener()
+        /**
+         * Needs description.
+         *
+         * @param view
+         */
+        @Override
+        public void onClick(View view) {
+          int UsersGuessLetterAmount = USER_GUESS.getText().toString().length();
+
+          if (UsersGuessLetterAmount <= 1) {
+            charCompare(USER_GUESS.getText().toString().charAt(0));
+          } // if
+        } // onClick(View)
+      }); // CHECK_ANSWER.setOnClickListener()
+
   } // inputComparison()
+
 
   /**
    * Needs description.

@@ -20,7 +20,7 @@ public class Menu extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent startGame = new Intent(Menu.this, Game.class);
-                startGame.putExtra("Difficulty", R.string.Easy);
+                startGame.putExtra("Difficulty", "easy");
                 startActivity(startGame);
             }
         });
@@ -29,8 +29,8 @@ public class Menu extends AppCompatActivity {
         MediumSelect.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent startGame = new Intent(Menu.this, Game.class);
-                startGame.putExtra("Difficulty", R.string.Medium);
+                Intent startGame  = new Intent(Menu.this, Game.class);
+                startGame.putExtra("Difficulty", "medium");
                 startActivity(startGame);
 
             }
@@ -41,7 +41,7 @@ public class Menu extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent startGame = new Intent(Menu.this, Game.class);
-                startGame.putExtra("Difficulty",  R.string.Hard);
+                startGame.putExtra("Difficulty",  "hard");
                 startActivity(startGame);
             }
         });
