@@ -11,36 +11,39 @@ import android.widget.TextView;
 
 public class Game extends AppCompatActivity {
 
-  int WRONG_GUESSES = 0;
+    /**
+     * keeps track of every time the user makes a wrong guess
+     */
+    int WRONG_GUESSES = 0;
 
+    /**
+     * keeps track of every time the user makes a right guess
+     */
   int CORRECT_GUESSES = 0;
 
-
   /**
-   * Needs access modifier;
-   * Needs description.
-   */
-
-
-  /**
-   * Needs description.
+   * the random word selected by computer based on difficulty
    */
   private String CHOSEN_WORD;
 
   /**
-   * Needs description.
+   * Test array to test out word selection
    */
   private String[] TEST_WORDS = {"easy", "medium", "harrrd"};
 
   /**
    * Needs access modifier;
    * Needs description.
+   *
+   * DELETE THIS
    */
   char[] CHECKER_ARRAY;
 
   /**
    * Needs access modifier;
    * Needs description.
+   *
+   * DELETE THIS
    */
   char[] USER_INPUT_ARRAY;
 
@@ -48,12 +51,14 @@ public class Game extends AppCompatActivity {
   //presentation layer
 
   /**
-   * Needs description.
+   *
    */
   private EditText USER_GUESS;
 
   /**
-   * Needs description
+   * for testing
+   *
+   * DELETE THIS
    */
   private TextView TEXTVIEW_CHOSEN_WORD;
 
@@ -128,9 +133,6 @@ public class Game extends AppCompatActivity {
     return SELECTED_DIFFICULTY;
 
   }
-
-
-
 
 
   /**
