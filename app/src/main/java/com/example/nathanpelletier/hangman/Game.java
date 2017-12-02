@@ -7,6 +7,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 public class Game extends AppCompatActivity {
@@ -71,7 +72,7 @@ public class Game extends AppCompatActivity {
    *
    *DELETE THIS
    */
-  private TextView TEXTVIEW_GUESS_RESULTS;
+  private LinearLayout LINEARLAYOUT_GUESS_RESULTS;
 
   /**
    * For Testing: enter button to run comparison function
@@ -95,7 +96,7 @@ public class Game extends AppCompatActivity {
     //only meant to reveal random word to dev
     TEXTVIEW_CHOSEN_WORD = findViewById(R.id.random_word);
 
-    TEXTVIEW_GUESS_RESULTS = findViewById(R.id.guess__result); // match or nahh
+    LINEARLAYOUT_GUESS_RESULTS = findViewById(R.id.guess__result); // match or nahh
 
     USER_GUESS = findViewById(R.id.guessed_letter); // user single char guess
 
@@ -115,6 +116,9 @@ public class Game extends AppCompatActivity {
 
     wordPicker(getIntentData());
 
+    printDashes();
+
+
     TEXTVIEW_CHOSEN_WORD.setText(CHOSEN_WORD);
 
     //check player progress
@@ -129,6 +133,22 @@ public class Game extends AppCompatActivity {
     }//else
 
   } // onStart()
+
+  /**
+   * Creates as many textviews as the CHOSEN_WORD has letters and placing them in LINEARLAYOUT_GUESS_RESULTS
+   * chronologically id from 1 - n; n = CHOSEN_WORD length
+   */
+  public void printDashes (){
+    for(int i = 1; i < CHOSEN_WORD.length()+1; i++){
+      TextView CORRECTGUESS = new TextView(this);
+      CORRECTGUESS.setText(" ___ ");
+      CORRECTGUESS.setId(i);
+
+      LINEARLAYOUT_GUESS_RESULTS.addView(CORRECTGUESS);
+    }//for
+
+
+  }//printDashes
 
 
   /**
