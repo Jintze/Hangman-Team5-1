@@ -1,5 +1,6 @@
 package com.example.nathanpelletier.hangman;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -118,7 +119,6 @@ public class Game extends AppCompatActivity {
 
     printDashes();
 
-
     TEXTVIEW_CHOSEN_WORD.setText(CHOSEN_WORD);
 
     //check player progress
@@ -134,6 +134,16 @@ public class Game extends AppCompatActivity {
 
   } // onStart()
 
+    /**
+     * displays the correctly guessed letter in the proper TextView for the user
+     * @param LETTER_LOCATION
+     * @param GUESSED_LETTER
+     */
+    public void displayCorrectGuesses(int LETTER_LOCATION,char GUESSED_LETTER){
+      TextView view = findViewById(LETTER_LOCATION);
+      view.setText(String.valueOf(GUESSED_LETTER));
+    }//displayCorrectGuesses
+
   /**
    * Creates as many textviews as the CHOSEN_WORD has letters and placing them in LINEARLAYOUT_GUESS_RESULTS
    * chronologically id from 1 - n; n = CHOSEN_WORD length
@@ -146,8 +156,6 @@ public class Game extends AppCompatActivity {
 
       LINEARLAYOUT_GUESS_RESULTS.addView(CORRECTGUESS);
     }//for
-
-
   }//printDashes
 
 
@@ -189,12 +197,15 @@ public class Game extends AppCompatActivity {
   public void charCompare(char inputLetter) {
     for (int i = 0; i < CHOSEN_WORD.length(); i++) {
       if (inputLetter == CHOSEN_WORD.charAt(i)) {
+
+        displayCorrectGuesses(i+1,inputLetter);///peter I just added this
+
         CORRECT_GUESSES = CORRECT_GUESSES + 1;
       }//if
       else {
         WRONG_GUESSES = WRONG_GUESSES + 1;
       }//else
-    }
+    }//for
   }//charCompare
 
 
