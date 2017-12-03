@@ -36,51 +36,9 @@ public class Game extends AppCompatActivity {
   private String[] TEST_WORDS = {"easy", "medium", "harrrd"};
 
   /**
-   * Needs access modifier;
-   * Needs description.
-   *
-   * DELETE THIS
-   */
-  char[] CHECKER_ARRAY;
-
-  /**
-   * Needs access modifier;
-   * Needs description.
-   *
-   * DELETE THIS
-   */
-  char[] USER_INPUT_ARRAY;
-
-
-  //presentation layer
-
-  /**
-   * For testing: an edit text to take in user input through the built in keyboard
-   *
-   * DELETE THIS
-   */
-  private EditText USER_GUESS;
-
-  /**
-   * For testing :Displays chosen guess word (in game screen)
-   *
-   * DELETE THIS
-   */
-  private TextView TEXTVIEW_CHOSEN_WORD;
-
-  /**
-   * For Testing: Displays result of each character guess (in game screen)
-   *
-   *DELETE THIS
+   * Displays result of each character guess (in game screen)
    */
   private LinearLayout LINEARLAYOUT_GUESS_RESULTS;
-
-  /**
-   * For Testing: enter button to run comparison function
-   *
-   * DELETE THIS
-   */
-  private Button CHECK_ANSWER;
 
   /**
    * onCreate is used to initialize all and set view attributes
@@ -89,23 +47,12 @@ public class Game extends AppCompatActivity {
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
-    setContentView(R.layout.game);
-
-
-    // TODO: 2017-11-21 Remove TEXTVIEW_CHOSEN_WORD view/variable
-
-    //only meant to reveal random word to dev
-    TEXTVIEW_CHOSEN_WORD = findViewById(R.id.random_word);
+    setContentView(R.layout.ingame);
 
     LINEARLAYOUT_GUESS_RESULTS = findViewById(R.id.guess__result); // match or nahh
 
-    USER_GUESS = findViewById(R.id.guessed_letter); // user single char guess
-
-    CHECK_ANSWER = findViewById(R.id.enter_answer); // Enter button
-
-    TEXTVIEW_CHOSEN_WORD.setText(CHOSEN_WORD);
-
   } // onCreate(Bundle)
+
 
   /**
    * Runs all methods in game class.
@@ -119,12 +66,10 @@ public class Game extends AppCompatActivity {
 
     printDashes();
 
-    TEXTVIEW_CHOSEN_WORD.setText(CHOSEN_WORD);
-
     //check player progress
     if (CORRECT_GUESSES<=CHOSEN_WORD.length()) {
       if (WRONG_GUESSES <= 3) {
-        inputComparison();
+        charCompare('e');
       } else {
         //end game
       }//else
@@ -150,11 +95,11 @@ public class Game extends AppCompatActivity {
    */
   public void printDashes (){
     for(int i = 1; i < CHOSEN_WORD.length()+1; i++){
-      TextView CORRECTGUESS = new TextView(this);
-      CORRECTGUESS.setText(" ___ ");
-      CORRECTGUESS.setId(i);
+      TextView CORRECT_GUESS = new TextView(this);
+      CORRECT_GUESS.setText(" ___ ");
+      CORRECT_GUESS.setId(i);
 
-      LINEARLAYOUT_GUESS_RESULTS.addView(CORRECTGUESS);
+      LINEARLAYOUT_GUESS_RESULTS.addView(CORRECT_GUESS);
     }//for
   }//printDashes
 
@@ -175,18 +120,6 @@ public class Game extends AppCompatActivity {
 
   }
 
-  /**
-   * For Testing:
-   * Legacy class Prints param array into log to see contents
-   *
-   * @param array: chosen char array you want to print
-   * @param arrayname: name of array
-   */
-  public void arrayLogPrint(char[] array, String arrayname) {
-    for (int x = 0; x < array.length; x++) {
-      Log.d("lets see 0;" + x, ";the final array yay" + arrayname + ":  " + array[x]);
-    } // for
-  } // arrayLogPrint(char[], String)
 
   /**
    * compares inputLetter to CHOSEN_WORD
@@ -215,41 +148,8 @@ public class Game extends AppCompatActivity {
    * Future allow user to guess entire word
    *
    */
-  public void inputComparison() {
-
-      CHECK_ANSWER.setOnClickListener(new View.OnClickListener() {
-
-        /**
-         * For Testing: waits for user to press enter before running compare function
-         *
-         * @param view: enter button
-         */
-        @Override
-        public void onClick(View view) {
-          int UsersGuessLetterAmount = USER_GUESS.getText().toString().length();
-
-          if (UsersGuessLetterAmount <= 1) {
-            charCompare(USER_GUESS.getText().toString().charAt(0));
-          } // if
-        } // onClick(View)
-      }); // CHECK_ANSWER.setOnClickListener()
-  } // inputComparison()
 
 
-  /**
-   * Legacy: creates array based off of CHOSEN_WORD with each letter indexed-
-   * if the word = "eddy";CHECKER_ARRAY = ['e','d','d','y'];
-   *
-   * this manipulates the global variable CHECKER_ARRAY
-   */
-  public void chosenWordArray() {
-    CHECKER_ARRAY = new char[TEXTVIEW_CHOSEN_WORD.length()];
-
-    for (int i = 0; i < CHOSEN_WORD.length(); i++) {
-      CHECKER_ARRAY[i] = CHOSEN_WORD.charAt(i);
-    } // for
-    arrayLogPrint(CHECKER_ARRAY, "checkerArray");
-  } // chosenWordArray()
 
   /**
    * For Testing: takes selectedDifficulty and selects a word from TEST_WORD String array
@@ -269,5 +169,7 @@ public class Game extends AppCompatActivity {
         break;
     } // switch
   } // wordPicker(String)
+
+
 
 }

@@ -28,7 +28,7 @@
         </FrameLayout>
 
         <LinearLayout
-            android:id="@+id/TextView"
+            android:id="@+id/guess__result"
             android:layout_width="match_parent"
             android:layout_height="60dp"
             android:orientation="horizontal"
