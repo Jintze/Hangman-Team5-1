@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <RelativeLayout
+        android:id="@+id/posterLayout"
+        android:layout_width="match_parent"
+        android:layout_height="360dp"
+        ><FrameLayout
+        android:layout_height="43dp"
+        android:layout_width="43dp"
+        ><ImageButton
+        android:id="@+id/imageButton"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:contentDescription="@string/MenuButton"
+        android:tint="@color/background"
+        app:srcCompat="@android:drawable/ic_menu_sort_by_size"
+        />
+    </FrameLayout>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/textViewlayout"
+        android:layout_below="@+id/posterLayout"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        >
+        <LinearLayout
+            android:id="@+id/TextView"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:orientation="horizontal" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_below="@+id/textViewlayout"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        >
+        <include layout="@layout/keyboard" />
+    </RelativeLayout>
+</RelativeLayout>
