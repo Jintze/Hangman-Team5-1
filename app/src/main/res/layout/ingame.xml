@@ -29,12 +29,12 @@
 
         <LinearLayout
             android:id="@+id/guess__result"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="60dp"
             android:orientation="horizontal"
             android:layout_alignParentBottom="true"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"/>
+            android:layout_centerHorizontal="true"
+            />
 
     </RelativeLayout>
 
