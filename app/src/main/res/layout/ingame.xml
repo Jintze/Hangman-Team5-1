@@ -3,46 +3,51 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/background"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/inGameMainParent">
 
     <RelativeLayout
         android:id="@+id/posterLayout"
         android:layout_width="match_parent"
-        android:layout_height="360dp"
-        ><FrameLayout
-        android:layout_height="43dp"
-        android:layout_width="43dp"
-        ><ImageButton
-        android:id="@+id/imageButton"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:contentDescription="@string/MenuButton"
-        android:tint="@color/background"
-        app:srcCompat="@android:drawable/ic_menu_sort_by_size"
-        />
-    </FrameLayout>
+        android:layout_height="500dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true">
 
-    </RelativeLayout>
+        <FrameLayout
+            android:layout_width="43dp"
+            android:layout_height="43dp">
 
-    <RelativeLayout
-        android:id="@+id/textViewlayout"
-        android:layout_below="@+id/posterLayout"
-        android:layout_width="match_parent"
-        android:layout_height="60dp"
-        >
+            <ImageButton
+                android:id="@+id/imageButton"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:contentDescription="@string/MenuButton"
+                android:tint="@color/background"
+                app:srcCompat="@android:drawable/ic_menu_sort_by_size" />
+        </FrameLayout>
+
         <LinearLayout
             android:id="@+id/TextView"
             android:layout_width="match_parent"
             android:layout_height="60dp"
-            android:orientation="horizontal" />
+            android:orientation="horizontal"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"/>
 
     </RelativeLayout>
+
 
     <RelativeLayout
-        android:layout_below="@+id/textViewlayout"
+
         android:layout_width="match_parent"
-        android:layout_height="200dp"
-        >
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
+
         <include layout="@layout/keyboard" />
     </RelativeLayout>
+
 </RelativeLayout>
