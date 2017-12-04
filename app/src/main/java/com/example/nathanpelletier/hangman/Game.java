@@ -34,9 +34,10 @@ public class Game extends AppCompatActivity {
   private String CHOSEN_WORD;
 
   /**
-   * Character array to store output.
+   * Character array to store output. Might need to add final so only this class can modify the
+   * variable.
    */
-  private char[] REVEALED_LETTERS = new char[CHOSEN_WORD.length()];
+  public char[] REVEALED_LETTERS = new char[CHOSEN_WORD.length()];
 
   /**
    * Test array to test out word selection
@@ -171,16 +172,12 @@ public class Game extends AppCompatActivity {
     } // if
   } // charCompare
 
-
-
   /**
    * Decides which comparison is needed depending on user input length
    * For now directs only to single character comparison
    * Future allow user to guess entire word
    *
    */
-
-
 
   /**
    * For Testing: takes selectedDifficulty and selects a word from TEST_WORD String array
