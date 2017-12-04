@@ -37,7 +37,7 @@ public class Game extends AppCompatActivity {
    * Character array to store output. Might need to add final so only this class can modify the
    * variable.
    */
-  public char[] REVEALED_LETTERS = new char[CHOSEN_WORD.length()];
+  public char[] REVEALED_LETTERS;
 
   /**
    * Test array to test out word selection
@@ -143,9 +143,10 @@ public class Game extends AppCompatActivity {
     boolean alreadyGuessed = false;
     for (int i = 0; i < CHOSEN_WORD.length(); i++) {
       if (inputLetter == CHOSEN_WORD.charAt(i)) {
-        displayCorrectGuesses(i+1,inputLetter); // peter I just added this
-        // REVEALED_LETTERS[i] = CHOSEN_WORD.charAt(i);
+        //displayCorrectGuesses(i,inputLetter); // peter I just added this
+        REVEALED_LETTERS[i] = CHOSEN_WORD.charAt(i);
         // displayCorrectGuesses();
+
 
         for(int j = 0; j < REVEALED_LETTERS.length; j++){
           if(REVEALED_LETTERS[i] == CHOSEN_WORD.charAt(j)){
@@ -162,10 +163,10 @@ public class Game extends AppCompatActivity {
       } // else
     } // for
     if(CORRECT_GUESSES == CHOSEN_WORD.length()){
-      endGameWin();
+      //endGameWin();
     } // if
     if(WRONG_GUESSES == STRIKES){
-      endGameLose();
+      //endGameLose();
     } // if
   } // charCompare
 
@@ -187,9 +188,11 @@ public class Game extends AppCompatActivity {
         CHOSEN_WORD = TEST_WORDS[2];
         break;
     } // switch
-    for(int i = 0; i < REVEALED_LETTERS.length(); i++){
+    REVEALED_LETTERS = new char[CHOSEN_WORD.length()];
+    for(int i = 0; i < REVEALED_LETTERS.length; i++){
       REVEALED_LETTERS[i] = ' ';
     } // for
   } // wordPicker(String)
+
 
 } // Game
