@@ -172,6 +172,7 @@ public class Game extends AppCompatActivity {
   /**
    * For Testing: takes selectedDifficulty and selects a word from TEST_WORD String array
    * This then manipulates global variable CHOSEN_WORD
+   * Initialize REVEALED_Letters to spaces.
    * @param selectedDifficulty
    */
   public void wordPicker(String selectedDifficulty) {
@@ -186,6 +187,9 @@ public class Game extends AppCompatActivity {
         CHOSEN_WORD = TEST_WORDS[2];
         break;
     } // switch
+    for(int i = 0; i < REVEALED_LETTERS.length(); i++){
+      REVEALED_LETTERS[i] = ' ';
+    } // for
   } // wordPicker(String)
 
 } // Game
