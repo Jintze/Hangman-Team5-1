@@ -1,5 +1,6 @@
 package com.example.nathanpelletier.hangman;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -7,110 +8,78 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 public class Game extends AppCompatActivity {
 
-    /**
-     * keeps track of every time the user makes a wrong guess
-     */
-    int WRONG_GUESSES = 0;
-
-    /**
-     * keeps track of every time the user makes a right guess
-     */
-  int CORRECT_GUESSES = 0;
+  /**
+   * Maximum amount of errors before the game ends.
+   */
+  private const int STRIKES = 6;
 
   /**
-   * the random word selected by computer based on difficulty
+   * keeps track of every time the user makes a wrong guess
+   */
+  private int WRONG_GUESSES = 0;
+
+  /**
+   * keeps track of every time the user makes a right guess
+   */
+  private  int CORRECT_GUESSES = 0;
+
+  /**
+   * the random word selected by computer based off of difficulty selected
    */
   private String CHOSEN_WORD;
 
   /**
+   * Character array to store output. Might need to add final so only this class can modify the
+   * variable.
+   */
+  public char[] REVEALED_LETTERS = new char[CHOSEN_WORD.length()];
+
+  /**
    * Test array to test out word selection
+   *
+   * DELETE THIS
    */
   private String[] TEST_WORDS = {"easy", "medium", "harrrd"};
 
   /**
-   * Needs access modifier;
-   * Needs description.
-   *
-   * DELETE THIS
+   * Displays result of each character guess (in game screen)
    */
-  char[] CHECKER_ARRAY;
+  private LinearLayout LINEARLAYOUT_GUESS_RESULTS;
 
   /**
-   * Needs access modifier;
-   * Needs description.
-   *
-   * DELETE THIS
-   */
-  char[] USER_INPUT_ARRAY;
-
-
-  //presentation layer
-
-  /**
-   *
-   */
-  private EditText USER_GUESS;
-
-  /**
-   * for testing
-   *
-   * DELETE THIS
-   */
-  private TextView TEXTVIEW_CHOSEN_WORD;
-
-  /**
-   * Needs description.
-   */
-  private TextView TEXTVIEW_GUESS_RESULTS;
-
-  /**
-   * Needs description.
-   */
-  private Button CHECK_ANSWER;
-
-  /**
-   * Needs description.
+   * onCreate is used to initialize all and set view attributes
    * @param savedInstanceState
    */
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
-    setContentView(R.layout.game);
+    setContentView(R.layout.ingame);
 
-
-    // TODO: 2017-11-21 Remove TEXTVIEW_CHOSEN_WORD view/variable
-
-    //only meant to reveal random word to dev
-    TEXTVIEW_CHOSEN_WORD = findViewById(R.id.random_word);
-
-    TEXTVIEW_GUESS_RESULTS = findViewById(R.id.guess__result); // match or nahh
-
-    USER_GUESS = findViewById(R.id.guessed_letter); // user single char guess
-
-    CHECK_ANSWER = findViewById(R.id.enter_answer); // Enter button
-
-    TEXTVIEW_CHOSEN_WORD.setText(CHOSEN_WORD);
+    LINEARLAYOUT_GUESS_RESULTS = findViewById(R.id.guess__result); // match or nahh
 
   } // onCreate(Bundle)
 
   /**
-   * Needs description.
+   * Runs all methods in game class.
+   *
+   * also checks player progress (win/loss)
    */
   public void onStart() {
     super.onStart();
 
     wordPicker(getIntentData());
 
-    TEXTVIEW_CHOSEN_WORD.setText(CHOSEN_WORD);
+    printDashes();
 
-    //chosenWordArray();
+    //check player progress
     if (CORRECT_GUESSES<=CHOSEN_WORD.length()) {
       if (WRONG_GUESSES <= 3) {
-        inputComparison();
+        charCompare('e');
       } else {
         //end game
       }//else
@@ -118,101 +87,92 @@ public class Game extends AppCompatActivity {
         //end game
     }//else
 
-
-
   } // onStart()
 
-  public String getIntentData(){
+    /**
+     * displays the correctly guessed letter in the proper TextView for the user
+     * @param LETTER_LOCATION
+     * @param GUESSED_LETTER
+     */
+    public void displayCorrectGuesses(int LETTER_LOCATION,char GUESSED_LETTER){
+      TextView view = findViewById(LETTER_LOCATION);
+      view.setText(String.valueOf(GUESSED_LETTER));
+    }//displayCorrectGuesses
+
+  /**
+   * Creates as many textviews as the CHOSEN_WORD has letters and placing them in LINEARLAYOUT_GUESS_RESULTS
+   * chronologically id from 1 - n; n = CHOSEN_WORD length
+   */
+  public void printDashes (){
+    for(int i = 1; i < CHOSEN_WORD.length()+1; i++){
+      TextView CORRECT_GUESS = new TextView(this);
+      CORRECT_GUESS.setText(" ___ ");
+      CORRECT_GUESS.setId(i);
+
+      LINEARLAYOUT_GUESS_RESULTS.addView(CORRECT_GUESS);
+    }//for
+  }//printDashes
+
+
+  /**
+   * Takes in user selected difficulty(Easy, Medium, Hard) from main menu and transfers it to Game class
+   * @return String SELECTED_DIFFICULTY
+   */
+  public String getIntentData() {
 
     Intent intent = getIntent();
 
     String SELECTED_DIFFICULTY = intent.getStringExtra("Difficulty");
 
-    Log.d("lets see 0;" , ";the final array yay" + SELECTED_DIFFICULTY);
+    Log.d("lets see 0;", ";the final array yay" + SELECTED_DIFFICULTY);
 
     return SELECTED_DIFFICULTY;
 
-  }
-
-
-  /**
-   * Needs description.
-   * @param array
-   * @param arrayname
-   */
-  public void arrayLogPrint(char[] array, String arrayname) {
-    for (int x = 0; x < array.length; x++) {
-      Log.d("lets see 0;" + x, ";the final array yay" + arrayname + ":  " + array[x]);
-    } // for
-  } // arrayLogPrint(char[], String)
+  } // getIntentData()
 
   /**
-   * Needs description.
-   * @param inputLetter
+   * compares inputLetter to CHOSEN_WORD
+   * @param inputLetter: users input char
+   *
+   * ToDo: return correct char and location
+   * Train of thought: use a global variable to represent letters that are uncovered by the user;
+   * go through chosen word with selected letter; if selected character match at location of chosen
+   * word, add that character to the ith position in the global variable. The other method can just
+   * access this file's global variable.
    */
   public void charCompare(char inputLetter) {
-    for(int i = 0; i < CHOSEN_WORD.length(); i++){
-      if(inputLetter == CHOSEN_WORD.charAt(i)){
-        CORRECT_GUESSES= CORRECT_GUESSES+1;
-      }//if
-      else{
-        WRONG_GUESSES= WRONG_GUESSES+1;
-      }//else
-    }
-  //    if(CHOSEN_WORD.charAt(i) == inputLetter){
-  //      //TODO disable inputLetter and return true;
-  //    } // if
-  //  } // for
-
-    USER_INPUT_ARRAY = new char[CHOSEN_WORD.length()];
-
-    for (int c = 0; c < CHECKER_ARRAY.length; c++) {
-      if (inputLetter == CHECKER_ARRAY[c]) {
-        USER_INPUT_ARRAY[c] = inputLetter;
-      } // if
-    } // for
-    arrayLogPrint(USER_INPUT_ARRAY, "loook at me fuck with me: "); // get rid of this.
-  } // charCompare(char)
-
-  /**
-   * Needs description.
-   */
-  public void inputComparison() {
-
-      CHECK_ANSWER.setOnClickListener(new View.OnClickListener() {
-
-        /**
-         * Needs description.
-         *
-         * @param view
-         */
-        @Override
-        public void onClick(View view) {
-          int UsersGuessLetterAmount = USER_GUESS.getText().toString().length();
-
-          if (UsersGuessLetterAmount <= 1) {
-            charCompare(USER_GUESS.getText().toString().charAt(0));
-          } // if
-        } // onClick(View)
-      }); // CHECK_ANSWER.setOnClickListener()
-
-  } // inputComparison()
-
-
-  /**
-   * Needs description.
-   */
-  public void chosenWordArray() {
-    CHECKER_ARRAY = new char[TEXTVIEW_CHOSEN_WORD.length()];
-
+    boolean alreadyGuessed = false;
     for (int i = 0; i < CHOSEN_WORD.length(); i++) {
-      CHECKER_ARRAY[i] = CHOSEN_WORD.charAt(i);
+      if (inputLetter == CHOSEN_WORD.charAt(i)) {
+        displayCorrectGuesses(i+1,inputLetter); // peter I just added this
+        // REVEALED_LETTERS[i] = CHOSEN_WORD.charAt(i);
+        // displayCorrectGuesses();
+
+        for(int j = 0; j < REVEALED_LETTERS.length; j++){
+          if(REVEALED_LETTERS[i] == CHOSEN_WORD.charAt(j)){
+            alreadyGuessed = true;
+          } // if
+        } // for
+
+        if(alreadyGuessed == false){
+          CORRECT_GUESSES = CORRECT_GUESSES + 1;
+        }//
+      } // if
+      else {
+        WRONG_GUESSES++;
+      } // else
     } // for
-    arrayLogPrint(CHECKER_ARRAY, "checkerArray");
-  } // chosenWordArray()
+    if(CORRECT_GUESSES == CHOSEN_WORD.length()){
+      endGameWin();
+    } // if
+    if(WRONG_GUESSES == STRIKES){
+      endGameLose();
+    } // if
+  } // charCompare
 
   /**
-   * data prep
+   * For Testing: takes selectedDifficulty and selects a word from TEST_WORD String array
+   * This then manipulates global variable CHOSEN_WORD
    * @param selectedDifficulty
    */
   public void wordPicker(String selectedDifficulty) {
@@ -229,4 +189,4 @@ public class Game extends AppCompatActivity {
     } // switch
   } // wordPicker(String)
 
-}
+} // Game

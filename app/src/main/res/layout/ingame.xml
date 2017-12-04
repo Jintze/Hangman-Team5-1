@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/inGameMainParent">
+
+    <RelativeLayout
+        android:id="@+id/posterLayout"
+        android:layout_width="match_parent"
+        android:layout_height="500dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true">
+
+        <FrameLayout
+            android:layout_width="43dp"
+            android:layout_height="43dp">
+
+            <ImageButton
+                android:id="@+id/backToeMenuButton"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:contentDescription="@string/MenuButton"
+                android:tint="@color/background"
+                app:srcCompat="@android:drawable/ic_menu_sort_by_size"
+                android:onClick="InGameMenu"
+                />
+        </FrameLayout>
+
+        <LinearLayout
+            android:id="@+id/guess__result"
+            android:layout_width="wrap_content"
+            android:layout_height="60dp"
+            android:orientation="horizontal"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            />
+
+    </RelativeLayout>
+
+
+    <RelativeLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
+
+        <include layout="@layout/keyboard" />
+    </RelativeLayout>
+
+</RelativeLayout>
