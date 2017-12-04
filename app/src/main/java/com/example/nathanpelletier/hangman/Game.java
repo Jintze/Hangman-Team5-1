@@ -16,16 +16,16 @@ public class Game extends AppCompatActivity {
   /**
    * Maximum amount of errors before the game ends.
    */
-  private const int STRIKES = 6;
+  private final int STRIKES = 6;
 
   /**
    * keeps track of every time the user makes a wrong guess
    */
   private int WRONG_GUESSES = 0;
 
-    /**
-     * keeps track of every time the user makes a right guess
-     */
+  /**
+   * keeps track of every time the user makes a right guess
+   */
   private  int CORRECT_GUESSES = 0;
 
   /**
@@ -37,7 +37,7 @@ public class Game extends AppCompatActivity {
    * Character array to store output. Might need to add final so only this class can modify the
    * variable.
    */
-  public char[] REVEALED_LETTERS = new char[CHOSEN_WORD.length()];
+  public char[] REVEALED_LETTERS;
 
   /**
    * Test array to test out word selection
@@ -63,7 +63,6 @@ public class Game extends AppCompatActivity {
     LINEARLAYOUT_GUESS_RESULTS = findViewById(R.id.guess__result); // match or nahh
 
   } // onCreate(Bundle)
-
 
   /**
    * Runs all methods in game class.
@@ -131,24 +130,23 @@ public class Game extends AppCompatActivity {
 
   } // getIntentData()
 
-
   /**
    * compares inputLetter to CHOSEN_WORD
-   * @param inputLetter: users input char
-   *
    * ToDo: return correct char and location
    * Train of thought: use a global variable to represent letters that are uncovered by the user;
    * go through chosen word with selected letter; if selected character match at location of chosen
    * word, add that character to the ith position in the global variable. The other method can just
    * access this file's global variable.
+   * @param inputLetter: users input char
    */
   public void charCompare(char inputLetter) {
     boolean alreadyGuessed = false;
     for (int i = 0; i < CHOSEN_WORD.length(); i++) {
       if (inputLetter == CHOSEN_WORD.charAt(i)) {
-        // displayCorrectGuesses(i+1,inputLetter); // peter I just added this
+        //displayCorrectGuesses(i,inputLetter); // peter I just added this
         REVEALED_LETTERS[i] = CHOSEN_WORD.charAt(i);
-        displayCorrectGuesses();
+        // displayCorrectGuesses();
+
 
         for(int j = 0; j < REVEALED_LETTERS.length; j++){
           if(REVEALED_LETTERS[i] == CHOSEN_WORD.charAt(j)){
@@ -165,23 +163,17 @@ public class Game extends AppCompatActivity {
       } // else
     } // for
     if(CORRECT_GUESSES == CHOSEN_WORD.length()){
-      endGameWin();
+      //endGameWin();
     } // if
     if(WRONG_GUESSES == STRIKES){
-      endGameLose();
+      //endGameLose();
     } // if
   } // charCompare
 
   /**
-   * Decides which comparison is needed depending on user input length
-   * For now directs only to single character comparison
-   * Future allow user to guess entire word
-   *
-   */
-
-  /**
    * For Testing: takes selectedDifficulty and selects a word from TEST_WORD String array
    * This then manipulates global variable CHOSEN_WORD
+   * Initialize REVEALED_LETTERS to spaces.
    * @param selectedDifficulty
    */
   public void wordPicker(String selectedDifficulty) {
@@ -196,6 +188,11 @@ public class Game extends AppCompatActivity {
         CHOSEN_WORD = TEST_WORDS[2];
         break;
     } // switch
+    REVEALED_LETTERS = new char[CHOSEN_WORD.length()];
+    for(int i = 0; i < REVEALED_LETTERS.length; i++){
+      REVEALED_LETTERS[i] = ' ';
+    } // for
   } // wordPicker(String)
+
 
 } // Game
