@@ -25,6 +25,8 @@
 
         <activity android:name=".InGameMenu"/>
 
+        <activity android:name= ".Popup"/>
+
     </application>
 
 </manifest>
