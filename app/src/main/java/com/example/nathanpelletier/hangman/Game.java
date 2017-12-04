@@ -64,7 +64,6 @@ public class Game extends AppCompatActivity {
 
   } // onCreate(Bundle)
 
-
   /**
    * Runs all methods in game class.
    *
@@ -131,7 +130,6 @@ public class Game extends AppCompatActivity {
 
   } // getIntentData()
 
-
   /**
    * compares inputLetter to CHOSEN_WORD
    * @param inputLetter: users input char
@@ -146,9 +144,9 @@ public class Game extends AppCompatActivity {
     boolean alreadyGuessed = false;
     for (int i = 0; i < CHOSEN_WORD.length(); i++) {
       if (inputLetter == CHOSEN_WORD.charAt(i)) {
-        // displayCorrectGuesses(i+1,inputLetter); // peter I just added this
-        REVEALED_LETTERS[i] = CHOSEN_WORD.charAt(i);
-        displayCorrectGuesses();
+        displayCorrectGuesses(i+1,inputLetter); // peter I just added this
+        // REVEALED_LETTERS[i] = CHOSEN_WORD.charAt(i);
+        // displayCorrectGuesses();
 
         for(int j = 0; j < REVEALED_LETTERS.length; j++){
           if(REVEALED_LETTERS[i] == CHOSEN_WORD.charAt(j)){
