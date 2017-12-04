@@ -13,10 +13,12 @@ import android.widget.TextView;
 
 public class Game extends AppCompatActivity {
 
-    /**
-     * keeps track of every time the user makes a wrong guess
-     */
-    int WRONG_GUESSES = 0;
+  private const int STRIKES = 6;
+
+  /**
+   * keeps track of every time the user makes a wrong guess
+   */
+  int WRONG_GUESSES = 0;
 
     /**
      * keeps track of every time the user makes a right guess
@@ -27,6 +29,8 @@ public class Game extends AppCompatActivity {
    * the random word selected by computer based off of difficulty selected
    */
   private String CHOSEN_WORD;
+
+  char[] REVEALED_LETTERS = new char[CHOSEN_WORD.length()];
 
   /**
    * Test array to test out word selection
@@ -126,20 +130,41 @@ public class Game extends AppCompatActivity {
    * @param inputLetter: users input char
    *
    * ToDo: return correct char and location
+   * Train of thought: use a global variable to represent letters that are uncovered by the user;
+   * go through chosen word with selected letter; if selected character match at location of chosen
+   * word, add that character to the ith position in the global variable. The other method can just
+   * access this file's global variable.
    */
   public void charCompare(char inputLetter) {
+    boolean alreadyGuessed = false;
     for (int i = 0; i < CHOSEN_WORD.length(); i++) {
       if (inputLetter == CHOSEN_WORD.charAt(i)) {
+        // displayCorrectGuesses(i+1,inputLetter); // peter I just added this
+        REVEALED_LETTERS[i] = CHOSEN_WORD.charAt(i);
+        displayCorrectGuesses();
 
-        displayCorrectGuesses(i+1,inputLetter);///peter I just added this
+        for(int j = 0; j < REVEALED_LETTERS.length; j++){
+          if(REVEALED_LETTERS[i] == CHOSEN_WORD.charAt(j)){
+            alreadyGuessed = true;
+          } // if
+        } // for
 
-        CORRECT_GUESSES = CORRECT_GUESSES + 1;
-      }//if
+        if(alreadyGuessed == false){
+          CORRECT_GUESSES = CORRECT_GUESSES + 1;
+        }//
+      } // if
       else {
-        WRONG_GUESSES = WRONG_GUESSES + 1;
-      }//else
-    }//for
-  }//charCompare
+        WRONG_GUESSES++;
+      } // else
+    } // for
+    if(CORRECT_GUESSES == CHOSEN_WORD.length()){
+      endGameWin();
+    } // if
+    if(WRONG_GUESSES == STRIKES){
+      endGameLose();
+    } // if
+  } // charCompare
+
 
 
   /**
