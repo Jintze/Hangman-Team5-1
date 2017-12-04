@@ -1,9 +1,10 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-  xmlns:tools="http://schemas.android.com/tools"
-  android:id="@+id/LinearLayout1"
-  android:layout_width="match_parent"
-  android:layout_height="match_parent"
-  android:orientation="vertical">
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/LinearLayout1"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
 
   <LinearLayout
@@ -12,6 +13,22 @@
     android:background=
     android:layout_weight="0.6"/>
 
+  <LinearLayout
+      android:layout_width="match_parent"
+      android:layout_height="fill_parent"
+      android:background="@color/background"
+      android:layout_weight="0.6"
+
+  >
+
+    <ImageButton
+        android:id="@+id/imageButton"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:contentDescription="@string/MenuButton"
+        android:tint="@color/background"
+        app:srcCompat="@android:drawable/ic_menu_sort_by_size" />
+  </LinearLayout>
 
   <LinearLayout
     android:layout_width="match_parent"

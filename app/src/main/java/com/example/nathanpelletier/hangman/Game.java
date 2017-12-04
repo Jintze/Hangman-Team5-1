@@ -89,7 +89,7 @@ public class Game extends AppCompatActivity {
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
-    setContentView(R.layout.game);
+    setContentView(R.layout.keyboard);
 
 
     // TODO: 2017-11-21 Remove TEXTVIEW_CHOSEN_WORD view/variable

@@ -15,15 +15,20 @@
 
     >
 
-        <ImageButton
-            android:id="@+id/imageButton"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:contentDescription="@string/MenuButton"
-            android:tint="@color/background"
-            app:srcCompat="@android:drawable/ic_menu_sort_by_size" />
+        <Button
+            android:id="@+id/menu"
+            android:layout_width="@dimen/letterButtonWidth"
+            android:layout_height="@dimen/letterButtonHeight"
+            android:text=""
+            android:textSize="17sp"
+            android:textColor="@color/background"
+            android:textStyle="bold"
+            />
     </LinearLayout>
 
+    <afterClick
+        android:textColor="@drawable/button_afterclick"
+        />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -40,7 +45,7 @@
             android:layout_height="@dimen/letterButtonHeight"
             android:text="@string/q"
             android:textSize="17sp"
-            android:textColor="@color/background"
+            android:textColor="@drawable/button_afterclick"
             android:textStyle="bold"
             />
         <Button
