@@ -21,12 +21,12 @@ public class Game extends AppCompatActivity {
   /**
    * keeps track of every time the user makes a wrong guess
    */
-  int WRONG_GUESSES = 0;
+  private int WRONG_GUESSES = 0;
 
     /**
      * keeps track of every time the user makes a right guess
      */
-  int CORRECT_GUESSES = 0;
+  private  int CORRECT_GUESSES = 0;
 
   /**
    * the random word selected by computer based off of difficulty selected
@@ -119,17 +119,17 @@ public class Game extends AppCompatActivity {
    * Takes in user selected difficulty(Easy, Medium, Hard) from main menu and transfers it to Game class
    * @return String SELECTED_DIFFICULTY
    */
-  public String getIntentData(){
+  public String getIntentData() {
 
     Intent intent = getIntent();
 
     String SELECTED_DIFFICULTY = intent.getStringExtra("Difficulty");
 
-    Log.d("lets see 0;" , ";the final array yay" + SELECTED_DIFFICULTY);
+    Log.d("lets see 0;", ";the final array yay" + SELECTED_DIFFICULTY);
 
     return SELECTED_DIFFICULTY;
 
-  }
+  } // getIntentData()
 
 
   /**
