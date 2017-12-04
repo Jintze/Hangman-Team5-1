@@ -16,7 +16,7 @@ public class Game extends AppCompatActivity {
   /**
    * Maximum amount of errors before the game ends.
    */
-  private const int STRIKES = 6;
+  private final int STRIKES = 6;
 
   /**
    * keeps track of every time the user makes a wrong guess
