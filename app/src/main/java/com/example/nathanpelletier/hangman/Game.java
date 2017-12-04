@@ -23,9 +23,9 @@ public class Game extends AppCompatActivity {
    */
   private int WRONG_GUESSES = 0;
 
-    /**
-     * keeps track of every time the user makes a right guess
-     */
+  /**
+   * keeps track of every time the user makes a right guess
+   */
   private  int CORRECT_GUESSES = 0;
 
   /**
@@ -171,13 +171,6 @@ public class Game extends AppCompatActivity {
       endGameLose();
     } // if
   } // charCompare
-
-  /**
-   * Decides which comparison is needed depending on user input length
-   * For now directs only to single character comparison
-   * Future allow user to guess entire word
-   *
-   */
 
   /**
    * For Testing: takes selectedDifficulty and selects a word from TEST_WORD String array
