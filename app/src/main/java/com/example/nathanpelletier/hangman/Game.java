@@ -132,13 +132,12 @@ public class Game extends AppCompatActivity {
 
   /**
    * compares inputLetter to CHOSEN_WORD
-   * @param inputLetter: users input char
-   *
    * ToDo: return correct char and location
    * Train of thought: use a global variable to represent letters that are uncovered by the user;
    * go through chosen word with selected letter; if selected character match at location of chosen
    * word, add that character to the ith position in the global variable. The other method can just
    * access this file's global variable.
+   * @param inputLetter: users input char
    */
   public void charCompare(char inputLetter) {
     boolean alreadyGuessed = false;
