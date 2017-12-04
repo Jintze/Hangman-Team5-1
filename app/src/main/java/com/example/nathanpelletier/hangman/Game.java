@@ -13,6 +13,9 @@ import android.widget.TextView;
 
 public class Game extends AppCompatActivity {
 
+  /**
+   * Maximum amount of errors before the game ends.
+   */
   private const int STRIKES = 6;
 
   /**
@@ -30,7 +33,10 @@ public class Game extends AppCompatActivity {
    */
   private String CHOSEN_WORD;
 
-  char[] REVEALED_LETTERS = new char[CHOSEN_WORD.length()];
+  /**
+   * Character array to store output.
+   */
+  private char[] REVEALED_LETTERS = new char[CHOSEN_WORD.length()];
 
   /**
    * Test array to test out word selection
@@ -195,6 +201,4 @@ public class Game extends AppCompatActivity {
     } // switch
   } // wordPicker(String)
 
-
-
-}
+} // Game
