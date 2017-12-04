@@ -36,6 +36,7 @@
     <string name="b">b</string>
     <string name="n">n</string>
     <string name="m">m</string>
+    <string name="title_activity_keyboard">" "</string>
 
     <string name="MenuButton">MenuButton</string>
 

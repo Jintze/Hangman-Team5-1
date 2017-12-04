@@ -1,5 +1,6 @@
 package com.example.nathanpelletier.hangman;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -7,9 +8,12 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 public class Game extends AppCompatActivity {
+
+  private int STRIKES = 6;
 
     /**
      * keeps track of every time the user makes a wrong guess
@@ -71,7 +75,7 @@ public class Game extends AppCompatActivity {
    *
    *DELETE THIS
    */
-  private TextView TEXTVIEW_GUESS_RESULTS;
+  private LinearLayout LINEARLAYOUT_GUESS_RESULTS;
 
   /**
    * For Testing: enter button to run comparison function
@@ -80,14 +84,16 @@ public class Game extends AppCompatActivity {
    */
   private Button CHECK_ANSWER;
 
+  private char[] REVEALED_LETTERS = new char[CHOSEN_WORD.length()];
+
   /**
    * onCreate is used to initialize all and set view attributes
-   * @param savedInstanceState
+   * @param savedInstanceState needs description
    */
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
-    setContentView(R.layout.game);
+    setContentView(R.layout.keyboard);
 
 
     // TODO: 2017-11-21 Remove TEXTVIEW_CHOSEN_WORD view/variable
@@ -95,7 +101,7 @@ public class Game extends AppCompatActivity {
     //only meant to reveal random word to dev
     TEXTVIEW_CHOSEN_WORD = findViewById(R.id.random_word);
 
-    TEXTVIEW_GUESS_RESULTS = findViewById(R.id.guess__result); // match or nahh
+    LINEARLAYOUT_GUESS_RESULTS = findViewById(R.id.guess__result); // match or nahh
 
     USER_GUESS = findViewById(R.id.guessed_letter); // user single char guess
 
@@ -115,6 +121,8 @@ public class Game extends AppCompatActivity {
 
     wordPicker(getIntentData());
 
+    printDashes();
+
     TEXTVIEW_CHOSEN_WORD.setText(CHOSEN_WORD);
 
     //check player progress
@@ -129,6 +137,30 @@ public class Game extends AppCompatActivity {
     }//else
 
   } // onStart()
+
+    /**
+     * displays the correctly guessed letter in the proper TextView for the user
+     * @param LETTER_LOCATION
+     * @param GUESSED_LETTER
+     */
+    public void displayCorrectGuesses(int LETTER_LOCATION,char GUESSED_LETTER){
+      TextView view = findViewById(LETTER_LOCATION);
+      view.setText(String.valueOf(GUESSED_LETTER));
+    }//displayCorrectGuesses
+
+  /**
+   * Creates as many textviews as the CHOSEN_WORD has letters and placing them in LINEARLAYOUT_GUESS_RESULTS
+   * chronologically id from 1 - n; n = CHOSEN_WORD length
+   */
+  public void printDashes (){
+    for(int i = 1; i < CHOSEN_WORD.length()+1; i++){
+      TextView CORRECTGUESS = new TextView(this);
+      CORRECTGUESS.setText(" ___ ");
+      CORRECTGUESS.setId(i);
+
+      LINEARLAYOUT_GUESS_RESULTS.addView(CORRECTGUESS);
+    }//for
+  }//printDashes
 
 
   /**
@@ -165,17 +197,40 @@ public class Game extends AppCompatActivity {
    * @param inputLetter: users input char
    *
    * ToDo: return correct char and location
+   * Train of thought: use a global variable to represent letters that are uncovered by the user;
+   * go through chosen word with selected letter; if selected character match at location of chosen
+   * word, add that character to the ith position in the global variable. The other method can just
+   * access this file's global variable.
    */
   public void charCompare(char inputLetter) {
+    boolean alreadyGuessed = false;
     for (int i = 0; i < CHOSEN_WORD.length(); i++) {
       if (inputLetter == CHOSEN_WORD.charAt(i)) {
-        CORRECT_GUESSES = CORRECT_GUESSES + 1;
-      }//if
+        // displayCorrectGuesses(i+1,inputLetter); // peter I just added this
+        REVEALED_LETTERS[i] = CHOSEN_WORD.charAt(i);
+        displayCorrectGuesses();
+
+        for(int j = 0; j < REVEALED_LETTERS.length(); j++){
+          if(REVEALED_LETTERS[i] == CHOSEN_WORD.charAt(j)){
+            alreadyGuessed = true;
+          } // if
+        } // for
+
+        if(alreadyGuessed == false){
+          CORRECT_GUESSES = CORRECT_GUESSES + 1;
+        }//
+      } // if
       else {
-        WRONG_GUESSES = WRONG_GUESSES + 1;
-      }//else
-    }
-  }//charCompare
+        WRONG_GUESSES++;
+      } // else
+    } // for
+    if(CORRECT_GUESSES == CHOSEN_WORD.length()){
+      endGameWin();
+    } // if
+    if(WRONG_GUESSES == STRIKES){
+      endGameLose();
+    } // if
+  } // charCompare
 
 
   /**
