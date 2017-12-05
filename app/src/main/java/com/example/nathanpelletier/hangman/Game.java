@@ -79,7 +79,7 @@ public class Game extends AppCompatActivity {
     //check player progress
     if (CORRECT_GUESSES<=CHOSEN_WORD.length()) {
       if (WRONG_GUESSES <= 3) {
-        charCompare('e');
+        charCompare('r');
       } else {
         //end game
       }//else
@@ -104,7 +104,7 @@ public class Game extends AppCompatActivity {
    * chronologically id from 1 - n; n = CHOSEN_WORD length
    */
   public void printDashes (){
-    for(int i = 1; i < CHOSEN_WORD.length()+1; i++){
+    for(int i = 0; i < CHOSEN_WORD.length(); i++){
       TextView CORRECT_GUESS = new TextView(this);
       CORRECT_GUESS.setText(" ___ ");
       CORRECT_GUESS.setId(i);
@@ -143,7 +143,7 @@ public class Game extends AppCompatActivity {
     boolean alreadyGuessed = false;
     for (int i = 0; i < CHOSEN_WORD.length(); i++) {
       if (inputLetter == CHOSEN_WORD.charAt(i)) {
-        //displayCorrectGuesses(i,inputLetter); // peter I just added this
+        displayCorrectGuesses(i,inputLetter); // peter I just added this
         REVEALED_LETTERS[i] = CHOSEN_WORD.charAt(i);
         // displayCorrectGuesses();
 
