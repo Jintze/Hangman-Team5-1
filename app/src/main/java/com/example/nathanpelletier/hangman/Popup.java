@@ -12,34 +12,34 @@ import android.widget.ImageButton;
 
 public class Popup extends AppCompatActivity{
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.keyboard);
+  @Override
+  protected void onCreate(Bundle savedInstanceState) {
+    super.onCreate(savedInstanceState);
+    setContentView(R.layout.keyboard);
 
-        ImageButton popUpMenu = findViewById(R.id.backToeMenuButton);
+    ImageButton popUpMenu = findViewById(R.id.backToeMenuButton);
 
-        popUpMenu.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(Popup.this, Popup.class));
+    popUpMenu.setOnClickListener(new View.OnClickListener() {
+      @Override
+      public void onClick(View view) {
+        startActivity(new Intent(Popup.this, Popup.class));
 
-                setContentView(R.layout.popwindow);
+        setContentView(R.layout.popwindow);
 
-                DisplayMetrics displayMetrics = new DisplayMetrics();
+        DisplayMetrics displayMetrics = new DisplayMetrics();
 
-                getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
+        getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
 
-                int width = displayMetrics.widthPixels;
-                int height = displayMetrics.heightPixels;
+        int width = displayMetrics.widthPixels;
+        int height = displayMetrics.heightPixels;
 
-                getWindow().setLayout(width*8,height*6);
-
-
-            }
-        });
-
-    }
+        getWindow().setLayout(width*8,height*6);
 
 
-}
+      }//onClick
+    });//popUpMenu
+
+  }//OnCreate
+
+
+}//AppCompatActivity
