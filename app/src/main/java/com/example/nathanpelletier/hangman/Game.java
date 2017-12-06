@@ -113,21 +113,15 @@ public class Game extends AppCompatActivity {
     }//for
   }//printDashes
 
-
   /**
    * Takes in user selected difficulty(Easy, Medium, Hard) from main menu and transfers it to Game class
    * @return String SELECTED_DIFFICULTY
    */
   public String getIntentData() {
-
     Intent intent = getIntent();
-
     String SELECTED_DIFFICULTY = intent.getStringExtra("Difficulty");
-
     Log.d("lets see 0;", ";the final array yay" + SELECTED_DIFFICULTY);
-
     return SELECTED_DIFFICULTY;
-
   } // getIntentData()
 
   /**
@@ -146,7 +140,6 @@ public class Game extends AppCompatActivity {
         //displayCorrectGuesses(i,inputLetter); // peter I just added this
         REVEALED_LETTERS[i] = CHOSEN_WORD.charAt(i);
         // displayCorrectGuesses();
-
 
         for(int j = 0; j < REVEALED_LETTERS.length; j++){
           if(REVEALED_LETTERS[i] == CHOSEN_WORD.charAt(j)){
@@ -193,6 +186,5 @@ public class Game extends AppCompatActivity {
       REVEALED_LETTERS[i] = ' ';
     } // for
   } // wordPicker(String)
-
 
 } // Game
