@@ -76,6 +76,9 @@ public class Game extends AppCompatActivity {
 
     printDashes();
 
+    Keyboard keyboard = new Keyboard();
+    keyboard.keyPress(this);
+
     //check player progress
     if (CORRECT_GUESSES<=CHOSEN_WORD.length()) {
       if (WRONG_GUESSES <= 3) {
