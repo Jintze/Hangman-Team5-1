@@ -4,5 +4,15 @@
     //Button//Fatima------------------------
     <dimen name="letterButtonHeight">40dp</dimen>
     <dimen name="letterButtonWidth">38dp</dimen>
+    <dimen name="keyboardLinearLayout">50dp</dimen>
+    <dimen name="entireKeyboardLayout">150dp</dimen>
+    <dimen name="letterSize">17sp</dimen>
 
+
+    //Button x-large//Fatima---------------------------
+    <dimen name="letterButtonHeightXL">80dp</dimen>
+    <dimen name="letterButtonWidthXL">76dp</dimen>
+    <dimen name="KeyboardLinearLayoutXL">100dp</dimen>
+    <dimen name="entireKeyboardLayoutXL">300dp</dimen>
+    <dimen name="letterSizeXL">34sp</dimen>
 </resources>
