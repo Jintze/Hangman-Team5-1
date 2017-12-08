@@ -29,4 +29,12 @@
     <dimen name="labelTextXL">60sp</dimen>
     <dimen name="hangmanSizeXL">140sp</dimen>
 
+
+    <dimen name="relativeLayoutXL">1000dp</dimen>
+    <dimen name="frameLayoutWidthXL">86</dimen>
+    <dimen name="frameLayoutHeightXL">86</dimen>
+    <dimen name="linearLayoutXL">120dp</dimen>
+    <dimen name="keyboardIncludeLayout"></dimen>
+    <dimen name="imageButton">80dp</dimen>
+
 </resources>
