@@ -1,15 +1,15 @@
 package com.example.nathanpelletier.hangman;
 
-import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+
 
 public class Game extends AppCompatActivity {
 
@@ -44,7 +44,7 @@ public class Game extends AppCompatActivity {
    *
    * DELETE THIS
    */
-  private String[] TEST_WORDS = {"easy", "medium", "harrrd"};
+  private String[] TEST_WORDS = {"easy", "medium", "harrrdq"};
 
   /**
    * Displays result of each character guess (in game screen)
@@ -55,6 +55,11 @@ public class Game extends AppCompatActivity {
    * onCreate is used to initialize all and set view attributes
    * @param savedInstanceState
    */
+
+
+
+  public char key;
+
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
@@ -76,10 +81,13 @@ public class Game extends AppCompatActivity {
 
     printDashes();
 
-    Keyboard keyboard = new Keyboard();
-    keyboard.keyPress(this);
+    keyboard();
 
-    //check player progress
+
+
+
+
+    /*//check player progress
     if (CORRECT_GUESSES<=CHOSEN_WORD.length()) {
       if (WRONG_GUESSES <= 3) {
         charCompare('r');
@@ -88,7 +96,7 @@ public class Game extends AppCompatActivity {
       }//else
     }else{
         //end game
-    }//else
+    }//else*/
 
   } // onStart()
 
@@ -189,5 +197,40 @@ public class Game extends AppCompatActivity {
       REVEALED_LETTERS[i] = ' ';
     } // for
   } // wordPicker(String)
+
+
+
+
+
+
+//------------------------------------------------------------------------------------------
+
+
+  public void keyboard(){
+
+    final Button Guess_Key = findViewById(R.id.LetterQ);
+
+    Guess_Key.setOnClickListener(new View.OnClickListener() {
+      @Override
+      public void onClick(View view) {
+        //Log.d("sheeeesh","please please please mercy meeeee");
+
+        keyPress('q');
+
+
+        Guess_Key.setBackgroundColor(Color.BLACK);
+      }
+    });
+
+  }//Keyboard
+
+  /**
+   *
+   * @param letter
+   */
+  public void keyPress(char letter){
+    charCompare(letter);
+  }
+
 
 } // Game
