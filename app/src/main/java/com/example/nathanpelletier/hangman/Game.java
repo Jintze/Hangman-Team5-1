@@ -232,5 +232,15 @@ public class Game extends AppCompatActivity {
     charCompare(letter);
   }
 
+  public void getDrawable(){
+      setBackground(R.layout.posterlayout);
+  }
+
+  public void posterSelector(String SELECTED_DIFFICULTY){
+    View poster = findViewById(R.id.posterLayout);
+
+    poster.setBackground(poster.getDrawable());
+  }
+
 
 } // Game
