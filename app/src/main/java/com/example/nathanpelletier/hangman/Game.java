@@ -123,8 +123,8 @@ public class Game extends AppCompatActivity {
 
     /**
      * displays the correctly guessed letter in the proper TextView for the user
-     * @param LETTER_LOCATION (int)
-     * @param GUESSED_LETTER (char)
+     * @param LETTER_LOCATION
+     * @param GUESSED_LETTER
      */
     public void displayCorrectGuesses(int LETTER_LOCATION,char GUESSED_LETTER){
       TextView view = findViewById(LETTER_LOCATION);
@@ -199,7 +199,7 @@ public class Game extends AppCompatActivity {
    * For Testing: takes selectedDifficulty and selects a word from TEST_WORD String array
    * This then manipulates global variable CHOSEN_WORD
    * Initialize REVEALED_LETTERS to spaces.
-   * @param selectedDifficulty (String)
+   * @param selectedDifficulty
    */
   public void wordPicker(String selectedDifficulty) {
     switch(selectedDifficulty){
