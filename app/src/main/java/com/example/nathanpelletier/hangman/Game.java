@@ -1,5 +1,6 @@
 package com.example.nathanpelletier.hangman;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -242,5 +243,23 @@ public class Game extends AppCompatActivity {
   //  poster.setBackground(poster.getDrawable());
   //}
 
+    public class ingame extends Activity {
+
+        @Override
+        protected void onCreate(Bundle savedInstanceState) {
+            super.onCreate(savedInstanceState);
+            setContentView(R.layout.menu);
+
+            Button easy=(Button)findViewById(R.id.EasyDifficultySelect);
+            easy.setOnClickListener(new View.OnClickListener(){
+                @Override
+                public void onClick(View v){
+                    Intent jumptoeasymode=new Intent(Game.this,ingame.class);
+                    startActivity(jumptoeasymode);
+                }
+            });
+
+        }
+    }
 
 } // Game
