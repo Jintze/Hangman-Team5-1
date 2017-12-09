@@ -6,9 +6,13 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 
@@ -73,8 +77,11 @@ public class Game extends AppCompatActivity {
    */
   public void onStart() {
     super.onStart();
+    String SELECTED_DIFFICULTY = getIntentData();
+    wordPicker(SELECTED_DIFFICULTY);
+    gamePosterChanger(SELECTED_DIFFICULTY);
 
-    wordPicker(getIntentData());
+    inGameMenu();
 
     printDashes();
 
@@ -120,6 +127,51 @@ public class Game extends AppCompatActivity {
     }//else*/
 
   } // onStart()
+
+  public void inGameMenu(){
+    ImageButton IN_GAME_MENU_BUTTON = findViewById(R.id.backToeMenuButton);
+    final LayoutInflater LAYOUT_INFLATER = this.getLayoutInflater();
+
+    final RelativeLayout GAMESCREEN = findViewById(R.id.inGameMainParent);
+
+    IN_GAME_MENU_BUTTON.setOnClickListener(new View.OnClickListener() {
+      @Override
+      public void onClick(View view) {
+        view = LAYOUT_INFLATER.inflate(R.layout.popwindow,null);
+
+        view.startAnimation(AnimationUtils.loadAnimation(getApplicationContext(), android.R.anim.fade_in));
+
+        GAMESCREEN.addView(view);
+      }
+    });
+
+  }//inGameMenu
+
+  // TODO: 2017-12-09 Add Resource files Jintze
+  /**
+   * changes the poster image based on selectedDifficulty
+   * @param selectedDifficulty
+   */
+  public void gamePosterChanger(String selectedDifficulty){
+    RelativeLayout poster = findViewById(R.id.posterLayout);
+    switch (selectedDifficulty){
+      case "easy":{
+        //poster.setBackgroundResource(R.drawable.weneedresourcesjinze);
+        break;
+      }
+      case "medium":{
+        //poster.setBackgroundResource(R.drawable.weneedresourcesjinze);
+        break;
+      }
+
+      case "hard":{
+        //poster.setBackgroundResource(R.drawable.weneedresourcesjinze);
+        break;
+      }
+    }//switch(selectedDifficulty)
+
+
+  }//gamePosterChanger
 
     /**
      * displays the correctly guessed letter in the proper TextView for the user
@@ -218,6 +270,20 @@ public class Game extends AppCompatActivity {
       REVEALED_LETTERS[i] = ' ';
     } // for
   } // wordPicker(String)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
