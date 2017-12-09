@@ -2,7 +2,6 @@ package com.example.nathanpelletier.hangman;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -82,7 +81,9 @@ public class Game extends AppCompatActivity {
   public void onStart() {
     super.onStart();
 
-    wordPicker(getIntentData());
+    String SELECTED_DIFFICULTY = getIntentData();
+    wordPicker(SELECTED_DIFFICULTY);
+    gamePosterChanger(SELECTED_DIFFICULTY);
 
     printDashes();
 
@@ -225,6 +226,33 @@ public class Game extends AppCompatActivity {
     });
 
   }//inGameMenu
+
+//
+// TODO: 2017-12-09 Add Resource files Jintze
+  /**
+   * changes the poster image based on selectedDifficulty
+   * @param selectedDifficulty
+   */
+  public void gamePosterChanger(String selectedDifficulty){
+    RelativeLayout poster = findViewById(R.id.posterLayout);
+    switch (selectedDifficulty){
+      case "easy":{
+        //poster.setBackgroundResource(R.drawable.weneedresourcesjinze);
+        break;
+      }
+      case "medium":{
+        //poster.setBackgroundResource(R.drawable.weneedresourcesjinze);
+        break;
+      }
+
+      case "hard":{
+        //poster.setBackgroundResource(R.drawable.weneedresourcesjinze);
+        break;
+      }
+    }//switch(selectedDifficulty)
+
+
+  }//gamePosterChanger
 
 
 
