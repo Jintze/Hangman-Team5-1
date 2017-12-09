@@ -5,9 +5,13 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 
@@ -81,7 +85,8 @@ public class Game extends AppCompatActivity {
 
     printDashes();
 
-    keyboard();
+    inGameMenu();
+
 
 
 
@@ -198,6 +203,57 @@ public class Game extends AppCompatActivity {
     } // for
   } // wordPicker(String)
 
+  /**
+   * onClick listener for corner menu button with fade in animation
+   */
+  public void inGameMenu(){
+    ImageButton IN_GAME_MENU_BUTTON = findViewById(R.id.backToeMenuButton);
+    final LayoutInflater LAYOUT_INFLATER = this.getLayoutInflater();
+
+    final RelativeLayout GAMESCREEN = findViewById(R.id.inGameMainParent);
+
+    IN_GAME_MENU_BUTTON.setOnClickListener(new View.OnClickListener() {
+      @Override
+      public void onClick(View view) {
+       view = LAYOUT_INFLATER.inflate(R.layout.popwindow,null);
+
+       view.startAnimation(AnimationUtils.loadAnimation(getApplicationContext(), android.R.anim.fade_in));
+
+       GAMESCREEN.addView(view);
+      }
+    });
+
+  }//inGameMenu
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -205,8 +261,10 @@ public class Game extends AppCompatActivity {
 
 //------------------------------------------------------------------------------------------
 
-
-  public void keyboard(){
+    /**
+     * onClick for every key in the keyboard
+     */
+  /*public void keyboard1(){
 
     final Button Guess_Key = findViewById(R.id.LetterQ);
 
@@ -215,22 +273,134 @@ public class Game extends AppCompatActivity {
       public void onClick(View view) {
         //Log.d("sheeeesh","please please please mercy meeeee");
 
-        keyPress('q');
+        keyPress(Guess_Key.getTag().toString().charAt(0));
 
 
         Guess_Key.setBackgroundColor(Color.BLACK);
       }
     });
 
-  }//Keyboard
+  }//Keyboard*/
 
   /**
    *
-   * @param letter
+   * @param KEY_LETTER
    */
-  public void keyPress(char letter){
-    charCompare(letter);
+  public void keyPress(char KEY_LETTER){
+    charCompare(KEY_LETTER);
   }
 
 
+  /*public void onClick(View v) {
+    switch (v.getId()) {
+
+      case R.id.LetterA: {
+        keyPress('a');
+
+      }//A
+
+      case R.id.LetterB: {
+        keyPress('b');
+      }//B
+
+      case R.id.LetterC: {
+        keyPress('c');
+      }//C
+
+      case R.id.LetterD: {
+        keyPress('d');
+      }//D
+
+      case R.id.LetterE: {
+        keyPress('e');
+      }//E
+
+      case R.id.LetterF: {
+        keyPress('f');
+      }//F
+
+      case R.id.LetterG: {
+        keyPress('g');
+      }//G
+
+      case R.id.LetterH: {
+        keyPress('h');
+      }//H
+
+      case R.id.LetterI: {
+        keyPress('i');
+      }//I
+
+      case R.id.LetterJ: {
+        keyPress('j');
+      }//J
+
+      case R.id.LetterK: {
+        keyPress('k');
+      }//K
+
+      case R.id.LetterL: {
+        keyPress('l');
+      }//L
+
+      case R.id.LetterM: {
+        keyPress('m');
+      }//M
+
+      case R.id.LetterN: {
+        keyPress('n');
+      }//N
+
+      case R.id.LetterO: {
+        keyPress('o');
+      }//O
+
+      case R.id.LetterP: {
+        keyPress('p');
+      }//P
+
+      case R.id.LetterQ: {
+        keyPress('q');
+      }//Q
+
+      case R.id.LetterR: {
+        keyPress('r');
+      }//R
+
+      case R.id.LetterS: {
+        keyPress('s');
+      }//S
+
+      case R.id.LetterT: {
+        keyPress('t');
+      }//T
+
+      case R.id.LetterU: {
+        keyPress('u');
+      }//U
+
+      case R.id.LetterV: {
+        keyPress('v');
+      }//V
+
+      case R.id.LetterW: {
+        keyPress('w');
+      }//W
+
+      case R.id.LetterX: {
+        keyPress('x');
+      }//X
+
+      case R.id.LetterY: {
+        keyPress('y');
+      }//Y
+
+
+      case R.id.LetterZ: {
+        keyPress('z');
+      }//Z
+
+    }//Switch*/
+
+  //onClick
 } // Game
