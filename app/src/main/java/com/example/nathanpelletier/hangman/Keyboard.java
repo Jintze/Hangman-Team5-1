@@ -20,7 +20,7 @@ public class Keyboard extends Activity {
 
     //Game game = new Game();
 
-    private char letter;
+    Game game = new Game();
 
 
     /**
@@ -39,19 +39,11 @@ public class Keyboard extends Activity {
 
                 Guess_Key.setBackgroundColor(Color.BLACK);
 
-                letter = 'q';
+                game.charCompare('q');
             }
         });
 
     }//Keyboard
-
-    /**
-     * DOESNT WORK
-     * @return
-     */
-    public char getLetter(){
-        return letter;
-    }//getLetter
 
 
 }//onCreate

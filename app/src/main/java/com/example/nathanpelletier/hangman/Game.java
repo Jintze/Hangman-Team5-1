@@ -54,11 +54,7 @@ public class Game extends AppCompatActivity {
 
   /**
    * onCreate is used to initialize all and set view attributes
-   * @param savedInstanceState
    */
-
-
-
   public char key;
 
   @Override
@@ -82,10 +78,34 @@ public class Game extends AppCompatActivity {
 
     printDashes();
 
-    keyboard();
 
-
-
+    /* not sure if we need a switch table or if we should just set all of these now */
+    keyboardA();
+    keyboardB();
+    keyboardC();
+    keyboardD();
+    keyboardE();
+    keyboardF();
+    keyboardG();
+    keyboardH();
+    keyboardI();
+    keyboardJ();
+    keyboardK();
+    keyboardL();
+    keyboardM();
+    keyboardN();
+    keyboardO();
+    keyboardP();
+    keyboardQ();
+    keyboardR();
+    keyboardS();
+    keyboardT();
+    keyboardU();
+    keyboardV();
+    keyboardW();
+    keyboardX();
+    keyboardY();
+    keyboardZ();
 
 
     /*//check player progress
@@ -103,8 +123,8 @@ public class Game extends AppCompatActivity {
 
     /**
      * displays the correctly guessed letter in the proper TextView for the user
-     * @param LETTER_LOCATION
-     * @param GUESSED_LETTER
+     * @param LETTER_LOCATION (int)
+     * @param GUESSED_LETTER (char)
      */
     public void displayCorrectGuesses(int LETTER_LOCATION,char GUESSED_LETTER){
       TextView view = findViewById(LETTER_LOCATION);
@@ -159,7 +179,7 @@ public class Game extends AppCompatActivity {
           } // if
         } // for
 
-        if(alreadyGuessed == false){
+        if(!alreadyGuessed){
           CORRECT_GUESSES = CORRECT_GUESSES + 1;
         }//
       } // if
@@ -179,7 +199,7 @@ public class Game extends AppCompatActivity {
    * For Testing: takes selectedDifficulty and selects a word from TEST_WORD String array
    * This then manipulates global variable CHOSEN_WORD
    * Initialize REVEALED_LETTERS to spaces.
-   * @param selectedDifficulty
+   * @param selectedDifficulty (String)
    */
   public void wordPicker(String selectedDifficulty) {
     switch(selectedDifficulty){
@@ -206,8 +226,295 @@ public class Game extends AppCompatActivity {
 
 //------------------------------------------------------------------------------------------
 
+  public void keyboardA(){
 
-  public void keyboard(){
+    final Button Guess_Key = findViewById(R.id.LetterA);
+
+    Guess_Key.setOnClickListener(new View.OnClickListener() {
+      @Override
+      public void onClick(View view) {
+        //Log.d("sheeeesh","please please please mercy meeeee");
+
+        keyPress('a');
+
+
+        Guess_Key.setBackgroundColor(Color.GREEN);
+      }
+    });
+
+  }//Keyboard
+
+  public void keyboardB(){
+
+    final Button Guess_Key = findViewById(R.id.LetterB);
+
+    Guess_Key.setOnClickListener(new View.OnClickListener() {
+      @Override
+      public void onClick(View view) {
+        //Log.d("sheeeesh","please please please mercy meeeee");
+
+        keyPress('b');
+
+
+        Guess_Key.setBackgroundColor(Color.YELLOW);
+      }
+    });
+
+  }//Keyboard
+
+  public void keyboardC(){
+
+    final Button Guess_Key = findViewById(R.id.LetterC);
+
+    Guess_Key.setOnClickListener(new View.OnClickListener() {
+      @Override
+      public void onClick(View view) {
+        //Log.d("sheeeesh","please please please mercy meeeee");
+
+        keyPress('c');
+
+
+        Guess_Key.setBackgroundColor(Color.RED);
+      }
+    });
+
+  }//Keyboard
+
+  public void keyboardD(){
+
+    final Button Guess_Key = findViewById(R.id.LetterD);
+
+    Guess_Key.setOnClickListener(new View.OnClickListener() {
+      @Override
+      public void onClick(View view) {
+        //Log.d("sheeeesh","please please please mercy meeeee");
+
+        keyPress('d');
+
+
+        Guess_Key.setBackgroundColor(Color.BLACK);
+      }
+    });
+
+  }//Keyboard
+
+  public void keyboardE(){
+
+    final Button Guess_Key = findViewById(R.id.LetterE);
+
+    Guess_Key.setOnClickListener(new View.OnClickListener() {
+      @Override
+      public void onClick(View view) {
+        //Log.d("sheeeesh","please please please mercy meeeee");
+
+        keyPress('e');
+
+
+        Guess_Key.setBackgroundColor(Color.BLACK);
+      }
+    });
+
+  }//Keyboard
+
+  public void keyboardF(){
+
+    final Button Guess_Key = findViewById(R.id.LetterF);
+
+    Guess_Key.setOnClickListener(new View.OnClickListener() {
+      @Override
+      public void onClick(View view) {
+        //Log.d("sheeeesh","please please please mercy meeeee");
+
+        keyPress('f');
+
+
+        Guess_Key.setBackgroundColor(Color.BLACK);
+      }
+    });
+
+  }//Keyboard
+
+  public void keyboardG(){
+
+    final Button Guess_Key = findViewById(R.id.LetterG);
+
+    Guess_Key.setOnClickListener(new View.OnClickListener() {
+      @Override
+      public void onClick(View view) {
+        //Log.d("sheeeesh","please please please mercy meeeee");
+
+        keyPress('g');
+
+
+        Guess_Key.setBackgroundColor(Color.BLACK);
+      }
+    });
+
+  }//Keyboard
+
+  public void keyboardH(){
+
+    final Button Guess_Key = findViewById(R.id.LetterH);
+
+    Guess_Key.setOnClickListener(new View.OnClickListener() {
+      @Override
+      public void onClick(View view) {
+        //Log.d("sheeeesh","please please please mercy meeeee");
+
+        keyPress('h');
+
+
+        Guess_Key.setBackgroundColor(Color.BLACK);
+      }
+    });
+
+  }//Keyboard
+
+  public void keyboardI(){
+
+    final Button Guess_Key = findViewById(R.id.LetterI);
+
+    Guess_Key.setOnClickListener(new View.OnClickListener() {
+      @Override
+      public void onClick(View view) {
+        //Log.d("sheeeesh","please please please mercy meeeee");
+
+        keyPress('i');
+
+
+        Guess_Key.setBackgroundColor(Color.BLACK);
+      }
+    });
+
+  }//Keyboard
+
+  public void keyboardJ(){
+
+    final Button Guess_Key = findViewById(R.id.LetterJ);
+
+    Guess_Key.setOnClickListener(new View.OnClickListener() {
+      @Override
+      public void onClick(View view) {
+        //Log.d("sheeeesh","please please please mercy meeeee");
+
+        keyPress('j');
+
+
+        Guess_Key.setBackgroundColor(Color.BLACK);
+      }
+    });
+
+  }//Keyboard
+
+  public void keyboardK(){
+
+    final Button Guess_Key = findViewById(R.id.LetterK);
+
+    Guess_Key.setOnClickListener(new View.OnClickListener() {
+      @Override
+      public void onClick(View view) {
+        //Log.d("sheeeesh","please please please mercy meeeee");
+
+        keyPress('k');
+
+
+        Guess_Key.setBackgroundColor(Color.BLACK);
+      }
+    });
+
+  }//Keyboard
+
+  public void keyboardL(){
+
+    final Button Guess_Key = findViewById(R.id.LetterL);
+
+    Guess_Key.setOnClickListener(new View.OnClickListener() {
+      @Override
+      public void onClick(View view) {
+        //Log.d("sheeeesh","please please please mercy meeeee");
+
+        keyPress('l');
+
+
+        Guess_Key.setBackgroundColor(Color.BLACK);
+      }
+    });
+
+  }//Keyboard
+
+  public void keyboardM(){
+
+    final Button Guess_Key = findViewById(R.id.LetterM);
+
+    Guess_Key.setOnClickListener(new View.OnClickListener() {
+      @Override
+      public void onClick(View view) {
+        //Log.d("sheeeesh","please please please mercy meeeee");
+
+        keyPress('m');
+
+
+        Guess_Key.setBackgroundColor(Color.BLACK);
+      }
+    });
+
+  }//Keyboard
+
+  public void keyboardN(){
+
+    final Button Guess_Key = findViewById(R.id.LetterN);
+
+    Guess_Key.setOnClickListener(new View.OnClickListener() {
+      @Override
+      public void onClick(View view) {
+        //Log.d("sheeeesh","please please please mercy meeeee");
+
+        keyPress('n');
+
+
+        Guess_Key.setBackgroundColor(Color.BLACK);
+      }
+    });
+
+  }//Keyboard
+
+  public void keyboardO(){
+
+    final Button Guess_Key = findViewById(R.id.LetterO);
+
+    Guess_Key.setOnClickListener(new View.OnClickListener() {
+      @Override
+      public void onClick(View view) {
+        //Log.d("sheeeesh","please please please mercy meeeee");
+
+        keyPress('o');
+
+
+        Guess_Key.setBackgroundColor(Color.BLACK);
+      }
+    });
+
+  }//Keyboard
+
+  public void keyboardP(){
+
+    final Button Guess_Key = findViewById(R.id.LetterP);
+
+    Guess_Key.setOnClickListener(new View.OnClickListener() {
+      @Override
+      public void onClick(View view) {
+        //Log.d("sheeeesh","please please please mercy meeeee");
+
+        keyPress('p');
+
+
+        Guess_Key.setBackgroundColor(Color.BLACK);
+      }
+    });
+
+  }//Keyboard
+
+  public void keyboardQ(){
 
     final Button Guess_Key = findViewById(R.id.LetterQ);
 
@@ -225,9 +532,172 @@ public class Game extends AppCompatActivity {
 
   }//Keyboard
 
+  public void keyboardR(){
+
+    final Button Guess_Key = findViewById(R.id.LetterR);
+
+    Guess_Key.setOnClickListener(new View.OnClickListener() {
+      @Override
+      public void onClick(View view) {
+        //Log.d("sheeeesh","please please please mercy meeeee");
+
+        keyPress('r');
+
+
+        Guess_Key.setBackgroundColor(Color.BLACK);
+      }
+    });
+
+  }//Keyboard
+
+  public void keyboardS(){
+
+    final Button Guess_Key = findViewById(R.id.LetterS);
+
+    Guess_Key.setOnClickListener(new View.OnClickListener() {
+      @Override
+      public void onClick(View view) {
+        //Log.d("sheeeesh","please please please mercy meeeee");
+
+        keyPress('s');
+
+
+        Guess_Key.setBackgroundColor(Color.BLACK);
+      }
+    });
+
+  }//Keyboard
+
+  public void keyboardT(){
+
+    final Button Guess_Key = findViewById(R.id.LetterT);
+
+    Guess_Key.setOnClickListener(new View.OnClickListener() {
+      @Override
+      public void onClick(View view) {
+        //Log.d("sheeeesh","please please please mercy meeeee");
+
+        keyPress('t');
+
+
+        Guess_Key.setBackgroundColor(Color.BLACK);
+      }
+    });
+
+  }//Keyboard
+
+  public void keyboardU(){
+
+    final Button Guess_Key = findViewById(R.id.LetterU);
+
+    Guess_Key.setOnClickListener(new View.OnClickListener() {
+      @Override
+      public void onClick(View view) {
+        //Log.d("sheeeesh","please please please mercy meeeee");
+
+        keyPress('u');
+
+
+        Guess_Key.setBackgroundColor(Color.BLACK);
+      }
+    });
+
+  }//Keyboard
+
+  public void keyboardV(){
+
+    final Button Guess_Key = findViewById(R.id.LetterV);
+
+    Guess_Key.setOnClickListener(new View.OnClickListener() {
+      @Override
+      public void onClick(View view) {
+        //Log.d("sheeeesh","please please please mercy meeeee");
+
+        keyPress('v');
+
+
+        Guess_Key.setBackgroundColor(Color.BLACK);
+      }
+    });
+
+  }//Keyboard
+
+  public void keyboardW(){
+
+    final Button Guess_Key = findViewById(R.id.LetterW);
+
+    Guess_Key.setOnClickListener(new View.OnClickListener() {
+      @Override
+      public void onClick(View view) {
+        //Log.d("sheeeesh","please please please mercy meeeee");
+
+        keyPress('w');
+
+
+        Guess_Key.setBackgroundColor(Color.BLACK);
+      }
+    });
+
+  }//Keyboard
+
+  public void keyboardX(){
+
+    final Button Guess_Key = findViewById(R.id.LetterX);
+
+    Guess_Key.setOnClickListener(new View.OnClickListener() {
+      @Override
+      public void onClick(View view) {
+        //Log.d("sheeeesh","please please please mercy meeeee");
+
+        keyPress('x');
+
+
+        Guess_Key.setBackgroundColor(Color.BLACK);
+      }
+    });
+
+  }//Keyboard
+
+  public void keyboardY(){
+
+    final Button Guess_Key = findViewById(R.id.LetterY);
+
+    Guess_Key.setOnClickListener(new View.OnClickListener() {
+      @Override
+      public void onClick(View view) {
+        //Log.d("sheeeesh","please please please mercy meeeee");
+
+        keyPress('y');
+
+
+        Guess_Key.setBackgroundColor(Color.BLACK);
+      }
+    });
+
+  }//Keyboard
+
+  public void keyboardZ(){
+
+    final Button Guess_Key = findViewById(R.id.LetterZ);
+
+    Guess_Key.setOnClickListener(new View.OnClickListener() {
+      @Override
+      public void onClick(View view) {
+        //Log.d("sheeeesh","please please please mercy meeeee");
+
+        keyPress('z');
+
+
+        Guess_Key.setBackgroundColor(Color.BLACK);
+      }
+    });
+
+  }//Keyboard
+
+
   /**
    *
-   * @param letter
+   * @param letter (char)
    */
   public void keyPress(char letter){
     charCompare(letter);
@@ -250,16 +720,16 @@ public class Game extends AppCompatActivity {
             super.onCreate(savedInstanceState);
             setContentView(R.layout.menu);
 
-            Button easy=(Button)findViewById(R.id.EasyDifficultySelect);
+            Button easy = (Button)findViewById(R.id.EasyDifficultySelect);
             easy.setOnClickListener(new View.OnClickListener(){
                 @Override
                 public void onClick(View v){
                     Intent jumptoeasymode=new Intent(Game.this,ingame.class);
                     startActivity(jumptoeasymode);
-                }
+                }//onClick
             });
 
-        }
-    }
+        }//onCreate
+    }//ingame
 
 } // Game
