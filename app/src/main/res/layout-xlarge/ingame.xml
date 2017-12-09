@@ -9,32 +9,34 @@
     <RelativeLayout
         android:id="@+id/posterLayout"
         android:layout_width="match_parent"
-        android:layout_height="500dp"
+        android:layout_height="@dimen/relativeLayoutXL"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true">
 
         <FrameLayout
-            android:layout_width="43dp"
-            android:layout_height="43dp">
+            android:layout_width="@dimen/frameLayoutWidthXL"
+            android:layout_height="@dimen/frameLayoutHeightXL">
 
             <ImageButton
                 android:id="@+id/backToeMenuButton"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
+                android:layout_width="@dimen/imageButton"
+                android:layout_height="@dimen/imageButton"
                 android:contentDescription="@string/MenuButton"
-                android:onClick="InGameMenu"
                 android:tint="@color/background"
-                app:srcCompat="@android:drawable/ic_menu_sort_by_size" />
+                app:srcCompat="@android:drawable/ic_menu_sort_by_size"
+                android:onClick="InGameMenu"
+                />
         </FrameLayout>
 
         <LinearLayout
             android:id="@+id/guess__result"
             android:layout_width="wrap_content"
-            android:layout_height="60dp"
+            android:layout_height="@dimen/linearLayoutXL"
+            android:orientation="horizontal"
             android:layout_alignParentBottom="true"
             android:layout_centerHorizontal="true"
-            android:orientation="horizontal" />
+            />
 
     </RelativeLayout>
 
@@ -45,8 +47,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:id="@+id/relativeLayout">
+        android:layout_alignParentStart="true">
 
         <include layout="@layout/keyboard" />
     </RelativeLayout>
