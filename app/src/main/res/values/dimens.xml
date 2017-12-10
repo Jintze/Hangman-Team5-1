@@ -2,18 +2,21 @@
     <dimen name="fab_margin">16dp</dimen>
 
     //Button//Fatima------------------------
-            ----------KeyBoardXL----------
+            ----------KeyBoard----------
     <dimen name="letterButtonHeight">40dp</dimen>
     <dimen name="letterButtonWidth">38dp</dimen>
     <dimen name="keyboardLinearLayout">50dp</dimen>
     <dimen name="entireKeyboardLayout">150dp</dimen>
     <dimen name="letterSize">17sp</dimen>
 
-    ----------KeyBoardXL----------
+            ----------KeyBoard----------
     <dimen name="EasyButtonWidth">250dp</dimen>
     <dimen name="EasyButtonHeight">70dp</dimen>
     <dimen name="labelTextX">30sp</dimen>
     <dimen name="hangmanSize">70sp</dimen>
+
+             ----------Popup----------
+    <dimen name="restartButton">200dp</dimen>
 
     //Keyboard Button x-large//Fatima---------------------------
               ----------KeyBoardXL----------
@@ -23,18 +26,41 @@
     <dimen name="entireKeyboardLayoutXL">300dp</dimen>
     <dimen name="letterSizeXL">34sp</dimen>
 
-              ----------KeyBoardXL----------
+              ----------MainMenuXL----------
     <dimen name="EasyButtonWidthtXL">500dp</dimen>
     <dimen name="EasyButtonHeightXL">140dp</dimen>
     <dimen name="labelTextXL">60sp</dimen>
     <dimen name="hangmanSizeXL">140sp</dimen>
 
 
-    <dimen name="relativeLayoutXL">1000dp</dimen>
+    <dimen name="relativeLayoutXL">100dp</dimen>
     <dimen name="frameLayoutWidthXL">86</dimen>
     <dimen name="frameLayoutHeightXL">86</dimen>
     <dimen name="linearLayoutXL">120dp</dimen>
     <dimen name="keyboardIncludeLayout"></dimen>
     <dimen name="imageButton">80dp</dimen>
+
+
+    //Keyboard Button x-Small//Fatima---------------------------
+    ----------KeyBoardXS----------
+    <dimen name="letterButtonHeightXS">30dp</dimen>
+    <dimen name="letterButtonWidthXS">29dp</dimen>
+    <dimen name="KeyboardLinearLayoutXS">25dp</dimen>
+    <dimen name="entireKeyboardLayoutXS">75dp</dimen>
+    <dimen name="letterSizeXS">8sp</dimen>
+
+    ----------MainMenuXS----------
+    <dimen name="EasyButtonWidthtXS">125dp</dimen>
+    <dimen name="EasyButtonHeightXS">35dp</dimen>
+    <dimen name="labelTextXS">15sp</dimen>
+    <dimen name="hangmanSizeXS">35sp</dimen>
+
+
+    <dimen name="relativeLayoutXS">25dp</dimen>
+    <dimen name="frameLayoutWidthXS">21</dimen>
+    <dimen name="frameLayoutHeightXS">21</dimen>
+    <dimen name="linearLayoutXS">30dp</dimen>
+    <dimen name="keyboardIncludeLayoutXS"></dimen>
+    <dimen name="imageButtonXS">30dp</dimen>
 
 </resources>
