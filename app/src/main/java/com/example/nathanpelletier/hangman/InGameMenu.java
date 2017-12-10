@@ -28,7 +28,8 @@ public class InGameMenu extends AppCompatActivity{
             @Override
             public void onClick(View view) {
                 Log.d(TAG, "onClick: Clicked InGameMenu");
-                backToMenu();
+                Intent intentMenuButton = new Intent(InGameMenu.this, Menu.class);
+                startActivity(intentMenuButton);
 
             }
         });
