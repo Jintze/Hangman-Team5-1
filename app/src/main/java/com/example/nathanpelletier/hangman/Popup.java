@@ -1,4 +1,5 @@
 package com.example.nathanpelletier.hangman;
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -16,25 +17,17 @@ public class Popup extends AppCompatActivity{
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.ingame);
+  }
+  public void onStart() {
+    super.onStart();
 
-    ImageButton popUpMenu = findViewById(R.id.PopUpMenuButton);
+    ImageButton BACK_HOME_BUTTON = findViewById(R.id.backToeMenuButton);
 
-    popUpMenu.setOnClickListener(new View.OnClickListener() {
+    BACK_HOME_BUTTON.setOnClickListener(new View.OnClickListener() {
       @Override
       public void onClick(View view) {
-        startActivity(new Intent(Popup.this, Popup.class));
-
-        setContentView(R.layout.popwindow);
-
-        DisplayMetrics displayMetrics = new DisplayMetrics();
-
-        getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
-
-        int width = displayMetrics.widthPixels;
-        int height = displayMetrics.heightPixels;
-
-        getWindow().setLayout(width*8,height*6);
-
+        Intent GO_HOME = new Intent(Popup.this, Menu.class);
+        startActivity(GO_HOME);
 
       }//onClick
     });//popUpMenu

@@ -129,7 +129,7 @@ public class Game extends AppCompatActivity {
   } // onStart()
 
   public void inGameMenu(){
-    ImageButton IN_GAME_MENU_BUTTON = findViewById(R.id.backToeMenuButton);
+    ImageButton IN_GAME_MENU_BUTTON = findViewById(R.id.PopUpMenuButton);
     final LayoutInflater LAYOUT_INFLATER = this.getLayoutInflater();
 
     final RelativeLayout GAMESCREEN = findViewById(R.id.inGameMainParent);
@@ -142,8 +142,24 @@ public class Game extends AppCompatActivity {
         view.startAnimation(AnimationUtils.loadAnimation(getApplicationContext(), android.R.anim.fade_in));
 
         GAMESCREEN.addView(view);
+
+
+        //Button 1 go home
+
+        ImageButton BACK_HOME_BUTTON = findViewById(R.id.backToeMenuButton);
+
+        BACK_HOME_BUTTON.setOnClickListener(new View.OnClickListener() {
+          @Override
+          public void onClick(View view) {
+            Intent GO_HOME = new Intent(Game.this, Menu.class);
+            startActivity(GO_HOME);
+          }
+        });
       }
     });
+
+
+
 
   }//inGameMenu
 
@@ -156,16 +172,16 @@ public class Game extends AppCompatActivity {
     RelativeLayout poster = findViewById(R.id.posterLayout);
     switch (selectedDifficulty){
       case "easy":{
-        poster.setBackgroundResource(R.drawable.secondscreen);
+        //poster.setBackgroundResource(R.drawable.secondscreen);
         break;
       }
       case "medium":{
-        poster.setBackgroundResource(R.drawable.secondscreen);
+        //poster.setBackgroundResource(R.drawable.secondscreen);
         break;
       }
 
       case "hard":{
-        poster.setBackgroundResource(R.drawable.secondscreen);
+        //poster.setBackgroundResource(R.drawable.secondscreen);
         break;
       }
     }//switch(selectedDifficulty)
