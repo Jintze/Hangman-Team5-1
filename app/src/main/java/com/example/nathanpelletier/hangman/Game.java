@@ -172,16 +172,16 @@ public class Game extends AppCompatActivity {
     RelativeLayout poster = findViewById(R.id.posterLayout);
     switch (selectedDifficulty){
       case "easy":{
-        //poster.setBackgroundResource(R.drawable.secondscreen);
+        poster.setBackgroundResource(R.drawable.secondscreen);
         break;
       }
       case "medium":{
-        //poster.setBackgroundResource(R.drawable.secondscreen);
+        poster.setBackgroundResource(R.drawable.secondscreen);
         break;
       }
 
       case "hard":{
-        //poster.setBackgroundResource(R.drawable.secondscreen);
+        poster.setBackgroundResource(R.drawable.secondscreen);
         break;
       }
     }//switch(selectedDifficulty)
