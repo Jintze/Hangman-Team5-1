@@ -15,9 +15,9 @@ public class Popup extends AppCompatActivity{
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
-    setContentView(R.layout.keyboard);
+    setContentView(R.layout.ingame);
 
-    ImageButton popUpMenu = findViewById(R.id.backToeMenuButton);
+    ImageButton popUpMenu = findViewById(R.id.PopUpMenuButton);
 
     popUpMenu.setOnClickListener(new View.OnClickListener() {
       @Override
