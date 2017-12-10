@@ -38,6 +38,7 @@ public class Keyboard extends Activity {
                 //Log.d("sheeeesh","please please please mercy meeeee");
 
                 Guess_Key.setBackgroundColor(Color.BLACK);
+                Guess_Key.setEnabled(false);
 
                 game.charCompare('q');
             }
