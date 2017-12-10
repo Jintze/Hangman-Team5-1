@@ -23,20 +23,18 @@
                 android:layout_width="40dp"
                 android:layout_height="40dp"
                 android:contentDescription="@string/MenuButton"
-                android:tint="@color/background"
-                app:srcCompat="@android:drawable/ic_menu_sort_by_size"
                 android:onClick="InGameMenu"
-                />
+                android:tint="@color/background"
+                app:srcCompat="@android:drawable/ic_menu_sort_by_size" />
         </FrameLayout>
 
         <LinearLayout
             android:id="@+id/guess__result"
             android:layout_width="wrap_content"
             android:layout_height="60dp"
-            android:orientation="horizontal"
             android:layout_alignParentBottom="true"
             android:layout_centerHorizontal="true"
-            />
+            android:orientation="horizontal" />
 
     </RelativeLayout>
 
@@ -47,7 +45,8 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true">
+        android:layout_alignParentStart="true"
+        android:id="@+id/relativeLayout">
 
         <include layout="@layout/keyboard" />
     </RelativeLayout>
