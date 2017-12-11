@@ -6,28 +6,19 @@
     android:layout_height="match_parent"
     android:background="@color/background"
     >
-    <RelativeLayout
-        android:id="@+id/top"
-        android:layout_width="match_parent"
-        android:layout_height="145dp"></RelativeLayout>
 
     <RelativeLayout
         android:id="@+id/middle"
         android:layout_below="@+id/top"
         android:layout_width="match_parent"
-        android:layout_height="200dp">
+        android:layout_height="match_parent">
         <ImageButton
         android:id="@+id/backToeMenuButton"
-        android:layout_width="@dimen/restartButton"
-        android:layout_height="@dimen/restartButton"/>
+        android:layout_width="@dimen/restartButtonHeight"
+        android:layout_height="@dimen/restartButtonWidth"/>
 
     </RelativeLayout>
 
-
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_below="@+id/middle"
-        android:layout_height="145dp"></RelativeLayout>
 
 
 

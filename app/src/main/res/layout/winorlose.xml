@@ -15,7 +15,7 @@
     <TextView
         android:layout_below="@+id/topScreen"
         android:text="@string/winOrLose"
-        android:textSize="80sp"
+        android:textSize="@dimen/textSizeOfLose"
         android:textStyle="bold"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>

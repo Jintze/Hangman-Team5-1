@@ -16,7 +16,8 @@
     <dimen name="hangmanSize">70sp</dimen>
 
              ----------Popup----------
-    <dimen name="restartButton">200dp</dimen>
+    <dimen name="restartButtonHeight">200dp</dimen>
+    <dimen name="restartButtonWidth">200dp</dimen>
 
     //Keyboard Button x-large//Fatima---------------------------
               ----------KeyBoardXL----------
@@ -62,6 +63,10 @@
     <dimen name="linearLayoutXS">30dp</dimen>
     <dimen name="keyboardIncludeLayoutXS"></dimen>
     <dimen name="imageButtonXS">30dp</dimen>
+
+
+    //WinOrLose Text//Jinzhe-------------------------------------
+    <dimen name="textSizeOfLose">80sp</dimen>
 
 
 </resources>
