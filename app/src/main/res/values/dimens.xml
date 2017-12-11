@@ -89,13 +89,21 @@
     <dimen name="GameMarginButtomTV">8dp</dimen>
     <dimen name="GameMarginTopTV">8dp</dimen>
 
-    LinearLayout
+
     //GameLinearLayout//Jinzhe---------------------------------------
     <dimen name="GameMarginLeftLL">8dp</dimen>
     <dimen name="GameMarginRightLL">8dp</dimen>
     <dimen name="GameMarginButtomLL">7dp</dimen>
     <dimen name="GameMarginTopLL">8dp</dimen>
 
+
+    //InGameRelativeLayout//Jinzhe---------------------------------------
+    <dimen name="layout_heightRL">500dp</dimen>
+    <dimen name="FrameLayout_Width">43dp</dimen>
+    <dimen name="FrameLayout_Height">43dp</dimen>
+    <dimen name="ImageButton_width">40dp</dimen>
+    <dimen name="ImageButton_height">40dp</dimen>
+    <dimen name="InGameLinearLayout">60dp</dimen>
 
 
 </resources>
