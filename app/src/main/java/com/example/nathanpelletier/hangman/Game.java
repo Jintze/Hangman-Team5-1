@@ -320,7 +320,7 @@ public class Game extends AppCompatActivity {
         keyPress('a');
 
 
-        Guess_Key.setBackgroundColor(Color.GREEN);
+        Guess_Key.setBackgroundColor(Color.BLACK);
       }
     });
 
@@ -338,7 +338,7 @@ public class Game extends AppCompatActivity {
         keyPress('b');
 
 
-        Guess_Key.setBackgroundColor(Color.YELLOW);
+        Guess_Key.setBackgroundColor(Color.BLACK);
       }
     });
 
@@ -356,7 +356,7 @@ public class Game extends AppCompatActivity {
         keyPress('c');
 
 
-        Guess_Key.setBackgroundColor(Color.RED);
+        Guess_Key.setBackgroundColor(Color.BLACK);
       }
     });
 
