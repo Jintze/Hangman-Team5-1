@@ -83,4 +83,13 @@
     <dimen name="GameMarginTopGB">8dp</dimen>
 
 
+    //GameTextView//Jinzhe---------------------------------------
+    <dimen name="GameMarginLeftTV">8dp</dimen>
+    <dimen name="GameMarginRightTV">8dp</dimen>
+    <dimen name="GameMarginButtomTV">8dp</dimen>
+    <dimen name="GameMarginTopTV">8dp</dimen>
+
+
+
+
 </resources>
