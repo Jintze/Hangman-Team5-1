@@ -181,6 +181,7 @@ public class Game extends AppCompatActivity {
       }
 
       case "hard":{
+
         poster.setBackgroundResource(R.drawable.secondscreen);
         break;
       }
