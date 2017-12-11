@@ -76,5 +76,11 @@
     <dimen name="GameMarginTop">8dp</dimen>
 
 
+    //GameButton//Jinzhe---------------------------------------
+    <dimen name="GameMarginLeftGB">8dp</dimen>
+    <dimen name="GameMarginRightGB">8dp</dimen>
+    <dimen name="GameMarginButtomGB">8dp</dimen>
+    <dimen name="GameMarginTopGB">8dp</dimen>
+
 
 </resources>
