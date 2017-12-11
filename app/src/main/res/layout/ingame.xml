@@ -12,7 +12,8 @@
         android:layout_height="500dp"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true">
+        android:layout_alignParentTop="true"
+        >
 
         <FrameLayout
             android:layout_width="43dp"
@@ -21,12 +22,13 @@
             <ImageButton
                 android:id="@+id/PopUpMenuButton"
                 android:layout_width="40dp"
-                android:layout_height="40dp"
+                android:layout_height="match_parent"
                 android:contentDescription="@string/MenuButton"
                 android:onClick="InGameMenu"
                 android:tint="@color/background"
                 app:srcCompat="@android:drawable/ic_menu_sort_by_size" />
         </FrameLayout>
+
 
         <LinearLayout
             android:id="@+id/guess__result"
@@ -34,7 +36,9 @@
             android:layout_height="60dp"
             android:layout_alignParentBottom="true"
             android:layout_centerHorizontal="true"
+            android:layout_marginBottom="29dp"
             android:orientation="horizontal" />
+
 
     </RelativeLayout>
 

@@ -146,7 +146,7 @@ public class Game extends AppCompatActivity {
 
         //Button 1 go home
 
-        ImageButton BACK_HOME_BUTTON = findViewById(R.id.backToeMenuButton);
+        Button BACK_HOME_BUTTON = findViewById(R.id.backToeMenuButton);
 
         BACK_HOME_BUTTON.setOnClickListener(new View.OnClickListener() {
           @Override
@@ -197,6 +197,7 @@ public class Game extends AppCompatActivity {
     public void displayCorrectGuesses(int LETTER_LOCATION,char GUESSED_LETTER){
       TextView view = findViewById(LETTER_LOCATION);
       view.setText(String.valueOf(GUESSED_LETTER));
+      view.setTextSize(30);
     }//displayCorrectGuesses
 
   /**
@@ -771,6 +772,7 @@ public class Game extends AppCompatActivity {
 
 
         Guess_Key.setBackgroundColor(Color.BLACK);
+
       }
     });
 
@@ -785,34 +787,6 @@ public class Game extends AppCompatActivity {
     charCompare(letter);
   }
 
-  //public void getDrawable(){
-  //    setBackground(R.layout.posterlayout);
-  //}
-
-  //public void posterSelector(String SELECTED_DIFFICULTY){
-  //  View poster = findViewById(R.id.posterLayout);
-
-  //  poster.setBackground(poster.getDrawable());
-  //}
-
-    public class ingame extends Activity {
-
-        @Override
-        protected void onCreate(Bundle savedInstanceState) {
-            super.onCreate(savedInstanceState);
-            setContentView(R.layout.menu);
-
-            Button easy = (Button)findViewById(R.id.EasyDifficultySelect);
-            easy.setOnClickListener(new View.OnClickListener(){
-                @Override
-                public void onClick(View v){
-                    Intent jumptoeasymode=new Intent(Game.this,ingame.class);
-                    startActivity(jumptoeasymode);
-                }//onClick
-            });
-
-        }//onCreate
-    }//ingame
 
 } // Game
 
