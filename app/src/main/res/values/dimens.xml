@@ -106,4 +106,14 @@
     <dimen name="InGameLinearLayout">60dp</dimen>
 
 
+    //ButtonsTextSize//Jinzhe---------------------------------------
+    <dimen name="ButtonsTextSize">17sp</dimen>
+
+
+    /KeyboardLayout//Jinzhe---------------------------------------
+    <dimen name="RelativeLayout_height">150dp</dimen>
+    <dimen name="LinearLayout_height">50dp</dimen>
+    RelativeLayout
+
+
 </resources>
