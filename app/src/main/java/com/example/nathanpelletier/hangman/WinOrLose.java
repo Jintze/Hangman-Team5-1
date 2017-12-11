@@ -13,10 +13,8 @@ import android.widget.Button;
         @Override
         protected void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
-            setContentView(R.layout.ingame);
-        }
-        public void onStart() {
-            super.onStart();
+            setContentView(R.layout.winorlose);
+
 
             Button BACK_HOME_BUTTON = findViewById(R.id.GameOver);
 

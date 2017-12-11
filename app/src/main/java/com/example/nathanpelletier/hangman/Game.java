@@ -755,6 +755,13 @@ public class Game extends AppCompatActivity {
 
 
         Guess_Key.setBackgroundColor(Color.BLACK);
+
+
+        Intent intent = new Intent(Game.this,WinOrLose.class);
+        startActivity(intent);
+
+
+
       }
     });
 
