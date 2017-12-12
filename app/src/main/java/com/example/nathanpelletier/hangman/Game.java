@@ -70,15 +70,6 @@ public class Game extends AppCompatActivity {
 
     LINEARLAYOUT_GUESS_RESULTS = findViewById(R.id.guess__result); // match or nahh
 
-  } // onCreate(Bundle)
-
-  /**
-   * Runs all methods in game class.
-   *
-   * also checks player progress (win/loss)
-   */
-  public void onStart() {
-    super.onStart();
     String SELECTED_DIFFICULTY = getIntentData();
     wordPicker(SELECTED_DIFFICULTY);
     gamePosterChanger(SELECTED_DIFFICULTY);
@@ -88,6 +79,24 @@ public class Game extends AppCompatActivity {
     printDashes();
 
     printHearts(STRIKES);
+  } // onCreate(Bundle)
+
+  /**
+   * Runs all methods in game class.
+   *
+   * also checks player progress (win/loss)
+   */
+  public void onStart() {
+    super.onStart();
+
+    int v = 0;
+
+//test//
+    Log.d("value","STRIKES:" + STRIKES);
+    Log.d("value","correct guesses:" + CORRECT_GUESSES);
+    Log.d("value","Word:" + CHOSEN_WORD);
+    Log.d("value","onStart:" + v);
+
 
 
     /* not sure if we need a switch table or if we should just set all of these now */
@@ -134,7 +143,8 @@ public class Game extends AppCompatActivity {
 
   /**
    * Strike value = amount of hearts printed
-   * @param STRIKES
+   *
+   * created id is i + length of the word
    */
   public void printHearts(int STRIKES){
     LinearLayout LinearLayout_Hearts = findViewById(R.id.LinearLayout_Hearts);
@@ -142,7 +152,7 @@ public class Game extends AppCompatActivity {
     for (int i = 0; i < STRIKES; i++ ){
       ImageView view = new ImageView(this);
       view.setImageResource(R.drawable.heart_image);
-      view.setId(i);
+      view.setId(i+CHOSEN_WORD.length());
 
       LinearLayout_Hearts.addView(view);
     }
