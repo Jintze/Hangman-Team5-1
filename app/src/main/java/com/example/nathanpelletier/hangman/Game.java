@@ -3,6 +3,7 @@ package com.example.nathanpelletier.hangman;
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Color;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -11,6 +12,7 @@ import android.view.View;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -85,6 +87,8 @@ public class Game extends AppCompatActivity {
 
     printDashes();
 
+    printHearts(STRIKES);
+
 
     /* not sure if we need a switch table or if we should just set all of these now */
     keyboardA();
@@ -128,6 +132,22 @@ public class Game extends AppCompatActivity {
 
   } // onStart()
 
+  /**
+   * Strike value = amount of hearts printed
+   * @param STRIKES
+   */
+  public void printHearts(int STRIKES){
+    LinearLayout LinearLayout_Hearts = findViewById(R.id.LinearLayout_Hearts);
+
+    for (int i = 0; i < STRIKES; i++ ){
+      ImageView view = new ImageView(this);
+      view.setImageResource(R.drawable.heart_image);
+      view.setId(i);
+
+      LinearLayout_Hearts.addView(view);
+    }
+  }//
+
   public void inGameMenu(){
     ImageButton IN_GAME_MENU_BUTTON = findViewById(R.id.PopUpMenuButton);
     final LayoutInflater LAYOUT_INFLATER = this.getLayoutInflater();
@@ -163,7 +183,7 @@ public class Game extends AppCompatActivity {
 
   }//inGameMenu
 
-  // TODO: 2017-12-09 Add Resource files Jintze
+
   /**
    * changes the poster image based on selectedDifficulty
    * @param selectedDifficulty
@@ -174,24 +194,21 @@ public class Game extends AppCompatActivity {
       case "easy":{
         poster.setBackgroundResource(R.drawable.secondscreen);
         break;
-      }
+      }//easy
       case "medium":{
         poster.setBackgroundResource(R.drawable.secondscreen);
         break;
-      }
-
+      }//medium
       case "hard":{
-
         poster.setBackgroundResource(R.drawable.secondscreen);
         break;
-      }
+      }//hard
     }//switch(selectedDifficulty)
-
-
   }//gamePosterChanger
 
     /**
-     * displays the correctly guessed letter in the proper TextView for the user
+     * displays the correctly guessed letter in the proper TextView
+     * -Text size 30-
      * @param LETTER_LOCATION
      * @param GUESSED_LETTER
      */
@@ -202,8 +219,9 @@ public class Game extends AppCompatActivity {
     }//displayCorrectGuesses
 
   /**
-   * Creates as many textviews as the CHOSEN_WORD has letters and placing them in LINEARLAYOUT_GUESS_RESULTS
-   * chronologically id from 1 - n; n = CHOSEN_WORD length
+   * Creates as many textviews side by side as the CHOSEN_WORD has letters
+   * and placing them in LINEARLAYOUT_GUESS_RESULTS chronologically
+   * id from 0 - n; n = CHOSEN_WORD length
    */
   public void printDashes (){
     for(int i = 0; i < CHOSEN_WORD.length(); i++){
@@ -216,13 +234,13 @@ public class Game extends AppCompatActivity {
   }//printDashes
 
   /**
-   * Takes in user selected difficulty(Easy, Medium, Hard) from main menu and transfers it to Game class
+   * Takes in user selected difficulty(Easy, Medium, Hard) from main menu and
+   * transfers it to Game class
    * @return String SELECTED_DIFFICULTY
    */
   public String getIntentData() {
     Intent intent = getIntent();
     String SELECTED_DIFFICULTY = intent.getStringExtra("Difficulty");
-    Log.d("lets see 0;", ";the final array yay" + SELECTED_DIFFICULTY);
     return SELECTED_DIFFICULTY;
   } // getIntentData()
 
