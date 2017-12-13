@@ -78,7 +78,9 @@ public class Game extends AppCompatActivity {
 
     printDashes();
 
-    printHearts(STRIKES);
+    printLives(STRIKES);
+
+
   } // onCreate(Bundle)
 
   /**
@@ -91,15 +93,12 @@ public class Game extends AppCompatActivity {
 
     int v = 0;
 
-//test//
+//test//e
     Log.d("value","STRIKES:" + STRIKES);
     Log.d("value","correct guesses:" + CORRECT_GUESSES);
-    Log.d("value","Word:" + CHOSEN_WORD);
-    Log.d("value","onStart:" + v);
+    //Log.d("value","Word:" + CHOSEN_WORD);
+    //Log.d("value","onStart:" + v);
 
-
-
-    /* not sure if we need a switch table or if we should just set all of these now */
     keyboardA();
     keyboardB();
     keyboardC();
@@ -127,26 +126,27 @@ public class Game extends AppCompatActivity {
     keyboardY();
     keyboardZ();
 
-
-    /*//check player progress
-    if (CORRECT_GUESSES<=CHOSEN_WORD.length()) {
-      if (WRONG_GUESSES <= 3) {
-        charCompare('r');
-      } else {
-        //end game
-      }//else
-    }else{
-        //end game
-    }//else*/
-
   } // onStart()
+
+  /**
+   * Removes one life icon
+   */
+  public void removeLife(){
+    LinearLayout LinearLayout_Hearts = findViewById(R.id.LinearLayout_Hearts);
+
+    View view = LinearLayout_Hearts.getChildAt(STRIKES - WRONG_GUESSES);
+
+    LinearLayout_Hearts.removeView(view);
+
+    Log.d("lives delete ","id Num : " + (STRIKES-WRONG_GUESSES));
+  }//removeLife
 
   /**
    * Strike value = amount of hearts printed
    *
    * created id is i + length of the word
    */
-  public void printHearts(int STRIKES){
+  public void printLives(int STRIKES){
     LinearLayout LinearLayout_Hearts = findViewById(R.id.LinearLayout_Hearts);
 
     for (int i = 0; i < STRIKES; i++ ){
@@ -154,6 +154,7 @@ public class Game extends AppCompatActivity {
       view.setImageResource(R.drawable.heart_image);
       view.setId(i+CHOSEN_WORD.length());
 
+      Log.d("lives print ","id Num : "+ (i+CHOSEN_WORD.length()));
       LinearLayout_Hearts.addView(view);
     }
   }//
@@ -193,7 +194,6 @@ public class Game extends AppCompatActivity {
 
   }//inGameMenu
 
-
   /**
    * changes the poster image based on selectedDifficulty
    * @param selectedDifficulty
@@ -216,17 +216,17 @@ public class Game extends AppCompatActivity {
     }//switch(selectedDifficulty)
   }//gamePosterChanger
 
-    /**
-     * displays the correctly guessed letter in the proper TextView
-     * -Text size 30-
-     * @param LETTER_LOCATION
-     * @param GUESSED_LETTER
-     */
-    public void displayCorrectGuesses(int LETTER_LOCATION,char GUESSED_LETTER){
-      TextView view = findViewById(LETTER_LOCATION);
-      view.setText(String.valueOf(GUESSED_LETTER));
-      view.setTextSize(30);
-    }//displayCorrectGuesses
+  /**
+   * displays the correctly guessed letter in the proper TextView
+   * -Text size 30-
+   * @param LETTER_LOCATION
+   * @param GUESSED_LETTER
+   */
+  public void displayCorrectGuesses(int LETTER_LOCATION,char GUESSED_LETTER){
+    TextView view = findViewById(LETTER_LOCATION);
+    view.setText(String.valueOf(GUESSED_LETTER));
+    view.setTextSize(30);
+  }//displayCorrectGuesses
 
   /**
    * Creates as many textviews side by side as the CHOSEN_WORD has letters
@@ -238,7 +238,7 @@ public class Game extends AppCompatActivity {
       TextView CORRECT_GUESS = new TextView(this);
       CORRECT_GUESS.setText(" ___ ");
       CORRECT_GUESS.setId(i);
-
+      Log.d("dashes print ","id Num : "+ i);
       LINEARLAYOUT_GUESS_RESULTS.addView(CORRECT_GUESS);
     }//for
   }//printDashes
@@ -265,9 +265,14 @@ public class Game extends AppCompatActivity {
    */
   public void charCompare(char inputLetter) {
     boolean alreadyGuessed = false;
+    int OLD_CORRECT_GUESSES_VAL = CORRECT_GUESSES;
     for (int i = 0; i < CHOSEN_WORD.length(); i++) {
       if (inputLetter == CHOSEN_WORD.charAt(i)) {
         displayCorrectGuesses(i,inputLetter); // peter I just added this
+        CORRECT_GUESSES++;
+
+
+
         REVEALED_LETTERS[i] = CHOSEN_WORD.charAt(i);
         // displayCorrectGuesses();
 
@@ -277,19 +282,21 @@ public class Game extends AppCompatActivity {
           } // if
         } // for
 
-        if(!alreadyGuessed){
-          CORRECT_GUESSES = CORRECT_GUESSES + 1;
-        }//
       } // if
-      else {
-        WRONG_GUESSES++;
-      } // else
     } // for
+
+    if(CORRECT_GUESSES == OLD_CORRECT_GUESSES_VAL){
+      WRONG_GUESSES++;
+      removeLife();
+    }//if
+
     if(CORRECT_GUESSES == CHOSEN_WORD.length()){
-      //endGameWin();
+      endGameScreen();
     } // if
     if(WRONG_GUESSES == STRIKES){
-      //endGameLose();
+      endGameScreen();
+
+
     } // if
   } // charCompare
 
@@ -317,9 +324,13 @@ public class Game extends AppCompatActivity {
     } // for
   } // wordPicker(String)
 
-
-
-
+  /**
+   * Place holder end game function
+   */
+  public void endGameScreen(){
+  Intent intent = new Intent(Game.this,WinOrLose.class);
+  startActivity(intent);
+}//endGameScreen
 
 
 
@@ -337,6 +348,22 @@ public class Game extends AppCompatActivity {
 
 
 //------------------------------------------------------------------------------------------
+
+  /**
+   * Encapsulates all code necessary to run keyboard
+   */
+  public void keyboard(){
+  /* not sure if we need a switch table or if we should just set all of these now */
+
+  }//Keyboard
+
+  /**
+   * Runs charCompare after key is pressed
+   * @param letter (char)
+   */
+  public void keyPress(char letter){
+    charCompare(letter);
+  }//keyPress
 
   public void keyboardA(){
 
@@ -784,12 +811,6 @@ public class Game extends AppCompatActivity {
 
         Guess_Key.setBackgroundColor(Color.BLACK);
 
-
-        Intent intent = new Intent(Game.this,WinOrLose.class);
-        startActivity(intent);
-
-
-
       }
     });
 
@@ -813,15 +834,6 @@ public class Game extends AppCompatActivity {
     });
 
   }//Keyboard
-
-
-  /**
-   *
-   * @param letter (char)
-   */
-  public void keyPress(char letter){
-    charCompare(letter);
-  }
 
 
 } // Game
