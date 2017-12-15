@@ -128,6 +128,7 @@ public class Game extends AppCompatActivity {
 
   } // onStart()
 
+
   /**
    * Removes one life icon
    */
@@ -161,14 +162,14 @@ public class Game extends AppCompatActivity {
 
   public void inGameMenu(){
     ImageButton IN_GAME_MENU_BUTTON = findViewById(R.id.PopUpMenuButton);
-    final LayoutInflater LAYOUT_INFLATER = this.getLayoutInflater();
+    final LayoutInflater LAYOUT_INFLATER_MENU = this.getLayoutInflater();
 
     final RelativeLayout GAMESCREEN = findViewById(R.id.inGameMainParent);
 
     IN_GAME_MENU_BUTTON.setOnClickListener(new View.OnClickListener() {
       @Override
       public void onClick(View view) {
-        view = LAYOUT_INFLATER.inflate(R.layout.popwindow,null);
+        view = LAYOUT_INFLATER_MENU.inflate(R.layout.popwindow,null);
 
         view.startAnimation(AnimationUtils.loadAnimation(getApplicationContext(), android.R.anim.fade_in));
 
@@ -325,12 +326,33 @@ public class Game extends AppCompatActivity {
   } // wordPicker(String)
 
   /**
-   * Place holder end game function
+   * Inflates winorlose.xml over top of ingame.xml
+   * and encapsulates all end game code
    */
   public void endGameScreen(){
-  Intent intent = new Intent(Game.this,WinOrLose.class);
-  startActivity(intent);
-}//endGameScreen
+
+    LayoutInflater LAYOUT_INFLATER_END_GAME = this.getLayoutInflater();
+    RelativeLayout SCREEN = findViewById(R.id.inGameMainParent);
+
+    View END_GAME = LAYOUT_INFLATER_END_GAME.inflate(R.layout.winorlose,null);
+
+    END_GAME.startAnimation(AnimationUtils.loadAnimation(getApplicationContext(), android.R.anim.fade_in));
+
+    SCREEN.addView(END_GAME);
+
+    Button BACK_HOME_BUTTON = findViewById(R.id.GameOver);
+
+    BACK_HOME_BUTTON.setOnClickListener(new View.OnClickListener() {
+      @Override
+      public void onClick(View view) {
+        Intent GO_HOME = new Intent(Game.this, Menu.class);
+        startActivity(GO_HOME);
+
+      }//onClick
+    });//popUpMenu
+
+
+  }//endGameScreen
 
 
 
@@ -351,6 +373,8 @@ public class Game extends AppCompatActivity {
 
   /**
    * Encapsulates all code necessary to run keyboard
+   *
+   * NOT WORKIN
    */
   public void keyboard(){
   /* not sure if we need a switch table or if we should just set all of these now */
