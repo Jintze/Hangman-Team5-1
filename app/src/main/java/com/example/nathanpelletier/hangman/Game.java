@@ -1,9 +1,7 @@
 package com.example.nathanpelletier.hangman;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Color;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -46,12 +44,8 @@ public class Game extends AppCompatActivity {
    */
   public char[] REVEALED_LETTERS;
 
-  /**
-   * Test array to test out word selection
-   *
-   * DELETE THIS
-   */
-  private String[] TEST_WORDS = {"easy", "medium", "harrrdq"};
+  /* allows access to GetWordClass */
+  private GetWord GET_A_RANDOM_WORD = new GetWord();
 
   /**
    * Displays result of each character guess (in game screen)
@@ -93,9 +87,9 @@ public class Game extends AppCompatActivity {
 
     int v = 0;
 
-//test//e
-    Log.d("value","STRIKES:" + STRIKES);
-    Log.d("value","correct guesses:" + CORRECT_GUESSES);
+    //test//e
+    //Log.d("value","STRIKES:" + STRIKES);
+    //Log.d("value","correct guesses:" + CORRECT_GUESSES);
     //Log.d("value","Word:" + CHOSEN_WORD);
     //Log.d("value","onStart:" + v);
 
@@ -152,7 +146,7 @@ public class Game extends AppCompatActivity {
 
     for (int i = 0; i < STRIKES; i++ ){
       ImageView view = new ImageView(this);
-      view.setImageResource(R.drawable.heart_image);
+      //view.setImageResource(R.drawable.heart_image);
       view.setId(i+CHOSEN_WORD.length());
 
       Log.d("lives print ","id Num : "+ (i+CHOSEN_WORD.length()));
@@ -307,16 +301,16 @@ public class Game extends AppCompatActivity {
    * Initialize REVEALED_LETTERS to spaces.
    * @param selectedDifficulty
    */
-  public void wordPicker(String selectedDifficulty) {
+  public void wordPicker(String selectedDifficulty){
     switch(selectedDifficulty){
       case "easy":
-        CHOSEN_WORD = TEST_WORDS[0];
+        CHOSEN_WORD = GET_A_RANDOM_WORD.start("easy");
         break;
       case "medium":
-        CHOSEN_WORD = TEST_WORDS[1];
+        CHOSEN_WORD = GET_A_RANDOM_WORD.start("medium");
         break;
       case "hard":
-        CHOSEN_WORD = TEST_WORDS[2];
+        CHOSEN_WORD = GET_A_RANDOM_WORD.start("hard");
         break;
     } // switch
     REVEALED_LETTERS = new char[CHOSEN_WORD.length()];
@@ -353,19 +347,6 @@ public class Game extends AppCompatActivity {
 
 
   }//endGameScreen
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
