@@ -64,6 +64,13 @@
     <dimen name="keyboardIncludeLayoutXS"></dimen>
     <dimen name="imageButtonXS">30dp</dimen>
 
+    //PopUp Window//Fatima---------------------------
+    ----------Win or Lose----------
+    <dimen name="gameOverPopUpWindow">120sp</dimen>
+
+    //PopUp Window XS//Fatima---------------------------
+    ----------Win or Lose ----------
+    <dimen name="gameOverPopUpWindowXS">120sp</dimen>
 
     //WinOrLose Text//Jinzhe-------------------------------------
     <dimen name="textSizeOfLose">70sp</dimen>
@@ -114,6 +121,5 @@
     <dimen name="RelativeLayout_height">150dp</dimen>
     <dimen name="LinearLayout_height">50dp</dimen>
     RelativeLayout
-
 
 </resources>
