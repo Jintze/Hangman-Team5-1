@@ -12,11 +12,15 @@ import static org.junit.Assert.*;
 public class ExampleUnitTest {
   @Test
   public void addition_isCorrect() throws Exception {
+    GetWord getWord = new GetWord();
     Game game = new Game();
     Keyboard keyboard = new Keyboard();
     Menu menu = new Menu();
     assertEquals(4, 2 + 2);
 
+    //assertSame( getWord.MEDIUM, getWord.changeDifficultyToStringList("medium"));
+
+   // assertSame( getWord.HARD, getWord.changeDifficultyToStringList("hard"));
 
   }
 }
