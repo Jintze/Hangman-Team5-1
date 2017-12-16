@@ -16,7 +16,7 @@
         android:layout_height="match_parent"
         android:background="@color/background"
         android:text="@string/winOrLose"
-        android:textSize="@dimen/gameOverPopUpWindow"/>
+        android:textSize="@dimen/gameOverPopUpWindowXS"/>
 
 
 

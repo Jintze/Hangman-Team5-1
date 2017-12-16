@@ -68,6 +68,10 @@
     ----------Win or Lose----------
     <dimen name="gameOverPopUpWindow">120sp</dimen>
 
+    //PopUp Window XS//Fatima---------------------------
+    ----------Win or Lose ----------
+    <dimen name="gameOverPopUpWindowXS">120sp</dimen>
+
     //WinOrLose Text//Jinzhe-------------------------------------
     <dimen name="textSizeOfLose">70sp</dimen>
 
