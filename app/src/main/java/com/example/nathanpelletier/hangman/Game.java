@@ -42,10 +42,13 @@ public class Game extends AppCompatActivity {
    * Character array to store output. Might need to add final so only this class can modify the
    * variable.
    */
-  public char[] REVEALED_LETTERS;
+  public String[] REVEALED_LETTERS;
 
   /* allows access to GetWordClass */
   private GetWord GET_A_RANDOM_WORD = new GetWord();
+
+  GameLogic gameLogic = new GameLogic(CHOSEN_WORD,REVEALED_LETTERS);
+
 
   /**
    * Displays result of each character guess (in game screen)
@@ -259,37 +262,32 @@ public class Game extends AppCompatActivity {
    * @param inputLetter: users input char
    */
   public void charCompare(char inputLetter) {
-    boolean alreadyGuessed = false;
+
     int OLD_CORRECT_GUESSES_VAL = CORRECT_GUESSES;
     for (int i = 0; i < CHOSEN_WORD.length(); i++) {
       if (inputLetter == CHOSEN_WORD.charAt(i)) {
-        displayCorrectGuesses(i,inputLetter); // peter I just added this
+        //displayCorrectGuesses(i,inputLetter); // peter I just added this
         CORRECT_GUESSES++;
 
 
 
-        REVEALED_LETTERS[i] = CHOSEN_WORD.charAt(i);
+        REVEALED_LETTERS[i] = String.valueOf(inputLetter);
         // displayCorrectGuesses();
 
-        for(int j = 0; j < REVEALED_LETTERS.length; j++){
-          if(REVEALED_LETTERS[i] == CHOSEN_WORD.charAt(j)){
-            alreadyGuessed = true;
-          } // if
-        } // for
 
       } // if
     } // for
 
     if(CORRECT_GUESSES == OLD_CORRECT_GUESSES_VAL){
       WRONG_GUESSES++;
-      removeLife();
+      //removeLife();
     }//if
 
     if(CORRECT_GUESSES == CHOSEN_WORD.length()){
-      endGameScreen();
+      //endGameScreen();
     } // if
     if(WRONG_GUESSES == STRIKES){
-      endGameScreen();
+      //endGameScreen();
 
 
     } // if
@@ -313,9 +311,9 @@ public class Game extends AppCompatActivity {
         CHOSEN_WORD = GET_A_RANDOM_WORD.start("hard");
         break;
     } // switch
-    REVEALED_LETTERS = new char[CHOSEN_WORD.length()];
+    REVEALED_LETTERS = new String [CHOSEN_WORD.length()];
     for(int i = 0; i < REVEALED_LETTERS.length; i++){
-      REVEALED_LETTERS[i] = ' ';
+      REVEALED_LETTERS[i] = " _ ";
     } // for
   } // wordPicker(String)
 
@@ -367,7 +365,9 @@ public class Game extends AppCompatActivity {
    * @param letter (char)
    */
   public void keyPress(char letter){
-    charCompare(letter);
+    gameLogic.charCompare(letter);
+    display(REVEALED_LETTERS);
+    removeLife();
   }//keyPress
 
   public void keyboardA(){
