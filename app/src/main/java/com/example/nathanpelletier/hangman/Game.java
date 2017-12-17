@@ -18,20 +18,12 @@ import android.widget.TextView;
 
 public class Game extends AppCompatActivity {
 
-  /**
-   * Maximum amount of errors before the game ends.
-   */
   private final int STRIKES = 6;
-
-  /**
-   * keeps track of every time the user makes a wrong guess
-   */
-  private int WRONG_GUESSES = 0;
-
-  /**
-   * keeps track of every time the user makes a right guess
-   */
-  private  int CORRECT_GUESSES = 0;
+  private int MONEY_PER_WIN = 5;
+  private int MONEY_PER_LOSS = 25;
+  private int moneyOnHand = 0;
+  private int wrongGuesses = 0;
+  private  int correctGuesses = 0;
 
   /**
    * the random word selected by computer based off of difficulty selected
@@ -89,7 +81,7 @@ public class Game extends AppCompatActivity {
 
     //test//e
     //Log.d("value","STRIKES:" + STRIKES);
-    //Log.d("value","correct guesses:" + CORRECT_GUESSES);
+    //Log.d("value","correct guesses:" + correctGuesses);
     //Log.d("value","Word:" + CHOSEN_WORD);
     //Log.d("value","onStart:" + v);
 
@@ -129,11 +121,11 @@ public class Game extends AppCompatActivity {
   public void removeLife(){
     LinearLayout LinearLayout_Hearts = findViewById(R.id.LinearLayout_Hearts);
 
-    View view = LinearLayout_Hearts.getChildAt(STRIKES - WRONG_GUESSES);
+    View view = LinearLayout_Hearts.getChildAt(STRIKES - wrongGuesses);
 
     LinearLayout_Hearts.removeView(view);
 
-    Log.d("lives delete ","id Num : " + (STRIKES-WRONG_GUESSES));
+    Log.d("lives delete ","id Num : " + (STRIKES- wrongGuesses));
   }//removeLife
 
   /**
@@ -260,13 +252,11 @@ public class Game extends AppCompatActivity {
    */
   public void charCompare(char inputLetter) {
     boolean alreadyGuessed = false;
-    int OLD_CORRECT_GUESSES_VAL = CORRECT_GUESSES;
+    int oldCorrectGuessesVal = correctGuesses;
     for (int i = 0; i < CHOSEN_WORD.length(); i++) {
       if (inputLetter == CHOSEN_WORD.charAt(i)) {
-        displayCorrectGuesses(i,inputLetter); // peter I just added this
-        CORRECT_GUESSES++;
-
-
+        displayCorrectGuesses(i,inputLetter);
+        correctGuesses++;
 
         REVEALED_LETTERS[i] = CHOSEN_WORD.charAt(i);
         // displayCorrectGuesses();
@@ -280,18 +270,21 @@ public class Game extends AppCompatActivity {
       } // if
     } // for
 
-    if(CORRECT_GUESSES == OLD_CORRECT_GUESSES_VAL){
-      WRONG_GUESSES++;
+    if(correctGuesses == oldCorrectGuessesVal){
+      wrongGuesses++;
       removeLife();
     }//if
 
-    if(CORRECT_GUESSES == CHOSEN_WORD.length()){
+    if(correctGuesses == CHOSEN_WORD.length()){
+      moneyOnHand += MONEY_PER_WIN;
       endGameScreen();
     } // if
-    if(WRONG_GUESSES == STRIKES){
-      endGameScreen();
-
-
+    if(wrongGuesses == STRIKES){
+      if(moneyOnHand >= MONEY_PER_LOSS){
+         moneyOnHand -= MONEY_PER_LOSS;
+      } else {
+        endGameScreen();
+      } // else
     } // if
   } // charCompare
 
