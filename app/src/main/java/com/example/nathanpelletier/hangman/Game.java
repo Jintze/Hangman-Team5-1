@@ -138,7 +138,7 @@ public class Game extends AppCompatActivity {
 
     for (int i = 0; i < STRIKES; i++ ){
       ImageView view = new ImageView(this);
-      //view.setImageResource(R.drawable.heart_image);
+      view.setImageResource(R.drawable.ic_action_name);
       view.setId(i+CHOSEN_WORD.length());
 
       Log.d("lives print ","id Num : "+ (i+CHOSEN_WORD.length()));
@@ -146,35 +146,20 @@ public class Game extends AppCompatActivity {
     }
   }//
 
+  /**
+   * top left menu button onclick this sends you back to the title screen
+   * todo: change icon
+   */
   public void inGameMenu(){
     ImageButton IN_GAME_MENU_BUTTON = findViewById(R.id.PopUpMenuButton);
-    final LayoutInflater LAYOUT_INFLATER_MENU = this.getLayoutInflater();
-
-    final RelativeLayout GAMESCREEN = findViewById(R.id.inGameMainParent);
-
     IN_GAME_MENU_BUTTON.setOnClickListener(new View.OnClickListener() {
       @Override
       public void onClick(View view) {
-        view = LAYOUT_INFLATER_MENU.inflate(R.layout.popwindow,null);
-
-        view.startAnimation(AnimationUtils.loadAnimation(getApplicationContext(), android.R.anim.fade_in));
-
-        GAMESCREEN.addView(view);
-
-
-        //Button 1 go home
-
-        Button BACK_HOME_BUTTON = findViewById(R.id.backToeMenuButton);
-
-        BACK_HOME_BUTTON.setOnClickListener(new View.OnClickListener() {
-          @Override
-          public void onClick(View view) {
             Intent GO_HOME = new Intent(Game.this, Menu.class);
             startActivity(GO_HOME);
           }
-        });
-      }
-    });
+      });
+
 
 
 
