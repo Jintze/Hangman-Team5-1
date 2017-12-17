@@ -77,6 +77,8 @@ public class Game extends AppCompatActivity {
 
     printLives(STRIKES);
 
+    gameLogic.CHOSEN_WORD = CHOSEN_WORD;
+    gameLogic.REVEALED_LETTERS = REVEALED_LETTERS;
 
   } // onCreate(Bundle)
 
