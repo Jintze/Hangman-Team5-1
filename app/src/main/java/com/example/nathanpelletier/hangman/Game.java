@@ -92,11 +92,7 @@ public class Game extends AppCompatActivity {
 
     int v = 0;
 
-    //test//e
-    //Log.d("value","STRIKES:" + STRIKES);
-    //Log.d("value","correct guesses:" + CORRECT_GUESSES);
-    //Log.d("value","Word:" + CHOSEN_WORD);
-    //Log.d("value","onStart:" + v);
+    Log.d("wrong guess right guess", "onCreate: "+WRONG_GUESSES+"/ /"+CORRECT_GUESSES);
 
     keyboardA();
     keyboardB();
@@ -227,6 +223,14 @@ public class Game extends AppCompatActivity {
     view.setText(String.valueOf(GUESSED_LETTER));
     view.setTextSize(30);
   }//displayCorrectGuesses
+
+  public void display(String[]array) {
+    for (int i = 0; i < array.length; i++) {
+      TextView view = findViewById(i);
+      view.setText(String.valueOf(array[i]));
+      view.setTextSize(30);
+    }
+  }
 
   /**
    * Creates as many textviews side by side as the CHOSEN_WORD has letters
