@@ -262,13 +262,13 @@ public class Game extends AppCompatActivity {
 
     if(correctGuesses == CHOSEN_WORD.length()){
       moneyOnHand += MONEY_PER_WIN;
-      endGameScreen();
+      endGameScreen(1); //1 = win
     } // if
     if(wrongGuesses == STRIKES){
       if(moneyOnHand >= MONEY_PER_LOSS){
          moneyOnHand -= MONEY_PER_LOSS;
       } else {
-        endGameScreen();
+        endGameScreen(2); //2 = lose
       } // else
     } // if
   } // charCompare
@@ -300,28 +300,77 @@ public class Game extends AppCompatActivity {
   /**
    * Inflates winorlose.xml over top of ingame.xml
    * and encapsulates all end game code
+   *
+   * @Result: takes in number value 1 = win; everything else is loss
    */
-  public void endGameScreen(){
+  public void endGameScreen(int Result){
 
+    //initialize
     LayoutInflater LAYOUT_INFLATER_END_GAME = this.getLayoutInflater();
     RelativeLayout SCREEN = findViewById(R.id.inGameMainParent);
 
+    LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.FILL_PARENT,
+            LinearLayout.LayoutParams.FILL_PARENT);
+
+
     View END_GAME = LAYOUT_INFLATER_END_GAME.inflate(R.layout.winorlose,null);
 
+    END_GAME.setLayoutParams(layoutParams);
+
+    //start
     END_GAME.startAnimation(AnimationUtils.loadAnimation(getApplicationContext(), android.R.anim.fade_in));
 
     SCREEN.addView(END_GAME);
 
-    Button BACK_HOME_BUTTON = findViewById(R.id.GameOver);
+    //Everything within winorlose.xml
 
-    BACK_HOME_BUTTON.setOnClickListener(new View.OnClickListener() {
+    TextView RESULT = findViewById(R.id.Result);
+
+    TextView Word = findViewById(R.id.ChosenWord);
+
+
+    if (Result == 1){
+      RESULT.setText(R.string.Win);
+    }else{
+      RESULT.setText(R.string.Lose);
+    }//else
+
+
+    Word.setText(CHOSEN_WORD);
+
+    //onClicks
+    Button EasyReplay = findViewById(R.id.EasyDifficultySelect);
+
+    EasyReplay.setOnClickListener(new View.OnClickListener() {
       @Override
       public void onClick(View view) {
-        Intent GO_HOME = new Intent(Game.this, Menu.class);
-        startActivity(GO_HOME);
+        Intent startGame = new Intent(Game.this, Game.class);
+        startGame.putExtra("Difficulty", "easy");
+        startActivity(startGame);
 
       }//onClick
     });//popUpMenu
+
+    Button MediumReplay =  findViewById(R.id.MediumDifficultySelect);
+    MediumReplay.setOnClickListener(new View.OnClickListener() {
+      @Override
+      public void onClick(View v) {
+        Intent startGame  = new Intent(Game.this, Game.class);
+        startGame.putExtra("Difficulty", "medium");
+        startActivity(startGame);
+
+      }
+    });
+
+    Button HardReplay = findViewById(R.id.HardDifficultySelect);
+    HardReplay.setOnClickListener(new View.OnClickListener() {
+      @Override
+      public void onClick(View v) {
+        Intent startGame = new Intent(Game.this, Game.class);
+        startGame.putExtra("Difficulty",  "hard");
+        startActivity(startGame);
+      }
+    });
 
 
   }//endGameScreen
@@ -359,8 +408,9 @@ public class Game extends AppCompatActivity {
 
         keyPress('a');
 
-
         Guess_Key.setBackgroundColor(Color.BLACK);
+
+        Guess_Key.setEnabled(false);
       }
     });
 
@@ -376,9 +426,9 @@ public class Game extends AppCompatActivity {
         //Log.d("sheeeesh","please please please mercy meeeee");
 
         keyPress('b');
-
-
         Guess_Key.setBackgroundColor(Color.BLACK);
+        Guess_Key.setEnabled(false);
+
       }
     });
 
@@ -395,6 +445,7 @@ public class Game extends AppCompatActivity {
 
         keyPress('c');
 
+        Guess_Key.setEnabled(false);
 
         Guess_Key.setBackgroundColor(Color.BLACK);
       }
@@ -413,6 +464,7 @@ public class Game extends AppCompatActivity {
 
         keyPress('d');
 
+        Guess_Key.setEnabled(false);
 
         Guess_Key.setBackgroundColor(Color.BLACK);
       }
@@ -431,6 +483,7 @@ public class Game extends AppCompatActivity {
 
         keyPress('e');
 
+        Guess_Key.setEnabled(false);
 
         Guess_Key.setBackgroundColor(Color.BLACK);
       }
@@ -449,6 +502,7 @@ public class Game extends AppCompatActivity {
 
         keyPress('f');
 
+        Guess_Key.setEnabled(false);
 
         Guess_Key.setBackgroundColor(Color.BLACK);
       }
@@ -467,6 +521,7 @@ public class Game extends AppCompatActivity {
 
         keyPress('g');
 
+        Guess_Key.setEnabled(false);
 
         Guess_Key.setBackgroundColor(Color.BLACK);
       }
@@ -484,6 +539,7 @@ public class Game extends AppCompatActivity {
         //Log.d("sheeeesh","please please please mercy meeeee");
 
         keyPress('h');
+        Guess_Key.setEnabled(false);
 
 
         Guess_Key.setBackgroundColor(Color.BLACK);
@@ -503,6 +559,7 @@ public class Game extends AppCompatActivity {
 
         keyPress('i');
 
+        Guess_Key.setEnabled(false);
 
         Guess_Key.setBackgroundColor(Color.BLACK);
       }
@@ -520,6 +577,7 @@ public class Game extends AppCompatActivity {
         //Log.d("sheeeesh","please please please mercy meeeee");
 
         keyPress('j');
+        Guess_Key.setEnabled(false);
 
 
         Guess_Key.setBackgroundColor(Color.BLACK);
@@ -539,6 +597,7 @@ public class Game extends AppCompatActivity {
 
         keyPress('k');
 
+        Guess_Key.setEnabled(false);
 
         Guess_Key.setBackgroundColor(Color.BLACK);
       }
@@ -557,6 +616,7 @@ public class Game extends AppCompatActivity {
 
         keyPress('l');
 
+        Guess_Key.setEnabled(false);
 
         Guess_Key.setBackgroundColor(Color.BLACK);
       }
@@ -574,6 +634,7 @@ public class Game extends AppCompatActivity {
         //Log.d("sheeeesh","please please please mercy meeeee");
 
         keyPress('m');
+        Guess_Key.setEnabled(false);
 
 
         Guess_Key.setBackgroundColor(Color.BLACK);
@@ -593,6 +654,7 @@ public class Game extends AppCompatActivity {
 
         keyPress('n');
 
+        Guess_Key.setEnabled(false);
 
         Guess_Key.setBackgroundColor(Color.BLACK);
       }
@@ -611,6 +673,7 @@ public class Game extends AppCompatActivity {
 
         keyPress('o');
 
+        Guess_Key.setEnabled(false);
 
         Guess_Key.setBackgroundColor(Color.BLACK);
       }
@@ -629,6 +692,7 @@ public class Game extends AppCompatActivity {
 
         keyPress('p');
 
+        Guess_Key.setEnabled(false);
 
         Guess_Key.setBackgroundColor(Color.BLACK);
       }
@@ -646,6 +710,7 @@ public class Game extends AppCompatActivity {
         //Log.d("sheeeesh","please please please mercy meeeee");
 
         keyPress('q');
+        Guess_Key.setEnabled(false);
 
 
         Guess_Key.setBackgroundColor(Color.BLACK);
@@ -664,6 +729,7 @@ public class Game extends AppCompatActivity {
         //Log.d("sheeeesh","please please please mercy meeeee");
 
         keyPress('r');
+        Guess_Key.setEnabled(false);
 
 
         Guess_Key.setBackgroundColor(Color.BLACK);
@@ -683,6 +749,7 @@ public class Game extends AppCompatActivity {
 
         keyPress('s');
 
+        Guess_Key.setEnabled(false);
 
         Guess_Key.setBackgroundColor(Color.BLACK);
       }
@@ -701,6 +768,7 @@ public class Game extends AppCompatActivity {
 
         keyPress('t');
 
+        Guess_Key.setEnabled(false);
 
         Guess_Key.setBackgroundColor(Color.BLACK);
       }
@@ -719,6 +787,7 @@ public class Game extends AppCompatActivity {
 
         keyPress('u');
 
+        Guess_Key.setEnabled(false);
 
         Guess_Key.setBackgroundColor(Color.BLACK);
       }
@@ -737,6 +806,7 @@ public class Game extends AppCompatActivity {
 
         keyPress('v');
 
+        Guess_Key.setEnabled(false);
 
         Guess_Key.setBackgroundColor(Color.BLACK);
       }
@@ -755,6 +825,7 @@ public class Game extends AppCompatActivity {
 
         keyPress('w');
 
+        Guess_Key.setEnabled(false);
 
         Guess_Key.setBackgroundColor(Color.BLACK);
       }
@@ -773,6 +844,7 @@ public class Game extends AppCompatActivity {
 
         keyPress('x');
 
+        Guess_Key.setEnabled(false);
 
         Guess_Key.setBackgroundColor(Color.BLACK);
       }
@@ -791,6 +863,7 @@ public class Game extends AppCompatActivity {
 
         keyPress('y');
 
+        Guess_Key.setEnabled(false);
 
         Guess_Key.setBackgroundColor(Color.BLACK);
 
@@ -810,6 +883,7 @@ public class Game extends AppCompatActivity {
 
         keyPress('z');
 
+        Guess_Key.setEnabled(false);
 
         Guess_Key.setBackgroundColor(Color.BLACK);
 

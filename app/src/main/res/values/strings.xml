@@ -1,6 +1,9 @@
 <resources>
     <string name="app_name">Hangman</string>
 
+    //EndGameMenu//Eddy----------------------
+    <string name="Win">You Win</string>
+    <string name="Lose">You Lose</string>
     //Menu//Eddy------------------------------
     <string name="Easy">Easy</string>
     <string name="Medium">Medium</string>
