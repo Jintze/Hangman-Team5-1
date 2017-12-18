@@ -8,6 +8,11 @@
 
     >
 
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="650dp"
+        android:background="@drawable/poster"/>
+
     <TextView
         android:id="@+id/Result"
         android:layout_width="wrap_content"
@@ -31,6 +36,8 @@
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:text="The Word Was:"
+        android:textSize="50sp"
+        android:textStyle="bold"
         android:textAppearance="@style/TextAppearance.AppCompat.Display1"
         app:layout_constraintBottom_toTopOf="@+id/difficulty_buttons"
         app:layout_constraintEnd_toEndOf="parent"
