@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
@@ -52,6 +53,8 @@ public class Menu extends AppCompatActivity {
 
         final Button StoryVideo = findViewById(R.id.StoryIntro);
         final Button StoryPlay = findViewById(R.id.StoryPlay);
+
+        AnimationUtils animationUtils = new AnimationUtils();
 
         Button StorySelect = findViewById(R.id.StoryMode);
         StorySelect.setOnClickListener(new View.OnClickListener() {
