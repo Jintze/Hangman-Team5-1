@@ -1,6 +1,7 @@
 package com.example.nathanpelletier.hangman;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -138,7 +139,7 @@ public class Game extends AppCompatActivity {
 
     for (int i = 0; i < STRIKES; i++ ){
       ImageView view = new ImageView(this);
-      view.setImageResource(R.drawable.ic_action_name);
+      view.setImageResource(R.drawable.lives);
       view.setId(i+CHOSEN_WORD.length());
 
       Log.d("lives print ","id Num : "+ (i+CHOSEN_WORD.length()));
