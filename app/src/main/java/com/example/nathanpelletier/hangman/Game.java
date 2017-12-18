@@ -26,16 +26,15 @@ public class Game extends AppCompatActivity {
   private int wrongGuesses = 0;
   private  int correctGuesses = 0;
 
+
+
+  boolean storymode = false;
+
   /**
    * the random word selected by computer based off of difficulty selected
    */
   private String CHOSEN_WORD;
 
-  /**
-   * Character array to store output. Might need to add final so only this class can modify the
-   * variable.
-   */
-  public char[] REVEALED_LETTERS;
 
   /* allows access to GetWordClass */
   private GetWord GET_A_RANDOM_WORD = new GetWord();
@@ -43,19 +42,15 @@ public class Game extends AppCompatActivity {
   /**
    * Displays result of each character guess (in game screen)
    */
-  private LinearLayout LINEARLAYOUT_GUESS_RESULTS;
+  LinearLayout LINEARLAYOUT_GUESS_RESULTS;
 
-  /**
-   * onCreate is used to initialize all and set view attributes
-   */
-  public char key;
 
-  @Override
-  protected void onCreate(Bundle savedInstanceState) {
-    super.onCreate(savedInstanceState);
-    setContentView(R.layout.ingame);
 
-    LINEARLAYOUT_GUESS_RESULTS = findViewById(R.id.guess__result); // match or nahh
+
+
+
+
+  public void RegularGame(){
 
     String SELECTED_DIFFICULTY = getIntentData();
     wordPicker(SELECTED_DIFFICULTY);
@@ -66,25 +61,6 @@ public class Game extends AppCompatActivity {
     printDashes();
 
     printLives(STRIKES);
-
-
-  } // onCreate(Bundle)
-
-  /**
-   * Runs all methods in game class.
-   *
-   * also checks player progress (win/loss)
-   */
-  public void onStart() {
-    super.onStart();
-
-    int v = 0;
-
-    //test//e
-    //Log.d("value","STRIKES:" + STRIKES);
-    //Log.d("value","correct guesses:" + correctGuesses);
-    //Log.d("value","Word:" + CHOSEN_WORD);
-    //Log.d("value","onStart:" + v);
 
     keyboardA();
     keyboardB();
@@ -112,6 +88,32 @@ public class Game extends AppCompatActivity {
     keyboardX();
     keyboardY();
     keyboardZ();
+
+  }//StoryMode
+
+
+
+  @Override
+  protected void onCreate(Bundle savedInstanceState) {
+    super.onCreate(savedInstanceState);
+    setContentView(R.layout.ingame);
+
+    LINEARLAYOUT_GUESS_RESULTS = findViewById(R.id.guess__result); // match or nahh
+
+    RegularGame();
+
+
+  } // onCreate(Bundle)
+
+  /**
+   * Runs all methods in game class.
+   *
+   * also checks player progress (win/loss)
+   */
+  public void onStart() {
+    super.onStart();
+
+
 
   } // onStart()
 
@@ -244,35 +246,41 @@ public class Game extends AppCompatActivity {
         displayCorrectGuesses(i,inputLetter);
         correctGuesses++;
 
-        REVEALED_LETTERS[i] = CHOSEN_WORD.charAt(i);
+
         // displayCorrectGuesses();
 
-        for(int j = 0; j < REVEALED_LETTERS.length; j++){
-          if(REVEALED_LETTERS[i] == CHOSEN_WORD.charAt(j)){
-            alreadyGuessed = true;
-          } // if
-        } // for
 
       } // if
     } // for
-
     if(correctGuesses == oldCorrectGuessesVal){
       wrongGuesses++;
       removeLife();
     }//if
 
+    if (storymode = true){
+      //
+    }else{
+      WinOrLossChecker();
+    }//else
+
+
+
+  } // charCompare
+
+
+  public void WinOrLossChecker(){
     if(correctGuesses == CHOSEN_WORD.length()){
       moneyOnHand += MONEY_PER_WIN;
       endGameScreen(1); //1 = win
     } // if
     if(wrongGuesses == STRIKES){
       if(moneyOnHand >= MONEY_PER_LOSS){
-         moneyOnHand -= MONEY_PER_LOSS;
+        moneyOnHand -= MONEY_PER_LOSS;
       } else {
         endGameScreen(2); //2 = lose
       } // else
     } // if
-  } // charCompare
+  }//WinOrLossChecker
 
   /**
    * For Testing: takes selectedDifficulty and selects a word from TEST_WORD String array
@@ -292,10 +300,7 @@ public class Game extends AppCompatActivity {
         CHOSEN_WORD = GET_A_RANDOM_WORD.start("hard");
         break;
     } // switch
-    REVEALED_LETTERS = new char[CHOSEN_WORD.length()];
-    for(int i = 0; i < REVEALED_LETTERS.length; i++){
-      REVEALED_LETTERS[i] = ' ';
-    } // for
+
   } // wordPicker(String)
 
   /**
@@ -340,8 +345,17 @@ public class Game extends AppCompatActivity {
     Word.setText(CHOSEN_WORD);
 
     //onClicks
-    Button EasyReplay = findViewById(R.id.EasyDifficultySelect);
+    Button BackToMenu = findViewById(R.id.MainMenu);
+    BackToMenu.setOnClickListener(new View.OnClickListener() {
+      @Override
+      public void onClick(View view) {
+        Intent Home = new Intent(Game.this, Menu.class);
+        startActivity(Home);
 
+      }//onClick
+    });//popUpMenu
+
+    Button EasyReplay = findViewById(R.id.EasyDifficultySelect);
     EasyReplay.setOnClickListener(new View.OnClickListener() {
       @Override
       public void onClick(View view) {

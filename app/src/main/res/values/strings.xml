@@ -4,6 +4,8 @@
     //EndGameMenu//Eddy----------------------
     <string name="Win">You Win</string>
     <string name="Lose">You Lose</string>
+    <string name="Menu">Menu</string>
+
     //Menu//Eddy------------------------------
     <string name="Easy">Easy</string>
     <string name="Medium">Medium</string>
