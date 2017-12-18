@@ -339,8 +339,17 @@ public class Game extends AppCompatActivity {
     Word.setText(CHOSEN_WORD);
 
     //onClicks
-    Button EasyReplay = findViewById(R.id.EasyDifficultySelect);
+    Button BackToMenu = findViewById(R.id.MainMenu);
+    BackToMenu.setOnClickListener(new View.OnClickListener() {
+      @Override
+      public void onClick(View view) {
+        Intent Home = new Intent(Game.this, Menu.class);
+        startActivity(Home);
 
+      }//onClick
+    });//popUpMenu
+
+    Button EasyReplay = findViewById(R.id.EasyDifficultySelect);
     EasyReplay.setOnClickListener(new View.OnClickListener() {
       @Override
       public void onClick(View view) {
