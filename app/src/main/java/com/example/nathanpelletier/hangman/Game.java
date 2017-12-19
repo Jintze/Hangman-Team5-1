@@ -308,7 +308,7 @@ public class Game extends AppCompatActivity {
         break;
       }//easy
       case "medium":{
-        poster.setBackgroundResource(R.drawable.redcharacter);
+        poster.setBackgroundResource(R.drawable.secondscreen);
         break;
       }//medium
       case "hard":{
