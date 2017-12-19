@@ -141,7 +141,7 @@ public class Game extends AppCompatActivity {
 
     for (int i = 0; i < STRIKES; i++ ){
       ImageView view = new ImageView(this);
-      view.setImageResource(R.drawable.lives);
+      view.setImageResource(R.drawable.heart2);
       view.setId(i+CHOSEN_WORD.length());
 
       Log.d("lives print ","id Num : "+ (i+CHOSEN_WORD.length()));
