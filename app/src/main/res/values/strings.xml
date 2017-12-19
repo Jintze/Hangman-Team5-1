@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Hangman</string>
+    <string name="app_name">Wanted Man</string>
 
     //EndGameMenu//Eddy----------------------
     <string name="Win">You Win</string>
