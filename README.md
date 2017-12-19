@@ -11,8 +11,7 @@ Description:
 
 The game initiates at the difficulty selection screen. The difficulties are as follows:
 
-Easy:
-
+Easy:</br>
   Contains words from the 1st most used English word to the 333rd most used English word.
   
 Medium:
