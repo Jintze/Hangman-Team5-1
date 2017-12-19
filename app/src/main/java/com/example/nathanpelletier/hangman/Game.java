@@ -24,6 +24,8 @@ public class Game extends AppCompatActivity {
   private int moneyOnHand = 0;
   private int wrongGuesses = 0;
   private  int correctGuesses = 0;
+  private boolean isFirstTime = true;
+  private String selectedDifficulty;
 
   /**
    * the random word selected by computer based off of difficulty selected
@@ -56,10 +58,11 @@ public class Game extends AppCompatActivity {
     TextView currentMoney = (TextView) findViewById(R.id.currentMoneyTextView);
 
     LINEARLAYOUT_GUESS_RESULTS = findViewById(R.id.guess__result); // match or nahh
-
-    String SELECTED_DIFFICULTY = getIntentData();
-    wordPicker(SELECTED_DIFFICULTY);
-    gamePosterChanger(SELECTED_DIFFICULTY);
+    if(isFirstTime) {
+      selectedDifficulty = getIntentData();
+    } // if
+    wordPicker(selectedDifficulty);
+    displayGamePoster();
 
     inGameMenu();
 
@@ -166,23 +169,10 @@ public class Game extends AppCompatActivity {
    * changes the poster image based on selectedDifficulty
    * @param selectedDifficulty
    */
-  public void gamePosterChanger(String selectedDifficulty){
+  public void displayGamePoster(){
     RelativeLayout poster = findViewById(R.id.posterLayout);
-    switch (selectedDifficulty){
-      case "easy":{
         poster.setBackgroundResource(R.drawable.secondscreen);
-        break;
-      }//easy
-      case "medium":{
-        poster.setBackgroundResource(R.drawable.secondscreen);
-        break;
-      }//medium
-      case "hard":{
-        poster.setBackgroundResource(R.drawable.secondscreen);
-        break;
-      }//hard
-    }//switch(selectedDifficulty)
-  }//gamePosterChanger
+  }//displayGamePoster
 
   /**
    * displays the correctly guessed letter in the proper TextView
@@ -232,6 +222,8 @@ public class Game extends AppCompatActivity {
    * @param inputLetter: users input char
    */
   public void charCompare(char inputLetter) {
+    TextView currentMoney = (TextView) findViewById(R.id.currentMoneyTextView);
+    currentMoney.setText(Integer.toString(moneyOnHand));
     boolean alreadyGuessed = false;
     int oldCorrectGuessesVal = correctGuesses;
     for (int i = 0; i < CHOSEN_WORD.length(); i++) {
