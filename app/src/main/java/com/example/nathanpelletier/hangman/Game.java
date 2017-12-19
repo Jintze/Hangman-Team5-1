@@ -268,12 +268,59 @@ public class Game extends AppCompatActivity {
     } // if
   } // charCompare
 
+  /**
+   * Inflates win.xml over top of ingame.xml
+   * and encapsulates all end game code
+   */
   private void winGameScreen() {
 
+      LayoutInflater LAYOUT_INFLATER_END_GAME = this.getLayoutInflater();
+      RelativeLayout SCREEN = findViewById(R.id.inGameMainParent);
+
+      View END_GAME = LAYOUT_INFLATER_END_GAME.inflate(R.layout.winorlose,null);
+
+      END_GAME.startAnimation(AnimationUtils.loadAnimation(getApplicationContext(), android.R.anim.fade_in));
+
+      SCREEN.addView(END_GAME);
+
+      Button BACK_HOME_BUTTON = findViewById(R.id.GameOver);
+
+      BACK_HOME_BUTTON.setOnClickListener(new View.OnClickListener() {
+        @Override
+        public void onClick(View view) {
+          Intent GO_HOME = new Intent(Game.this, Menu.class);
+          startActivity(GO_HOME);
+
+        }//onClick
+      });//popUpMenu
   } // winGameScreen()
 
+
+  /**
+   * Inflates lose.xml over top of ingame.xml
+   * and encapsulates all end game code
+   */
   private void loseGameScreen() {
 
+      LayoutInflater LAYOUT_INFLATER_END_GAME = this.getLayoutInflater();
+      RelativeLayout SCREEN = findViewById(R.id.inGameMainParent);
+
+      View END_GAME = LAYOUT_INFLATER_END_GAME.inflate(R.layout.winorlose,null);
+
+      END_GAME.startAnimation(AnimationUtils.loadAnimation(getApplicationContext(), android.R.anim.fade_in));
+
+      SCREEN.addView(END_GAME);
+
+      Button BACK_HOME_BUTTON = findViewById(R.id.GameOver);
+
+      BACK_HOME_BUTTON.setOnClickListener(new View.OnClickListener() {
+        @Override
+        public void onClick(View view) {
+          Intent GO_HOME = new Intent(Game.this, Menu.class);
+          startActivity(GO_HOME);
+
+        }//onClick
+      });//popUpMenu
   } // loseGameScreen()
 
   /**
@@ -303,34 +350,6 @@ public class Game extends AppCompatActivity {
     } // for
   } // wordPicker(String)
 
-  /**
-   * Inflates winorlose.xml over top of ingame.xml
-   * and encapsulates all end game code
-   */
-  public void endGameScreen(){
-
-    LayoutInflater LAYOUT_INFLATER_END_GAME = this.getLayoutInflater();
-    RelativeLayout SCREEN = findViewById(R.id.inGameMainParent);
-
-    View END_GAME = LAYOUT_INFLATER_END_GAME.inflate(R.layout.winorlose,null);
-
-    END_GAME.startAnimation(AnimationUtils.loadAnimation(getApplicationContext(), android.R.anim.fade_in));
-
-    SCREEN.addView(END_GAME);
-
-    Button BACK_HOME_BUTTON = findViewById(R.id.GameOver);
-
-    BACK_HOME_BUTTON.setOnClickListener(new View.OnClickListener() {
-      @Override
-      public void onClick(View view) {
-        Intent GO_HOME = new Intent(Game.this, Menu.class);
-        startActivity(GO_HOME);
-
-      }//onClick
-    });//popUpMenu
-
-
-  }//endGameScreen
 
 //------------------------------------------------------------------------------------------
 
