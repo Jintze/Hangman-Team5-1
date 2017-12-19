@@ -1,6 +1,7 @@
 package com.example.nathanpelletier.hangman;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.support.constraint.ConstraintLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -10,8 +11,11 @@ import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
+import android.widget.VideoView;
 
 public class Menu extends AppCompatActivity {
+
+    VideoView videoView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,6 +23,9 @@ public class Menu extends AppCompatActivity {
         setContentView(R.layout.menu);
 
 //onClicks Set up ----------------------------------------
+
+
+        videoView = (VideoView) findViewById(R.id.VideoScreen);
 
         Button EasySelect = findViewById(R.id.EasyDifficultySelect);
         EasySelect.setOnClickListener(new View.OnClickListener() {
@@ -69,6 +76,19 @@ public class Menu extends AppCompatActivity {
                        Intent startGame = new Intent(Menu.this, Game.class);
                        startGame.putExtra("Story",  "yes");
                        startActivity(startGame);
+
+
+
+                   }//onClick
+               });
+               StoryVideo.setOnClickListener(new View.OnClickListener() {
+                   @Override
+                   public void onClick(View view) {
+                       Intent startvideo = new Intent(Menu.this, StoryMode.class);
+                       startActivity(startvideo);
+
+
+
                    }//onClick
                });
 
