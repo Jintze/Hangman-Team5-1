@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/poster">
+
+  <LinearLayout
+      android:orientation="horizontal"
+      android:id="@+id/TopScreen"
+      android:layout_width="match_parent"
+      android:layout_height="60dp"/>
+
+
+  <LinearLayout
+      android:orientation="horizontal"
+      android:layout_below="@+id/TopScreen"
+      android:id="@+id/TitleScreen"
+      android:layout_width="match_parent"
+      android:layout_height="60dp">
+
+      <TextView
+          android:id="@+id/TitleReciept"
+          android:layout_width="match_parent"
+          android:layout_height="match_parent"/>
+  </LinearLayout>
+
+
+  <RelativeLayout
+      android:layout_alignRight="@id/TopScreen"
+      android:id="@+id/MiddleScreen"
+      android:layout_below="@+id/TitleScreen"
+      android:layout_width="350dp"
+      android:layout_height="330dp">
+
+    <TextView
+        android:id="@+id/Rank"
+        android:layout_width="@dimen/RecieptW"
+        android:layout_height="@dimen/RecieptH"
+        android:textSize="@dimen/TextViewForReciept"
+        android:text="@string/Rank"
+        android:textStyle="bold"/>
+    <TextView
+        android:layout_alignRight="@id/Rank"
+        android:layout_width="@dimen/RecieptW"
+        android:layout_height="@dimen/RecieptH" />
+
+
+    <TextView
+        android:id="@+id/Week"
+        android:layout_below="@+id/Rank"
+        android:layout_width="@dimen/RecieptW"
+        android:layout_height="@dimen/RecieptH"
+        android:textSize="@dimen/TextViewForReciept"
+        android:text="@string/Week"
+        android:textStyle="bold"/>
+
+    <TextView
+        android:id="@+id/PreviousBalance"
+        android:layout_below="@+id/Week"
+        android:layout_width="@dimen/RecieptW"
+        android:layout_height="@dimen/RecieptH"
+        android:textSize="@dimen/TextViewForReciept"
+        android:text="@string/PreviousBalance"
+        android:textStyle="bold"/>
+
+
+    <TextView
+        android:id="@+id/CurrentBalance"
+        android:layout_below="@+id/PreviousBalance"
+        android:layout_width="@dimen/RecieptW"
+        android:layout_height="@dimen/RecieptH"
+        android:textSize="@dimen/TextViewForReciept"
+        android:text="@string/CurrentBalance"
+        android:textStyle="bold"/>
+  </RelativeLayout>
+
+  <RelativeLayout
+      android:layout_below="@id/TitleScreen"
+      android:layout_alignRight="@id/MiddleScreen"
+      android:layout_width="210dp"
+      android:layout_height="350dp">
+
+    android:layout_alignRight="@id/TopScreen"
+    android:id="@+id/MiddleScreen"
+    android:layout_below="@+id/TitleScreen"
+    android:layout_width="350dp"
+    android:layout_height="330dp">
+
+    <TextView
+        android:id="@+id/RankNumber"
+        android:layout_width="@dimen/RecieptWNumber"
+        android:layout_height="@dimen/RecieptHNumber"
+        android:textSize="@dimen/TextViewForReciept"
+        android:textStyle="bold"/>
+
+
+    <TextView
+        android:id="@+id/WeekNumber"
+        android:layout_below="@+id/RankNumber"
+        android:layout_width="@dimen/RecieptWNumber"
+        android:layout_height="@dimen/RecieptHNumber"
+        android:textSize="@dimen/TextViewForReciept"
+        android:textStyle="bold"/>
+
+    <TextView
+        android:id="@+id/PreviousBalanceNumber"
+        android:layout_below="@+id/WeekNumber"
+        android:layout_width="@dimen/RecieptWNumber"
+        android:layout_height="@dimen/RecieptHNumber"
+        android:textSize="@dimen/TextViewForReciept"
+        android:textStyle="bold"/>
+
+
+    <TextView
+        android:id="@+id/CurrentBalanceNumber"
+        android:layout_below="@+id/PreviousBalanceNumber"
+        android:layout_width="@dimen/RecieptWNumber"
+        android:layout_height="@dimen/RecieptHNumber"
+        android:textSize="@dimen/TextViewForReciept"
+        android:textStyle="bold"/>
+
+  </RelativeLayout>
+
+  <LinearLayout
+      android:id="@+id/PictureScreen"
+      android:layout_alignRight="@+id/TopScreen"
+      android:layout_below="@id/MiddleScreen"
+      android:layout_width="@dimen/PictureScreenW"
+      android:layout_height="@dimen/PictureScreenH">
+
+    <ImageView
+        android:layout_width="@dimen/PoliceScreenW"
+        android:layout_height="@dimen/PoliceScreenH"
+        android:background="@drawable/policeman"/>
+
+    <ImageView
+        android:layout_width="60dp"
+        android:layout_height="100dp"/>
+
+    <ImageView
+        android:layout_width="@dimen/TreasureScreenW"
+        android:layout_height="@dimen/TreasureScreenH"
+        android:background="@drawable/Treasure"/>
+  </LinearLayout>
+
+  <LinearLayout
+      android:layout_alignRight="@+id/TopScreen"
+      android:layout_below="@id/PictureScreen"
+      android:layout_width="350dp"
+      android:layout_height="105dp">
+
+    <Button
+        android:id="@+id/PoliceButton"
+        android:text="@string/ProgressButton"
+        android:layout_width="@dimen/ProgressScreenW"
+        android:layout_height="@dimen/ProgessScreenH" />
+
+    <Button
+        android:text="@string/BalanceButton"
+        android:layout_width="@dimen/ProgressScreenW"
+        android:layout_height="@dimen/ProgessScreenH" />
+
+  </LinearLayout>
+
+</RelativeLayout>
