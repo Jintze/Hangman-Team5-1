@@ -19,8 +19,8 @@ import android.widget.TextView;
 public class Game extends AppCompatActivity {
 
   private final int STRIKES = 6;
-  private int MONEY_PER_WIN = 5;
-  private int MONEY_PER_LOSS = 25;
+  private int moneyPerWin;
+  private int MONEY_PER_LOSS = 20;
   private int moneyOnHand = 0;
   private int wrongGuesses = 0;
   private  int correctGuesses = 0;
@@ -138,7 +138,7 @@ public class Game extends AppCompatActivity {
 
     for (int i = 0; i < STRIKES; i++ ){
       ImageView view = new ImageView(this);
-      view.setImageResource(R.drawable.ic_action_name);
+      view.setImageResource(R.drawable.heart_image1);
       view.setId(i+CHOSEN_WORD.length());
 
       Log.d("lives print ","id Num : "+ (i+CHOSEN_WORD.length()));
@@ -261,7 +261,7 @@ public class Game extends AppCompatActivity {
     }//if
 
     if(correctGuesses == CHOSEN_WORD.length()){
-      moneyOnHand += MONEY_PER_WIN;
+      moneyOnHand += moneyPerWin;
       endGameScreen();
     } // if
     if(wrongGuesses == STRIKES){
@@ -282,12 +282,15 @@ public class Game extends AppCompatActivity {
   public void wordPicker(String selectedDifficulty){
     switch(selectedDifficulty){
       case "easy":
+        moneyPerWin = 15;
         CHOSEN_WORD = GET_A_RANDOM_WORD.start("easy");
         break;
       case "medium":
+        moneyPerWin = 10;
         CHOSEN_WORD = GET_A_RANDOM_WORD.start("medium");
         break;
       case "hard":
+        moneyPerWin = 5;
         CHOSEN_WORD = GET_A_RANDOM_WORD.start("hard");
         break;
     } // switch
@@ -325,8 +328,6 @@ public class Game extends AppCompatActivity {
 
 
   }//endGameScreen
-
-
 
 //------------------------------------------------------------------------------------------
 
