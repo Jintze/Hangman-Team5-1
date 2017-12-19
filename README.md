@@ -22,4 +22,15 @@ Medium:</br>
 Hard:</br>
   Contains words from the 667th most used English word to the 999th most used English word.
 
-Words are selected from: https://faculty.mu.edu.sa/public/uploads/1454962522.40521000words.pdf
+After the player starts the game, a random word is selected based on the difficulty selected. </br>
+The player is then taken to the main game screen. 
+
+Game screen:</br>
+  Keyboard:</br>
+    From the Game screen the player can then guess the blanks forming the word based off of the present keyboard buttons. </br>
+    After pressing a keyboard button the button will grey out. </br> 
+    The player cannot select greyed buttons. </br>
+    After pressing a keyboard button the player will either notice a red heart disapear, this signifies the loss of an attempt, 
+    or they will notice the apperance of the letter pressed in place of one of the blanks in the middle of the screen.
+  Restart button:</br>
+    Pressing the restart button in the top left corner of the screen will bring the user back to the main menu screen.
