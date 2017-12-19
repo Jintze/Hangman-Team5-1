@@ -21,3 +21,5 @@ Medium:</br>
 
 Hard:</br>
   Contains words from the 667th most used English word to the 999th most used English word.
+
+Words are selected from: https://faculty.mu.edu.sa/public/uploads/1454962522.40521000words.pdf
