@@ -159,11 +159,6 @@ public class Game extends AppCompatActivity {
             startActivity(GO_HOME);
           }
       });
-
-
-
-
-
   }//inGameMenu
 
   /**
@@ -262,16 +257,24 @@ public class Game extends AppCompatActivity {
 
     if(correctGuesses == CHOSEN_WORD.length()){
       moneyOnHand += moneyPerWin;
-      endGameScreen();
+      winGameScreen();
     } // if
     if(wrongGuesses == STRIKES){
       if(moneyOnHand >= MONEY_PER_LOSS){
          moneyOnHand -= MONEY_PER_LOSS;
       } else {
-        endGameScreen();
+        loseGameScreen();
       } // else
     } // if
   } // charCompare
+
+  private void winGameScreen() {
+
+  } // winGameScreen()
+
+  private void loseGameScreen() {
+
+  } // loseGameScreen()
 
   /**
    * For Testing: takes selectedDifficulty and selects a word from TEST_WORD String array
