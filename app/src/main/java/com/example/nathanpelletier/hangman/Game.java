@@ -23,7 +23,7 @@ public class Game extends AppCompatActivity {
   private int MONEY_PER_LOSS = 20;
   private int moneyOnHand = 0;
   private int wrongGuesses = 0;
-  private int correctGuesses = 0;
+  private  int correctGuesses = 0;
   private boolean isFirstTime = true;
   private String selectedDifficulty;
 
@@ -58,7 +58,7 @@ public class Game extends AppCompatActivity {
     TextView currentMoney = (TextView) findViewById(R.id.currentMoneyTextView);
 
     LINEARLAYOUT_GUESS_RESULTS = findViewById(R.id.guess__result); // match or nahh
-    if (isFirstTime) {
+    if(isFirstTime) {
       selectedDifficulty = getIntentData();
     } // if
     wordPicker(selectedDifficulty);
@@ -75,7 +75,7 @@ public class Game extends AppCompatActivity {
 
   /**
    * Runs all methods in game class.
-   * <p>
+   *
    * also checks player progress (win/loss)
    */
   public void onStart() {
@@ -122,30 +122,30 @@ public class Game extends AppCompatActivity {
   /**
    * Removes one life icon
    */
-  public void removeLife() {
+  public void removeLife(){
     LinearLayout LinearLayout_Hearts = findViewById(R.id.LinearLayout_Hearts);
 
     View view = LinearLayout_Hearts.getChildAt(STRIKES - wrongGuesses);
 
     LinearLayout_Hearts.removeView(view);
 
-    Log.d("lives delete ", "id Num : " + (STRIKES - wrongGuesses));
+    Log.d("lives delete ","id Num : " + (STRIKES- wrongGuesses));
   }//removeLife
 
   /**
    * Strike value = amount of hearts printed
-   * <p>
+   *
    * created id is i + length of the word
    */
-  public void printLives(int STRIKES) {
+  public void printLives(int STRIKES){
     LinearLayout LinearLayout_Hearts = findViewById(R.id.LinearLayout_Hearts);
 
-    for (int i = 0; i < STRIKES; i++) {
+    for (int i = 0; i < STRIKES; i++ ){
       ImageView view = new ImageView(this);
       view.setImageResource(R.drawable.heart_image1);
-      view.setId(i + CHOSEN_WORD.length());
+      view.setId(i+CHOSEN_WORD.length());
 
-      Log.d("lives print ", "id Num : " + (i + CHOSEN_WORD.length()));
+      Log.d("lives print ","id Num : "+ (i+CHOSEN_WORD.length()));
       LinearLayout_Hearts.addView(view);
     }
   }//
@@ -154,7 +154,7 @@ public class Game extends AppCompatActivity {
    * top left menu button onclick this sends you back to the title screen
    * todo: change icon
    */
-  public void inGameMenu() {
+  public void inGameMenu(){
     ImageButton IN_GAME_MENU_BUTTON = findViewById(R.id.PopUpMenuButton);
     IN_GAME_MENU_BUTTON.setOnClickListener(new View.OnClickListener() {
       @Override
@@ -167,10 +167,9 @@ public class Game extends AppCompatActivity {
 
   /**
    * changes the poster image based on selectedDifficulty
-   *
    * @param selectedDifficulty
    */
-  public void displayGamePoster() {
+  public void displayGamePoster(){
     RelativeLayout poster = findViewById(R.id.posterLayout);
     poster.setBackgroundResource(R.drawable.secondscreen);
   }//displayGamePoster
@@ -178,11 +177,10 @@ public class Game extends AppCompatActivity {
   /**
    * displays the correctly guessed letter in the proper TextView
    * -Text size 30-
-   *
    * @param LETTER_LOCATION
    * @param GUESSED_LETTER
    */
-  public void displayCorrectGuesses(int LETTER_LOCATION, char GUESSED_LETTER) {
+  public void displayCorrectGuesses(int LETTER_LOCATION,char GUESSED_LETTER){
     TextView view = findViewById(LETTER_LOCATION);
     view.setText(String.valueOf(GUESSED_LETTER));
     view.setTextSize(30);
@@ -193,12 +191,12 @@ public class Game extends AppCompatActivity {
    * and placing them in LINEARLAYOUT_GUESS_RESULTS chronologically
    * id from 0 - n; n = CHOSEN_WORD length
    */
-  public void printDashes() {
-    for (int i = 0; i < CHOSEN_WORD.length(); i++) {
+  public void printDashes (){
+    for(int i = 0; i < CHOSEN_WORD.length(); i++){
       TextView CORRECT_GUESS = new TextView(this);
       CORRECT_GUESS.setText(" ___ ");
       CORRECT_GUESS.setId(i);
-      Log.d("dashes print ", "id Num : " + i);
+      Log.d("dashes print ","id Num : "+ i);
       LINEARLAYOUT_GUESS_RESULTS.addView(CORRECT_GUESS);
     }//for
   }//printDashes
@@ -206,7 +204,6 @@ public class Game extends AppCompatActivity {
   /**
    * Takes in user selected difficulty(Easy, Medium, Hard) from main menu and
    * transfers it to Game class
-   *
    * @return String SELECTED_DIFFICULTY
    */
   public String getIntentData() {
@@ -222,7 +219,6 @@ public class Game extends AppCompatActivity {
    * go through chosen word with selected letter; if selected character match at location of chosen
    * word, add that character to the ith position in the global variable. The other method can just
    * access this file's global variable.
-   *
    * @param inputLetter: users input char
    */
   public void charCompare(char inputLetter) {
@@ -232,14 +228,14 @@ public class Game extends AppCompatActivity {
     int oldCorrectGuessesVal = correctGuesses;
     for (int i = 0; i < CHOSEN_WORD.length(); i++) {
       if (inputLetter == CHOSEN_WORD.charAt(i)) {
-        displayCorrectGuesses(i, inputLetter);
+        displayCorrectGuesses(i,inputLetter);
         correctGuesses++;
 
         REVEALED_LETTERS[i] = CHOSEN_WORD.charAt(i);
         // displayCorrectGuesses();
 
-        for (int j = 0; j < REVEALED_LETTERS.length; j++) {
-          if (REVEALED_LETTERS[i] == CHOSEN_WORD.charAt(j)) {
+        for(int j = 0; j < REVEALED_LETTERS.length; j++){
+          if(REVEALED_LETTERS[i] == CHOSEN_WORD.charAt(j)){
             alreadyGuessed = true;
           } // if
         } // for
@@ -247,12 +243,17 @@ public class Game extends AppCompatActivity {
       } // if
     } // for
 
-    if (correctGuesses == CHOSEN_WORD.length()) {
+    if(correctGuesses == oldCorrectGuessesVal){
+      wrongGuesses++;
+      removeLife();
+    }//if
+
+    if(correctGuesses == CHOSEN_WORD.length()){
       moneyOnHand += moneyPerWin;
       winGameScreen();
     } // if
-    if (wrongGuesses == STRIKES) {
-      if (moneyOnHand >= MONEY_PER_LOSS) {
+    if(wrongGuesses == STRIKES){
+      if(moneyOnHand >= MONEY_PER_LOSS){
         moneyOnHand -= MONEY_PER_LOSS;
       } else {
         loseGameScreen();
@@ -266,21 +267,24 @@ public class Game extends AppCompatActivity {
    */
   private void winGameScreen() {
 
-    isFirstTime = false; // to stop getIntentData
     LayoutInflater LAYOUT_INFLATER_END_GAME = this.getLayoutInflater();
     RelativeLayout SCREEN = findViewById(R.id.inGameMainParent);
 
-    View END_GAME = LAYOUT_INFLATER_END_GAME.inflate(R.layout.win, null);
+    View END_GAME = LAYOUT_INFLATER_END_GAME.inflate(R.layout.win,null);
+
     END_GAME.startAnimation(AnimationUtils.
         loadAnimation(getApplicationContext(), android.R.anim.fade_in));
 
     SCREEN.addView(END_GAME);
+
     Button BACK_HOME_BUTTON = findViewById(R.id.GameOver);
+
     BACK_HOME_BUTTON.setOnClickListener(new View.OnClickListener() {
       @Override
       public void onClick(View view) {
         Intent GO_HOME = new Intent(Game.this, Menu.class);
         startActivity(GO_HOME);
+
       }//onClick
     });//popUpMenu
   } // winGameScreen()
@@ -291,12 +295,11 @@ public class Game extends AppCompatActivity {
    * and encapsulates all end game code
    */
   private void loseGameScreen() {
-    isFirstTime = true;
 
     LayoutInflater LAYOUT_INFLATER_END_GAME = this.getLayoutInflater();
     RelativeLayout SCREEN = findViewById(R.id.inGameMainParent);
 
-    View END_GAME = LAYOUT_INFLATER_END_GAME.inflate(R.layout.winorlose, null);
+    View END_GAME = LAYOUT_INFLATER_END_GAME.inflate(R.layout.winorlose,null);
 
     END_GAME.startAnimation(AnimationUtils.loadAnimation(getApplicationContext(), android.R.anim.fade_in));
 
@@ -318,11 +321,10 @@ public class Game extends AppCompatActivity {
    * For Testing: takes selectedDifficulty and selects a word from TEST_WORD String array
    * This then manipulates global variable CHOSEN_WORD
    * Initialize REVEALED_LETTERS to spaces.
-   *
    * @param selectedDifficulty
    */
-  public void wordPicker(String selectedDifficulty) {
-    switch (selectedDifficulty) {
+  public void wordPicker(String selectedDifficulty){
+    switch(selectedDifficulty){
       case "easy":
         moneyPerWin = 15;
         CHOSEN_WORD = GET_A_RANDOM_WORD.start("easy");
@@ -337,7 +339,7 @@ public class Game extends AppCompatActivity {
         break;
     } // switch
     REVEALED_LETTERS = new char[CHOSEN_WORD.length()];
-    for (int i = 0; i < REVEALED_LETTERS.length; i++) {
+    for(int i = 0; i < REVEALED_LETTERS.length; i++){
       REVEALED_LETTERS[i] = ' ';
     } // for
   } // wordPicker(String)
@@ -347,24 +349,23 @@ public class Game extends AppCompatActivity {
 
   /**
    * Encapsulates all code necessary to run keyboard
-   * <p>
+   *
    * NOT WORKIN
    */
-  public void keyboard() {
+  public void keyboard(){
   /* not sure if we need a switch table or if we should just set all of these now */
 
   }//Keyboard
 
   /**
    * Runs charCompare after key is pressed
-   *
    * @param letter (char)
    */
-  public void keyPress(char letter) {
+  public void keyPress(char letter){
     charCompare(letter);
   }//keyPress
 
-  public void keyboardA() {
+  public void keyboardA(){
 
     final Button Guess_Key = findViewById(R.id.LetterA);
 
@@ -382,7 +383,7 @@ public class Game extends AppCompatActivity {
 
   }//Keyboard
 
-  public void keyboardB() {
+  public void keyboardB(){
 
     final Button Guess_Key = findViewById(R.id.LetterB);
 
@@ -400,7 +401,7 @@ public class Game extends AppCompatActivity {
 
   }//Keyboard
 
-  public void keyboardC() {
+  public void keyboardC(){
 
     final Button Guess_Key = findViewById(R.id.LetterC);
 
@@ -418,7 +419,7 @@ public class Game extends AppCompatActivity {
 
   }//Keyboard
 
-  public void keyboardD() {
+  public void keyboardD(){
 
     final Button Guess_Key = findViewById(R.id.LetterD);
 
@@ -436,7 +437,7 @@ public class Game extends AppCompatActivity {
 
   }//Keyboard
 
-  public void keyboardE() {
+  public void keyboardE(){
 
     final Button Guess_Key = findViewById(R.id.LetterE);
 
@@ -454,7 +455,7 @@ public class Game extends AppCompatActivity {
 
   }//Keyboard
 
-  public void keyboardF() {
+  public void keyboardF(){
 
     final Button Guess_Key = findViewById(R.id.LetterF);
 
@@ -472,7 +473,7 @@ public class Game extends AppCompatActivity {
 
   }//Keyboard
 
-  public void keyboardG() {
+  public void keyboardG(){
 
     final Button Guess_Key = findViewById(R.id.LetterG);
 
@@ -490,7 +491,7 @@ public class Game extends AppCompatActivity {
 
   }//Keyboard
 
-  public void keyboardH() {
+  public void keyboardH(){
 
     final Button Guess_Key = findViewById(R.id.LetterH);
 
@@ -508,7 +509,7 @@ public class Game extends AppCompatActivity {
 
   }//Keyboard
 
-  public void keyboardI() {
+  public void keyboardI(){
 
     final Button Guess_Key = findViewById(R.id.LetterI);
 
@@ -526,7 +527,7 @@ public class Game extends AppCompatActivity {
 
   }//Keyboard
 
-  public void keyboardJ() {
+  public void keyboardJ(){
 
     final Button Guess_Key = findViewById(R.id.LetterJ);
 
@@ -544,7 +545,7 @@ public class Game extends AppCompatActivity {
 
   }//Keyboard
 
-  public void keyboardK() {
+  public void keyboardK(){
 
     final Button Guess_Key = findViewById(R.id.LetterK);
 
@@ -562,7 +563,7 @@ public class Game extends AppCompatActivity {
 
   }//Keyboard
 
-  public void keyboardL() {
+  public void keyboardL(){
 
     final Button Guess_Key = findViewById(R.id.LetterL);
 
@@ -580,7 +581,7 @@ public class Game extends AppCompatActivity {
 
   }//Keyboard
 
-  public void keyboardM() {
+  public void keyboardM(){
 
     final Button Guess_Key = findViewById(R.id.LetterM);
 
@@ -598,7 +599,7 @@ public class Game extends AppCompatActivity {
 
   }//Keyboard
 
-  public void keyboardN() {
+  public void keyboardN(){
 
     final Button Guess_Key = findViewById(R.id.LetterN);
 
@@ -616,7 +617,7 @@ public class Game extends AppCompatActivity {
 
   }//Keyboard
 
-  public void keyboardO() {
+  public void keyboardO(){
 
     final Button Guess_Key = findViewById(R.id.LetterO);
 
@@ -634,7 +635,7 @@ public class Game extends AppCompatActivity {
 
   }//Keyboard
 
-  public void keyboardP() {
+  public void keyboardP(){
 
     final Button Guess_Key = findViewById(R.id.LetterP);
 
@@ -652,7 +653,7 @@ public class Game extends AppCompatActivity {
 
   }//Keyboard
 
-  public void keyboardQ() {
+  public void keyboardQ(){
 
     final Button Guess_Key = findViewById(R.id.LetterQ);
 
@@ -670,7 +671,7 @@ public class Game extends AppCompatActivity {
 
   }//Keyboard
 
-  public void keyboardR() {
+  public void keyboardR(){
 
     final Button Guess_Key = findViewById(R.id.LetterR);
 
@@ -688,7 +689,7 @@ public class Game extends AppCompatActivity {
 
   }//Keyboard
 
-  public void keyboardS() {
+  public void keyboardS(){
 
     final Button Guess_Key = findViewById(R.id.LetterS);
 
@@ -706,7 +707,7 @@ public class Game extends AppCompatActivity {
 
   }//Keyboard
 
-  public void keyboardT() {
+  public void keyboardT(){
 
     final Button Guess_Key = findViewById(R.id.LetterT);
 
@@ -724,7 +725,7 @@ public class Game extends AppCompatActivity {
 
   }//Keyboard
 
-  public void keyboardU() {
+  public void keyboardU(){
 
     final Button Guess_Key = findViewById(R.id.LetterU);
 
@@ -742,7 +743,7 @@ public class Game extends AppCompatActivity {
 
   }//Keyboard
 
-  public void keyboardV() {
+  public void keyboardV(){
 
     final Button Guess_Key = findViewById(R.id.LetterV);
 
@@ -760,7 +761,7 @@ public class Game extends AppCompatActivity {
 
   }//Keyboard
 
-  public void keyboardW() {
+  public void keyboardW(){
 
     final Button Guess_Key = findViewById(R.id.LetterW);
 
@@ -778,7 +779,7 @@ public class Game extends AppCompatActivity {
 
   }//Keyboard
 
-  public void keyboardX() {
+  public void keyboardX(){
 
     final Button Guess_Key = findViewById(R.id.LetterX);
 
@@ -796,7 +797,7 @@ public class Game extends AppCompatActivity {
 
   }//Keyboard
 
-  public void keyboardY() {
+  public void keyboardY(){
 
     final Button Guess_Key = findViewById(R.id.LetterY);
 
@@ -815,7 +816,7 @@ public class Game extends AppCompatActivity {
 
   }//Keyboard
 
-  public void keyboardZ() {
+  public void keyboardZ(){
 
     final Button Guess_Key = findViewById(R.id.LetterZ);
 
@@ -836,4 +837,3 @@ public class Game extends AppCompatActivity {
 
 
 } // Game
-

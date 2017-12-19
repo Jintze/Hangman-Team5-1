@@ -1,23 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/background"
     >
 
 
-
     <Button
         android:id="@+id/GameOver"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
         android:background="@color/background"
         android:text="@string/winOrLose"
-        android:textSize="@dimen/textSizeOfLose"/>
+        android:textSize="@dimen/textSizeOfLose" />
 
+    <TextView
+        android:id="@+id/currentWordTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="207dp"
+        android:text="TextView" />
 
 
 </RelativeLayout>
