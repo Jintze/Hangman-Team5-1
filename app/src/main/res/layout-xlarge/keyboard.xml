@@ -3,12 +3,12 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="@dimen/entireKeyboardLayoutXL"
+        android:layout_height="@dimen/EntireKeyboardLayoutXL"
         >
 
 
         <LinearLayout
-            android:id="@+id/topKeyBoardRow"
+            android:id="@+id/TopKeyBoardRow"
             android:layout_width="match_parent"
             android:layout_height="@dimen/KeyboardLinearLayoutXL"
             android:orientation="horizontal"
@@ -18,10 +18,10 @@
 
             <Button
                 android:id="@+id/LetterQ"
-                android:layout_width="@dimen/letterButtonWidthXL"
-                android:layout_height="@dimen/letterButtonHeightXL"
+                android:layout_width="@dimen/LetterButtonWidthXL"
+                android:layout_height="@dimen/LetterButtonHeightXL"
                 android:text="@string/q"
-                android:textSize="@dimen/letterSizeXL"
+                android:textSize="@dimen/LetterSizeXL"
                 android:textColor="@color/background"
                 android:textStyle="bold"
                 />
@@ -30,7 +30,7 @@
                 android:layout_width="@dimen/letterButtonWidthXL"
                 android:layout_height="@dimen/letterButtonHeightXL"
                 android:text="@string/w"
-                android:textSize="@dimen/letterSizeXL"
+                android:textSize="@dimen/LetterSizeXL"
                 android:textColor="@color/background"
                 android:textStyle="bold"
                 />
@@ -39,7 +39,7 @@
                 android:layout_width="@dimen/letterButtonWidthXL"
                 android:layout_height="@dimen/letterButtonHeightXL"
                 android:text="@string/e"
-                android:textSize="@dimen/letterSizeXL"
+                android:textSize="@dimen/LetterSizeXL"
                 android:textColor="@color/background"
                 android:textStyle="bold"
                 />
@@ -48,7 +48,7 @@
                 android:layout_width="@dimen/letterButtonWidthXL"
                 android:layout_height="@dimen/letterButtonHeightXL"
                 android:text="@string/r"
-                android:textSize="@dimen/letterSizeXL"
+                android:textSize="@dimen/LetterSizeXL"
                 android:textColor="@color/background"
                 android:textStyle="bold"
                 />
@@ -57,7 +57,7 @@
                 android:layout_width="@dimen/letterButtonWidthXL"
                 android:layout_height="@dimen/letterButtonHeightXL"
                 android:text="@string/t"
-                android:textSize="@dimen/letterSizeXL"
+                android:textSize="@dimen/LetterSizeXL"
                 android:textColor="@color/background"
                 android:textStyle="bold"
                 />
@@ -66,7 +66,7 @@
                 android:layout_width="@dimen/letterButtonWidthXL"
                 android:layout_height="@dimen/letterButtonHeightXL"
                 android:text="@string/y"
-                android:textSize="@dimen/letterSizeXL"
+                android:textSize="@dimen/LetterSizeXL"
                 android:textColor="@color/background"
                 android:textStyle="bold"
                 />
@@ -75,7 +75,7 @@
                 android:layout_width="@dimen/letterButtonWidthXL"
                 android:layout_height="@dimen/letterButtonHeightXL"
                 android:text="@string/u"
-                android:textSize="@dimen/letterSizeXL"
+                android:textSize="@dimen/LetterSizeXL"
                 android:textColor="@color/background"
                 android:textStyle="bold"
                 />
@@ -84,7 +84,7 @@
                 android:layout_width="@dimen/letterButtonWidthXL"
                 android:layout_height="@dimen/letterButtonHeightXL"
                 android:text="@string/i"
-                android:textSize="@dimen/letterSizeXL"
+                android:textSize="@dimen/LetterSizeXL"
                 android:textColor="@color/background"
                 android:textStyle="bold"
                 />
@@ -93,7 +93,7 @@
                 android:layout_width="@dimen/letterButtonWidthXL"
                 android:layout_height="@dimen/letterButtonHeightXL"
                 android:text="@string/o"
-                android:textSize="@dimen/letterSizeXL"
+                android:textSize="@dimen/LetterSizeXL"
                 android:textColor="@color/background"
                 android:textStyle="bold"
                 />
@@ -102,7 +102,7 @@
                 android:layout_width="@dimen/letterButtonWidthXL"
                 android:layout_height="@dimen/letterButtonHeightXL"
                 android:text="@string/p"
-                android:textSize="@dimen/letterSizeXL"
+                android:textSize="@dimen/LetterSizeXL"
                 android:textColor="@color/background"
                 android:textStyle="bold"
                 />
@@ -112,12 +112,12 @@
 
         <LinearLayout
 
-            android:id="@+id/secondKeyboardRow"
+            android:id="@+id/ThirdKeyboardRow"
             android:layout_width="match_parent"
             android:layout_height="@dimen/KeyboardLinearLayoutXL"
             android:gravity="center"
             android:background="@color/keyboard"
-            android:layout_below="@+id/topKeyBoardRow"
+            android:layout_below="@+id/TopKeyBoardRow"
             >
 
             <Button
@@ -125,7 +125,7 @@
                 android:layout_width="@dimen/letterButtonWidthXL"
                 android:layout_height="@dimen/letterButtonHeightXL"
                 android:text="@string/a"
-                android:textSize="@dimen/letterSizeXL"
+                android:textSize="@dimen/LetterSizeXL"
                 android:textColor="@color/background"
                 android:textStyle="bold"
                 />
@@ -134,7 +134,7 @@
                 android:layout_width="@dimen/letterButtonWidthXL"
                 android:layout_height="@dimen/letterButtonHeightXL"
                 android:text="@string/s"
-                android:textSize="@dimen/letterSizeXL"
+                android:textSize="@dimen/LetterSizeXL"
                 android:textColor="@color/background"
                 android:textStyle="bold"
                 />
@@ -143,7 +143,7 @@
                 android:layout_width="@dimen/letterButtonWidthXL"
                 android:layout_height="@dimen/letterButtonHeightXL"
                 android:text="@string/d"
-                android:textSize="@dimen/letterSizeXL"
+                android:textSize="@dimen/LetterSizeXL"
                 android:textColor="@color/background"
                 android:textStyle="bold"
                 />
@@ -152,7 +152,7 @@
                 android:layout_width="@dimen/letterButtonWidthXL"
                 android:layout_height="@dimen/letterButtonHeightXL"
                 android:text="@string/f"
-                android:textSize="@dimen/letterSizeXL"
+                android:textSize="@dimen/LetterSizeXL"
                 android:textColor="@color/background"
                 android:textStyle="bold"
                 />
@@ -161,7 +161,7 @@
                 android:layout_width="@dimen/letterButtonWidthXL"
                 android:layout_height="@dimen/letterButtonHeightXL"
                 android:text="@string/g"
-                android:textSize="@dimen/letterSizeXL"
+                android:textSize="@dimen/LetterSizeXL"
                 android:textColor="@color/background"
                 android:textStyle="bold"
                 />
@@ -170,7 +170,7 @@
                 android:layout_width="@dimen/letterButtonWidthXL"
                 android:layout_height="@dimen/letterButtonHeightXL"
                 android:text="@string/h"
-                android:textSize="@dimen/letterSizeXL"
+                android:textSize="@dimen/LetterSizeXL"
                 android:textColor="@color/background"
                 android:textStyle="bold"
                 />
@@ -179,7 +179,7 @@
                 android:layout_width="@dimen/letterButtonWidthXL"
                 android:layout_height="@dimen/letterButtonHeightXL"
                 android:text="@string/j"
-                android:textSize="@dimen/letterSizeXL"
+                android:textSize="@dimen/LetterSizeXL"
                 android:textColor="@color/background"
                 android:textStyle="bold"
                 />
@@ -188,7 +188,7 @@
                 android:layout_width="@dimen/letterButtonWidthXL"
                 android:layout_height="@dimen/letterButtonHeightXL"
                 android:text="@string/k"
-                android:textSize="@dimen/letterSizeXL"
+                android:textSize="@dimen/LetterSizeXL"
                 android:textColor="@color/background"
                 android:textStyle="bold"
                 />
@@ -197,7 +197,7 @@
                 android:layout_width="@dimen/letterButtonWidthXL"
                 android:layout_height="@dimen/letterButtonHeightXL"
                 android:text="@string/l"
-                android:textSize="@dimen/letterSizeXL"
+                android:textSize="@dimen/LetterSizeXL"
                 android:textColor="@color/background"
                 android:textStyle="bold"
                 />
@@ -209,14 +209,14 @@
             android:layout_height="@dimen/KeyboardLinearLayoutXL"
             android:gravity="center"
             android:background="@color/keyboard"
-            android:layout_below="@+id/secondKeyboardRow">
+            android:layout_below="@+id/ThirdKeyboardRow">
 
             <Button
                 android:id="@+id/LetterZ"
                 android:layout_width="@dimen/letterButtonWidthXL"
                 android:layout_height="@dimen/letterButtonHeightXL"
                 android:text="@string/z"
-                android:textSize="@dimen/letterSizeXL"
+                android:textSize="@dimen/LetterSizeXL"
                 android:textColor="@color/background"
                 android:textStyle="bold"
                 />
@@ -225,7 +225,7 @@
                 android:layout_width="@dimen/letterButtonWidthXL"
                 android:layout_height="@dimen/letterButtonHeightXL"
                 android:text="@string/x"
-                android:textSize="@dimen/letterSizeXL"
+                android:textSize="@dimen/LetterSizeXL"
                 android:textColor="@color/background"
                 android:textStyle="bold"
                 />
@@ -234,7 +234,7 @@
                 android:layout_width="@dimen/letterButtonWidthXL"
                 android:layout_height="@dimen/letterButtonHeightXL"
                 android:text="@string/c"
-                android:textSize="@dimen/letterSizeXL"
+                android:textSize="@dimen/LetterSizeXL"
                 android:textColor="@color/background"
                 android:textStyle="bold"
                 />
@@ -243,7 +243,7 @@
                 android:layout_width="@dimen/letterButtonWidthXL"
                 android:layout_height="@dimen/letterButtonHeightXL"
                 android:text="@string/v"
-                android:textSize="@dimen/letterSizeXL"
+                android:textSize="@dimen/LetterSizeXL"
                 android:textColor="@color/background"
                 android:textStyle="bold"
                 />
@@ -252,7 +252,7 @@
                 android:layout_width="@dimen/letterButtonWidthXL"
                 android:layout_height="@dimen/letterButtonHeightXL"
                 android:text="@string/b"
-                android:textSize="@dimen/letterSizeXL"
+                android:textSize="@dimen/LetterSizeXL"
                 android:textColor="@color/background"
                 android:textStyle="bold"
                 />
@@ -261,7 +261,7 @@
                 android:layout_width="@dimen/letterButtonWidthXL"
                 android:layout_height="@dimen/letterButtonHeightXL"
                 android:text="@string/n"
-                android:textSize="@dimen/letterSizeXL"
+                android:textSize="@dimen/LetterSizeXL"
                 android:textColor="@color/background"
                 android:textStyle="bold"
                 />
@@ -270,7 +270,7 @@
                 android:layout_width="@dimen/letterButtonWidthXL"
                 android:layout_height="@dimen/letterButtonHeightXL"
                 android:text="@string/m"
-                android:textSize="@dimen/letterSizeXL"
+                android:textSize="@dimen/LetterSizeXL"
                 android:textColor="@color/background"
                 android:textStyle="bold"
                 />

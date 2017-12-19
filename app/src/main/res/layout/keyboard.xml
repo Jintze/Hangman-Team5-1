@@ -8,7 +8,7 @@
 
 
         <LinearLayout
-            android:id="@+id/topKeyBoardRow"
+            android:id="@+id/TopKeyBoardRow"
             android:layout_width="match_parent"
             android:layout_height="@dimen/LinearLayout_height"
             android:orientation="horizontal"
@@ -18,8 +18,8 @@
 
             <Button
                 android:id="@+id/LetterQ"
-                android:layout_width="@dimen/letterButtonWidth"
-                android:layout_height="@dimen/letterButtonHeight"
+                android:layout_width="@dimen/LetterButtonWidth"
+                android:layout_height="@dimen/KetterButtonHeight"
                 android:text="@string/q"
                 android:textSize="@dimen/ButtonsTextSize"
                 android:textColor="@color/background"
@@ -27,8 +27,8 @@
                 />
             <Button
                 android:id="@+id/LetterW"
-                android:layout_width="@dimen/letterButtonWidth"
-                android:layout_height="@dimen/letterButtonHeight"
+                android:layout_width="@dimen/LetterButtonWidth"
+                android:layout_height="@dimen/LetterButtonHeight"
                 android:text="@string/w"
                 android:textSize="@dimen/ButtonsTextSize"
                 android:textColor="@color/background"
@@ -112,12 +112,12 @@
 
         <LinearLayout
 
-            android:id="@+id/secondKeyboardRow"
+            android:id="@+id/ThirdKeyboardRow"
             android:layout_width="match_parent"
             android:layout_height="@dimen/LinearLayout_height"
             android:gravity="center"
             android:background="@color/keyboard"
-            android:layout_below="@+id/topKeyBoardRow"
+            android:layout_below="@+id/TopKeyBoardRow"
             >
 
             <Button
@@ -209,7 +209,7 @@
             android:layout_height="@dimen/LinearLayout_height"
             android:gravity="center"
             android:background="@color/keyboard"
-            android:layout_below="@+id/secondKeyboardRow">
+            android:layout_below="@+id/ThirdKeyboardRow">
 
             <Button
                 android:id="@+id/LetterZ"

@@ -9,19 +9,19 @@
     <RelativeLayout
         android:id="@+id/PosterLayout"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/relativeLayoutXS"
+        android:layout_height="@dimen/RelativeLayoutXS"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true">
 
         <FrameLayout
-            android:layout_width="@dimen/frameLayoutWidthXS"
-            android:layout_height="@dimen/frameLayoutHeightXS">
+            android:layout_width="@dimen/FrameLayoutWidthXS"
+            android:layout_height="@dimen/FrameLayoutHeightXS">
 
             <ImageButton
                 android:id="@+id/BackToeMenuButton"
-                android:layout_width="@dimen/imageButtonXS"
-                android:layout_height="@dimen/imageButtonXS"
+                android:layout_width="@dimen/ImageButtonXS"
+                android:layout_height="@dimen/ImageButtonXS"
                 android:contentDescription="@string/MenuButton"
                 android:tint="@color/background"
                 app:srcCompat="@android:drawable/ic_menu_sort_by_size"
@@ -32,7 +32,7 @@
         <LinearLayout
             android:id="@+id/GuessResult"
             android:layout_width="wrap_content"
-            android:layout_height="@dimen/linearLayoutXS"
+            android:layout_height="@dimen/LinearLayoutXS"
             android:orientation="horizontal"
             android:layout_alignParentBottom="true"
             android:layout_centerHorizontal="true"
