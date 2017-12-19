@@ -22,7 +22,7 @@
         app:layout_constraintTop_toTopOf="parent"
         android:layout_marginTop="8dp"
         android:layout_marginBottom="8dp"
-        app:layout_constraintBottom_toTopOf="@+id/difficulty_buttons"
+        app:layout_constraintBottom_toTopOf="@+id/DifficultyButtons"
         android:layout_marginLeft="8dp"
         app:layout_constraintLeft_toLeftOf="parent"
         android:layout_marginRight="8dp"
@@ -40,7 +40,7 @@
         app:layout_constraintLeft_toLeftOf="parent"
         android:layout_marginRight="8dp"
         app:layout_constraintRight_toRightOf="parent"
-        android:id="@+id/difficulty_buttons"
+        android:id="@+id/DifficultyButtons"
         >
 
 

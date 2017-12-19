@@ -5,41 +5,41 @@
             ----------KeyBoard----------
     <dimen name="letterButtonHeight">40dp</dimen>
     <dimen name="letterButtonWidth">38dp</dimen>
-    <dimen name="keyboardLinearLayout">50dp</dimen>
-    <dimen name="entireKeyboardLayout">150dp</dimen>
-    <dimen name="letterSize">17sp</dimen>
+    <dimen name="KeyboardLinearLayout">50dp</dimen>
+    <dimen name="EntireKeyboardLayout">150dp</dimen>
+    <dimen name="LetterSize">17sp</dimen>
 
             ----------KeyBoard----------
     <dimen name="EasyButtonWidth">250dp</dimen>
     <dimen name="EasyButtonHeight">70dp</dimen>
-    <dimen name="labelTextX">30sp</dimen>
-    <dimen name="hangmanSize">70sp</dimen>
+    <dimen name="LabelTextX">30sp</dimen>
+    <dimen name="HangmanSize">70sp</dimen>
 
              ----------Popup----------
-    <dimen name="restartButtonHeight">200dp</dimen>
-    <dimen name="restartButtonWidth">200dp</dimen>
+    <dimen name="RestartButtonHeight">200dp</dimen>
+    <dimen name="RestartButtonWidth">200dp</dimen>
 
     //Keyboard Button x-large//Fatima---------------------------
               ----------KeyBoardXL----------
     <dimen name="letterButtonHeightXL">80dp</dimen>
     <dimen name="letterButtonWidthXL">76dp</dimen>
     <dimen name="KeyboardLinearLayoutXL">100dp</dimen>
-    <dimen name="entireKeyboardLayoutXL">300dp</dimen>
-    <dimen name="letterSizeXL">34sp</dimen>
+    <dimen name="EntireKeyboardLayoutXL">300dp</dimen>
+    <dimen name="LetterSizeXL">34sp</dimen>
 
               ----------MainMenuXL----------
     <dimen name="EasyButtonWidthtXL">500dp</dimen>
     <dimen name="EasyButtonHeightXL">140dp</dimen>
-    <dimen name="labelTextXL">60sp</dimen>
-    <dimen name="hangmanSizeXL">140sp</dimen>
+    <dimen name="LabelTextXL">60sp</dimen>
+    <dimen name="HangmanSizeXL">140sp</dimen>
 
 
-    <dimen name="relativeLayoutXL">100dp</dimen>
-    <dimen name="frameLayoutWidthXL">86</dimen>
-    <dimen name="frameLayoutHeightXL">86</dimen>
-    <dimen name="linearLayoutXL">120dp</dimen>
-    <dimen name="keyboardIncludeLayout"></dimen>
-    <dimen name="imageButton">80dp</dimen>
+    <dimen name="RelativeLayoutXL">100dp</dimen>
+    <dimen name="FrameLayoutWidthXL">86</dimen>
+    <dimen name="FrameLayoutHeightXL">86</dimen>
+    <dimen name="LinearLayoutXL">120dp</dimen>
+    <dimen name="KeyboardIncludeLayout"></dimen>
+    <dimen name="ImageButton">80dp</dimen>
 
 
     //Keyboard Button x-Small//Fatima---------------------------
@@ -47,33 +47,33 @@
     <dimen name="letterButtonHeightXS">30dp</dimen>
     <dimen name="letterButtonWidthXS">29dp</dimen>
     <dimen name="KeyboardLinearLayoutXS">25dp</dimen>
-    <dimen name="entireKeyboardLayoutXS">75dp</dimen>
-    <dimen name="letterSizeXS">8sp</dimen>
+    <dimen name="EntireKeyboardLayoutXS">75dp</dimen>
+    <dimen name="LetterSizeXS">8sp</dimen>
 
     ----------MainMenuXS----------
     <dimen name="EasyButtonWidthtXS">125dp</dimen>
     <dimen name="EasyButtonHeightXS">35dp</dimen>
-    <dimen name="labelTextXS">15sp</dimen>
-    <dimen name="hangmanSizeXS">35sp</dimen>
+    <dimen name="LabelTextXS">15sp</dimen>
+    <dimen name="HangmanSizeXS">35sp</dimen>
 
 
-    <dimen name="relativeLayoutXS">25dp</dimen>
-    <dimen name="frameLayoutWidthXS">21</dimen>
-    <dimen name="frameLayoutHeightXS">21</dimen>
-    <dimen name="linearLayoutXS">30dp</dimen>
-    <dimen name="keyboardIncludeLayoutXS"></dimen>
-    <dimen name="imageButtonXS">30dp</dimen>
+    <dimen name="RelativeLayoutXS">25dp</dimen>
+    <dimen name="FrameLayoutWidthXS">21</dimen>
+    <dimen name="FrameLayoutHeightXS">21</dimen>
+    <dimen name="LinearLayoutXS">30dp</dimen>
+    <dimen name="KeyboardIncludeLayoutXS"></dimen>
+    <dimen name="ImageButtonXS">30dp</dimen>
 
     //PopUp Window//Fatima---------------------------
     ----------Win or Lose----------
-    <dimen name="gameOverPopUpWindow">120sp</dimen>
+    <dimen name="GameOverPopUpWindow">120sp</dimen>
 
     //PopUp Window XS//Fatima---------------------------
     ----------Win or Lose ----------
-    <dimen name="gameOverPopUpWindowXS">120sp</dimen>
+    <dimen name="GameOverPopUpWindowXS">120sp</dimen>
 
     //WinOrLose Text//Jinzhe-------------------------------------
-    <dimen name="textSizeOfLose">70sp</dimen>
+    <dimen name="TextSizeOfLose">70sp</dimen>
 
 
     //GameEditText//Jinzhe---------------------------------------
@@ -105,7 +105,7 @@
 
 
     //InGameRelativeLayout//Jinzhe---------------------------------------
-    <dimen name="layout_heightRL">500dp</dimen>
+    <dimen name="LayoutHeightRL">500dp</dimen>
     <dimen name="FrameLayout_Width">43dp</dimen>
     <dimen name="FrameLayout_Height">43dp</dimen>
     <dimen name="ImageButton_width">40dp</dimen>

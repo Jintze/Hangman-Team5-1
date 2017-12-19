@@ -66,7 +66,9 @@ public class Menu extends AppCompatActivity {
                StoryPlay.setOnClickListener(new View.OnClickListener() {
                    @Override
                    public void onClick(View view) {
-
+                       Intent startGame = new Intent(Menu.this, Game.class);
+                       startGame.putExtra("Story",  "yes");
+                       startActivity(startGame);
                    }//onClick
                });
 
