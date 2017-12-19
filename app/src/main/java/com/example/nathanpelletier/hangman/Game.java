@@ -302,6 +302,7 @@ public class Game extends AppCompatActivity {
    */
   public void gamePosterChanger(String selectedDifficulty){
     RelativeLayout poster = findViewById(R.id.PosterLayout);
+    //todo: fatima link photos here
     switch (selectedDifficulty){
       case "easy":{
         poster.setBackgroundResource(R.drawable.secondscreen);
