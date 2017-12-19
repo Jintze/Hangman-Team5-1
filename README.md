@@ -9,7 +9,9 @@ Genre: Puzzle
 
 Description:
 
-The game initiates at the difficulty selection screen. The difficulties are as follows:
+The game initiates at the difficulty selection screen. The player begins the game by selecting the desired difficulty.
+
+The difficulties are as follow:
 
 Easy:</br>
   Contains words from the 1st most used English word to the 333rd most used English word.
