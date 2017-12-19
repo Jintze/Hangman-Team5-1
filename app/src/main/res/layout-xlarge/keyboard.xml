@@ -18,8 +18,8 @@
 
             <Button
                 android:id="@+id/LetterQ"
-                android:layout_width="@dimen/LetterButtonWidthXL"
-                android:layout_height="@dimen/LetterButtonHeightXL"
+                android:layout_width="@dimen/letterButtonWidthXL"
+                android:layout_height="@dimen/letterButtonHeightXL"
                 android:text="@string/q"
                 android:textSize="@dimen/LetterSizeXL"
                 android:textColor="@color/background"

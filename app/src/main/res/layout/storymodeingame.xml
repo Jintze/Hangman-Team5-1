@@ -140,7 +140,7 @@
     <ImageView
         android:layout_width="@dimen/TreasureScreenW"
         android:layout_height="@dimen/TreasureScreenH"
-        android:background="@drawable/Treasure"/>
+        android:background="@drawable/treasure"/>
   </LinearLayout>
 
   <LinearLayout

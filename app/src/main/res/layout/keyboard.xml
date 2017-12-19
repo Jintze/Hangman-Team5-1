@@ -18,8 +18,8 @@
 
             <Button
                 android:id="@+id/LetterQ"
-                android:layout_width="@dimen/LetterButtonWidth"
-                android:layout_height="@dimen/KetterButtonHeight"
+                android:layout_width="@dimen/letterButtonWidth"
+                android:layout_height="@dimen/letterButtonHeight"
                 android:text="@string/q"
                 android:textSize="@dimen/ButtonsTextSize"
                 android:textColor="@color/background"
@@ -27,8 +27,8 @@
                 />
             <Button
                 android:id="@+id/LetterW"
-                android:layout_width="@dimen/LetterButtonWidth"
-                android:layout_height="@dimen/LetterButtonHeight"
+                android:layout_width="@dimen/letterButtonWidth"
+                android:layout_height="@dimen/letterButtonHeight"
                 android:text="@string/w"
                 android:textSize="@dimen/ButtonsTextSize"
                 android:textColor="@color/background"

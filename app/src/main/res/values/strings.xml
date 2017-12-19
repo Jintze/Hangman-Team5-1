@@ -17,7 +17,7 @@
     <string name="Week">Week:</string>
     <string name="CurrentBalance">Current Balance:</string>
     <string name="PreviousBalance">Previous Balance:</string>
-    <string name="ProgressButton">Progress + 1</string>
+    <string name="ProgressButton">+1 Progress</string>
     <string name="BalanceButton">Balance</string>
 
 

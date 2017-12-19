@@ -425,7 +425,7 @@ public class Game extends AppCompatActivity {
 
       //todo: get this sorted fatima plz
 
-      Intent endGameIntent = new Intent(Game.this, WinOrLose.class);
+      Intent endGameIntent = new Intent(Game.this, StoryModeInGame.class);
 
       endGameIntent.putExtra("Result", Result);
       endGameIntent.putExtra("WORD", CHOSEN_WORD);

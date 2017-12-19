@@ -10,7 +10,6 @@
         android:largeScreens="true"/>
 
     <application
-        android:name=".AndroidSaveState.SaveState"
         android:allowBackup="true"
         android:fullBackupContent="true"
         android:icon="@mipmap/ic_launcher"
@@ -18,7 +17,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Menu">
+        <activity android:name=".Menu"
+            android:screenOrientation="portrait">
 
 
             <intent-filter>
@@ -28,15 +28,24 @@
             </intent-filter>
 
         </activity>
-        <activity android:name=".Game" />
+        <activity android:name=".Game"
+            android:screenOrientation="portrait"
+            />
 
-        <activity android:name=".WinOrLose"/>
+        <activity android:name=".AndroidSaveState.SaveState"
+            android:screenOrientation="portrait"/>
 
-        <activity android:name=".StoryModeInGame"/>
+        <activity android:name=".WinOrLose"
+            android:screenOrientation="portrait"/>
 
-        <activity android:name=".InGameMenu"/>
+        <activity android:name=".StoryModeInGame"
+            android:screenOrientation="portrait"/>
+
+        <activity android:name=".InGameMenu"
+            android:screenOrientation="portrait"/>
 
         <activity android:name= ".Popup"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.CustomTheme"
             />
 
