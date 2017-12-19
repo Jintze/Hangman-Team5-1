@@ -78,6 +78,8 @@ public class Game extends AppCompatActivity {
     super.onStart();
 
     int v = 0;
+    TextView currentMoney = new TextView(this);
+    currentMoney.setText(Integer.toString(moneyOnHand));
 
     //test//e
     //Log.d("value","STRIKES:" + STRIKES);
