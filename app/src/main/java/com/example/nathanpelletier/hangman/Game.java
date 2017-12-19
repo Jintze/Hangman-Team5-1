@@ -277,9 +277,10 @@ public class Game extends AppCompatActivity {
       LayoutInflater LAYOUT_INFLATER_END_GAME = this.getLayoutInflater();
       RelativeLayout SCREEN = findViewById(R.id.inGameMainParent);
 
-      View END_GAME = LAYOUT_INFLATER_END_GAME.inflate(R.layout.winorlose,null);
+      View END_GAME = LAYOUT_INFLATER_END_GAME.inflate(R.layout.win,null);
 
-      END_GAME.startAnimation(AnimationUtils.loadAnimation(getApplicationContext(), android.R.anim.fade_in));
+      END_GAME.startAnimation(AnimationUtils.
+          loadAnimation(getApplicationContext(), android.R.anim.fade_in));
 
       SCREEN.addView(END_GAME);
 

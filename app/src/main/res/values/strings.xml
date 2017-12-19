@@ -40,5 +40,6 @@
     <string name="MenuButton">MenuButton</string>
 
     <string name="winOrLose">GameOver</string>
+    <string name="win">You Win!</string>
 
 </resources>
