@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Hangman</string>
+    <string name="app_name">Wanted Man</string>
 
     //EndGameMenu//Eddy----------------------
     <string name="Win">You Win</string>
@@ -17,7 +17,7 @@
     <string name="Week">Week:</string>
     <string name="CurrentBalance">Current Balance:</string>
     <string name="PreviousBalance">Previous Balance:</string>
-    <string name="ProgressButton">Progress + 1</string>
+    <string name="ProgressButton">+1 Progress</string>
     <string name="BalanceButton">Balance</string>
 
 
