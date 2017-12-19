@@ -14,10 +14,8 @@ The game initiates at the difficulty selection screen. The difficulties are as f
 Easy:</br>
   Contains words from the 1st most used English word to the 333rd most used English word.
   
-Medium:
-
+Medium:</br>
   Contains words from the 334th most used English word to the 666th most used English word.
 
-Hard:
-
+Hard:</br>
   Contains words from the 667th most used English word to the 999th most used English word.
