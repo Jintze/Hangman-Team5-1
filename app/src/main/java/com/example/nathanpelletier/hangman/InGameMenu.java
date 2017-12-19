@@ -22,7 +22,7 @@ public class InGameMenu extends AppCompatActivity{
 
         Log.d(TAG, "onCreate: Starting");
 
-        menuButton = findViewById(R.id.backToeMenuButton);
+        menuButton = findViewById(R.id.BackToeMenuButton);
 
         menuButton.setOnClickListener(new View.OnClickListener() {
             @Override

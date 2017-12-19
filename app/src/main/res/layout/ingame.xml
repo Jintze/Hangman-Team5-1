@@ -7,7 +7,7 @@
     android:id="@+id/inGameMainParent">
 
     <RelativeLayout
-        android:id="@+id/posterLayout"
+        android:id="@+id/PosterLayout"
         android:layout_width="match_parent"
         android:layout_height="500dp"
         android:layout_alignParentLeft="true"
@@ -16,7 +16,7 @@
         >
 
         <LinearLayout
-            android:id="@+id/LinearLayout_Hearts"
+            android:id="@+id/LinearLayoutHearts"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
@@ -24,8 +24,6 @@
             android:layout_alignParentTop="true"
             android:orientation="horizontal">
         </LinearLayout>
-
-
 
         <FrameLayout
             android:layout_width="43dp"
@@ -43,7 +41,7 @@
 
 
         <LinearLayout
-            android:id="@+id/guess__result"
+            android:id="@+id/GuessResult"
             android:layout_width="wrap_content"
             android:layout_height="60dp"
             android:layout_alignParentBottom="true"
@@ -51,10 +49,7 @@
             android:layout_marginBottom="29dp"
             android:orientation="horizontal" />
 
-
-
     </RelativeLayout>
-
 
     <RelativeLayout
 
@@ -63,7 +58,7 @@
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:id="@+id/relativeLayout">
+        android:id="@+id/RelativeLayout">
 
         <include layout="@layout/keyboard" />
     </RelativeLayout>
