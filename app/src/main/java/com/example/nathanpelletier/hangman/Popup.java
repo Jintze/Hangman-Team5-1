@@ -1,9 +1,7 @@
 package com.example.nathanpelletier.hangman;
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.util.DisplayMetrics;
 import android.view.View;
 import android.widget.ImageButton;
 
@@ -21,7 +19,7 @@ public class Popup extends AppCompatActivity{
   public void onStart() {
     super.onStart();
 
-    ImageButton BACK_HOME_BUTTON = findViewById(R.id.backToeMenuButton);
+    ImageButton BACK_HOME_BUTTON = findViewById(R.id.BackToeMenuButton);
 
     BACK_HOME_BUTTON.setOnClickListener(new View.OnClickListener() {
       @Override

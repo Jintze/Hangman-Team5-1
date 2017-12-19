@@ -1,7 +1,6 @@
 package com.example.nathanpelletier.hangman;
 
 import android.content.Intent;
-import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -98,7 +97,7 @@ public class Game extends AppCompatActivity {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.ingame);
 
-    LINEARLAYOUT_GUESS_RESULTS = findViewById(R.id.guess__result); // match or nahh
+    LINEARLAYOUT_GUESS_RESULTS = findViewById(R.id.GuessResult); // match or nahh
 
     RegularGame();
 
@@ -122,7 +121,7 @@ public class Game extends AppCompatActivity {
    * Removes one life icon
    */
   public void removeLife(){
-    LinearLayout LinearLayout_Hearts = findViewById(R.id.LinearLayout_Hearts);
+    LinearLayout LinearLayout_Hearts = findViewById(R.id.LinearLayoutHearts);
 
     View view = LinearLayout_Hearts.getChildAt(STRIKES - wrongGuesses);
 
@@ -137,7 +136,7 @@ public class Game extends AppCompatActivity {
    * created id is i + length of the word
    */
   public void printLives(int STRIKES){
-    LinearLayout LinearLayout_Hearts = findViewById(R.id.LinearLayout_Hearts);
+    LinearLayout LinearLayout_Hearts = findViewById(R.id.LinearLayoutHearts);
 
     for (int i = 0; i < STRIKES; i++ ){
       ImageView view = new ImageView(this);
@@ -174,7 +173,7 @@ public class Game extends AppCompatActivity {
    * @param selectedDifficulty
    */
   public void gamePosterChanger(String selectedDifficulty){
-    RelativeLayout poster = findViewById(R.id.posterLayout);
+    RelativeLayout poster = findViewById(R.id.PosterLayout);
     switch (selectedDifficulty){
       case "easy":{
         poster.setBackgroundResource(R.drawable.secondscreen);

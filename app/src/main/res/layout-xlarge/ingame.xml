@@ -7,7 +7,7 @@
     android:id="@+id/inGameMainParent">
 
     <RelativeLayout
-        android:id="@+id/posterLayout"
+        android:id="@+id/PosterLayout"
         android:layout_width="match_parent"
         android:layout_height="@dimen/relativeLayoutXL"
         android:layout_alignParentLeft="true"
@@ -19,7 +19,7 @@
             android:layout_height="@dimen/frameLayoutHeightXL">
 
             <ImageButton
-                android:id="@+id/backToeMenuButton"
+                android:id="@+id/BackToeMenuButton"
                 android:layout_width="@dimen/imageButton"
                 android:layout_height="@dimen/imageButton"
                 android:contentDescription="@string/MenuButton"
@@ -30,7 +30,7 @@
         </FrameLayout>
 
         <LinearLayout
-            android:id="@+id/guess__result"
+            android:id="@+id/GuessResult"
             android:layout_width="wrap_content"
             android:layout_height="@dimen/linearLayoutXL"
             android:orientation="horizontal"
