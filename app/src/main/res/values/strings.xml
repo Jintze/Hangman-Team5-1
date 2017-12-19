@@ -42,4 +42,7 @@
     <string name="winOrLose">GameOver</string>
     <string name="win">You Win!</string>
 
+    //Peter//money------------------------
+    <string name="currentMoney">ayy</string>
+
 </resources>

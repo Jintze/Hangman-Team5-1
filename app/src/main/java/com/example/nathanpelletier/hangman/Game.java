@@ -53,6 +53,7 @@ public class Game extends AppCompatActivity {
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.ingame);
+    TextView currentMoney = (TextView) findViewById(R.id.currentMoneyTextView);
 
     LINEARLAYOUT_GUESS_RESULTS = findViewById(R.id.guess__result); // match or nahh
 
@@ -65,7 +66,7 @@ public class Game extends AppCompatActivity {
     printDashes();
 
     printLives(STRIKES);
-
+    currentMoney.setText(Integer.toString(moneyOnHand));
 
   } // onCreate(Bundle)
 
@@ -78,8 +79,6 @@ public class Game extends AppCompatActivity {
     super.onStart();
 
     int v = 0;
-    TextView currentMoney = new TextView(this);
-    currentMoney.setText(Integer.toString(moneyOnHand));
 
     //test//e
     //Log.d("value","STRIKES:" + STRIKES);
