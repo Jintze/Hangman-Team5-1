@@ -12,6 +12,16 @@
     <string name="Hard">Hard</string>
     <string name="title_activity_game">Game</string>
 
+    //Choice//Fatima------------------------------
+    <string name="Rank">Rank:</string>
+    <string name="Week">Week:</string>
+    <string name="CurrentBalance">Current Balance:</string>
+    <string name="PreviousBalance">Previous Balance:</string>
+    <string name="ProgressButton">Progress + 1</string>
+    <string name="BalanceButton">Balance</string>
+
+
+
     //Keyboard//Jintze------------------------
     <string name="q">q</string>
     <string name="w">w</string>

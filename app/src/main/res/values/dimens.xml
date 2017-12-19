@@ -41,6 +41,24 @@
     <dimen name="KeyboardIncludeLayout"></dimen>
     <dimen name="ImageButton">80dp</dimen>
 
+    //Choice//Fatima---------------------------
+    ----------Text View ----------
+    <dimen name="RecieptH">80dp</dimen>
+    <dimen name="RecieptW">120dp</dimen>
+    <dimen name="RecieptHNumber">80dp</dimen>
+    <dimen name="RecieptWNumber">170dp</dimen>
+    <dimen name="TextViewForReciept">30sp</dimen>
+    <dimen name="ProgressButton">30sp</dimen>
+    <dimen name="BalanceButton">30sp</dimen>
+    <dimen name="PictureScreenW">330dp</dimen>
+    <dimen name="PictureScreenH">104dp</dimen>
+    <dimen name="PoliceScreenH">70dp</dimen>
+    <dimen name="PoliceScreenW">80dp</dimen>
+    <dimen name="TreasureScreenH">100dp</dimen>
+    <dimen name="TreasureScreenW">120dp</dimen>
+    <dimen name="ProgressScreenW">150dp</dimen>
+    <dimen name="ProgessScreenH">85dp</dimen>
+
 
     //Keyboard Button x-Small//Fatima---------------------------
     ----------KeyBoardXS----------
