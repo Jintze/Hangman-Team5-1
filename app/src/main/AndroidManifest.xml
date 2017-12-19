@@ -31,6 +31,7 @@
 
         <activity android:name=".WinOrLose"/>
 
+        <activity android:name=".StoryModeInGame"/>
 
         <activity android:name=".InGameMenu"/>
 
