@@ -10,6 +10,7 @@
         android:largeScreens="true"/>
 
     <application
+        android:name=".AndroidSaveState.SaveState"
         android:allowBackup="true"
         android:fullBackupContent="true"
         android:icon="@mipmap/ic_launcher"

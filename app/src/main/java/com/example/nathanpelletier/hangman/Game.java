@@ -1,6 +1,8 @@
 package com.example.nathanpelletier.hangman;
 
+import android.app.Application;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -14,25 +16,29 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import com.example.nathanpelletier.hangman.AndroidSaveState.SaveState;
 
 
 public class Game extends AppCompatActivity {
+  SaveState saveState = new SaveState();
 
-  private final int STRIKES = 6;
-  private int MONEY_PER_WIN = 5;
-  private int MONEY_PER_LOSS = 25;
-  private int moneyOnHand = 0;
+
+  //To Play the game
+  private int STRIKES = 6;
   private int wrongGuesses = 0;
   private  int correctGuesses = 0;
-
-
-
-  boolean storymode = false;
-
   /**
    * the random word selected by computer based off of difficulty selected
    */
   private String CHOSEN_WORD;
+
+
+  //StoryMode
+  boolean storymode = false;
+
+  //extra
+
+
 
 
   /* allows access to GetWordClass */
@@ -43,11 +49,132 @@ public class Game extends AppCompatActivity {
    */
   LinearLayout LINEARLAYOUT_GUESS_RESULTS;
 
+  /*public void onPause() {
+    super.onPause();
+
+    Log.d("onPause","onPause is now running ");
+    savegame();
+
+
+  }//onPause*/
+
+  /*public void onResume() {
+    super.onResume();
+    Log.d("onResume","onResume is now running ");
+    restoreGame();
+
+
+    if(storymode){
+      InGameCheck();
+
+    }
+
+  }//onResume*/
+
+  /*public void restoreGame(){
+
+    SharedPreferences preferences = getPreferences(MODE_PRIVATE);
+
+    saveState.setCHOSEN_WORD(preferences.getString("word","DEFAULT"));//double check
+    saveState.setInGame(preferences.getBoolean("InGame",false));
 
 
 
+  }
+
+  public void savegame(){
+    SharedPreferences preferences = getPreferences(MODE_PRIVATE);
+    SharedPreferences.Editor editor = preferences.edit();
+
+    editor.putString("word",CHOSEN_WORD);
+    editor.putInt("STRIKES",STRIKES);
+
+    //commit to storage
+    editor.apply();
+  }*/
+
+  /*public void onSaveInstanceState(Bundle savedInstanceState){
+    super.onSaveInstanceState(savedInstanceState);
+
+    savedInstanceState.putString("word",CHOSEN_WORD);
+    savedInstanceState.putBoolean("InGame",ingame);
+    savedInstanceState.putInt("STRIKES",STRIKES);
+    savedInstanceState.putInt("wrongGuesses",wrongGuesses);
+    savedInstanceState.putInt("correctGuesses",correctGuesses);
+  }
+
+  public void onRestoreInstanceState(Bundle savedInstanceState){
+    super.onRestoreInstanceState(savedInstanceState);
+
+    savedInstanceState.getString("word");
+    savedInstanceState.getBoolean("InGame");
+    savedInstanceState.getInt("STRIKES");
+    savedInstanceState.getInt("wrongGuesses");
+    savedInstanceState.getInt("correctGuesses");
+
+  }*/
 
 
+  public void Directory(){
+    Intent storyIntent = getIntent();
+    String SAVED_DIFFICULTY = saveState.StoryProgress();//from saveState
+
+    //game mode check
+    if (null == storyIntent.getStringExtra("Story")){
+       storymode = false;
+    }else{
+      storymode = true;
+      //button press check
+    }
+
+    //game mode execution
+    if (storymode){
+      //initialize CurrentBalance and
+
+      StoryMode(SAVED_DIFFICULTY);
+    }else
+      RegularGame();
+  }
+
+  public void StoryMode(String Difficulty){
+    wordPicker(Difficulty);
+    gamePosterChanger(Difficulty);
+
+    inGameMenu();
+
+    printDashes();
+
+    printLives(STRIKES);
+
+    keyboardA();
+    keyboardB();
+    keyboardC();
+    keyboardD();
+    keyboardE();
+    keyboardF();
+    keyboardG();
+    keyboardH();
+    keyboardI();
+    keyboardJ();
+    keyboardK();
+    keyboardL();
+    keyboardM();
+    keyboardN();
+    keyboardO();
+    keyboardP();
+    keyboardQ();
+    keyboardR();
+    keyboardS();
+    keyboardT();
+    keyboardU();
+    keyboardV();
+    keyboardW();
+    keyboardX();
+    keyboardY();
+    keyboardZ();
+
+    //needs a different end game
+  }//StoryMode
 
   public void RegularGame(){
 
@@ -91,7 +218,6 @@ public class Game extends AppCompatActivity {
   }//StoryMode
 
 
-
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
@@ -99,7 +225,8 @@ public class Game extends AppCompatActivity {
 
     LINEARLAYOUT_GUESS_RESULTS = findViewById(R.id.GuessResult); // match or nahh
 
-    RegularGame();
+    Directory();
+
 
 
   } // onCreate(Bundle)
@@ -130,6 +257,7 @@ public class Game extends AppCompatActivity {
     Log.d("lives delete ","id Num : " + (STRIKES- wrongGuesses));
   }//removeLife
 
+
   /**
    * Strike value = amount of hearts printed
    *
@@ -157,10 +285,10 @@ public class Game extends AppCompatActivity {
     IN_GAME_MENU_BUTTON.setOnClickListener(new View.OnClickListener() {
       @Override
       public void onClick(View view) {
-            Intent GO_HOME = new Intent(Game.this, Menu.class);
-            startActivity(GO_HOME);
-          }
-      });
+        Intent GO_HOME = new Intent(Game.this, Menu.class);
+        startActivity(GO_HOME);
+      }
+    });
 
 
 
@@ -245,10 +373,6 @@ public class Game extends AppCompatActivity {
         displayCorrectGuesses(i,inputLetter);
         correctGuesses++;
 
-
-        // displayCorrectGuesses();
-
-
       } // if
     } // for
     if(correctGuesses == oldCorrectGuessesVal){
@@ -256,11 +380,7 @@ public class Game extends AppCompatActivity {
       removeLife();
     }//if
 
-    if (storymode = true){
-      //
-    }else{
-      WinOrLossChecker();
-    }//else
+    WinOrLossChecker();
 
 
 
@@ -269,17 +389,14 @@ public class Game extends AppCompatActivity {
 
   public void WinOrLossChecker(){
     if(correctGuesses == CHOSEN_WORD.length()){
-      moneyOnHand += MONEY_PER_WIN;
+
       endGameScreen(1); //1 = win
     } // if
     if(wrongGuesses == STRIKES){
-      if(moneyOnHand >= MONEY_PER_LOSS){
-        moneyOnHand -= MONEY_PER_LOSS;
-      } else {
         endGameScreen(2); //2 = lose
       } // else
-    } // if
-  }//WinOrLossChecker
+    } // WinOrlossChecker
+
 
   /**
    * For Testing: takes selectedDifficulty and selects a word from TEST_WORD String array
@@ -302,93 +419,35 @@ public class Game extends AppCompatActivity {
 
   } // wordPicker(String)
 
-  /**
-   * Inflates winorlose.xml over top of ingame.xml
-   * and encapsulates all end game code
-   *
-   * @Result: takes in number value 1 = win; everything else is loss
-   */
-  public void endGameScreen(int Result){
+  public void endGameScreen(int Result) {
+    if (storymode) {
 
-    //initialize
-    LayoutInflater LAYOUT_INFLATER_END_GAME = this.getLayoutInflater();
-    RelativeLayout SCREEN = findViewById(R.id.inGameMainParent);
+      //todo: get this sorted fatima plz
 
-    LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.FILL_PARENT,
-            LinearLayout.LayoutParams.FILL_PARENT);
+      Intent endGameIntent = new Intent(Game.this, WinOrLose.class);
 
+      endGameIntent.putExtra("Result", Result);
+      endGameIntent.putExtra("WORD", CHOSEN_WORD);
 
-    View END_GAME = LAYOUT_INFLATER_END_GAME.inflate(R.layout.winorlose,null);
+      startActivity(endGameIntent);
 
-    END_GAME.setLayoutParams(layoutParams);
+    }// storymode game over screen
+    else {
+      Intent endGameIntent = new Intent(Game.this, WinOrLose.class);
 
-    //start
-    END_GAME.startAnimation(AnimationUtils.loadAnimation(getApplicationContext(), android.R.anim.fade_in));
+      endGameIntent.putExtra("Result", Result);
+      endGameIntent.putExtra("WORD", CHOSEN_WORD);
 
-    SCREEN.addView(END_GAME);
-
-    //Everything within winorlose.xml
-
-    TextView RESULT = findViewById(R.id.Result);
-
-    TextView Word = findViewById(R.id.ChosenWord);
-
-
-    if (Result == 1){
-      RESULT.setText(R.string.Win);
-    }else{
-      RESULT.setText(R.string.Lose);
-    }//else
-
-
-    Word.setText(CHOSEN_WORD);
-
-    //onClicks
-    Button BackToMenu = findViewById(R.id.MainMenu);
-    BackToMenu.setOnClickListener(new View.OnClickListener() {
-      @Override
-      public void onClick(View view) {
-        Intent Home = new Intent(Game.this, Menu.class);
-        startActivity(Home);
-
-      }//onClick
-    });//popUpMenu
-
-    Button EasyReplay = findViewById(R.id.EasyDifficultySelect);
-    EasyReplay.setOnClickListener(new View.OnClickListener() {
-      @Override
-      public void onClick(View view) {
-        Intent startGame = new Intent(Game.this, Game.class);
-        startGame.putExtra("Difficulty", "easy");
-        startActivity(startGame);
-
-      }//onClick
-    });//popUpMenu
-
-    Button MediumReplay =  findViewById(R.id.MediumDifficultySelect);
-    MediumReplay.setOnClickListener(new View.OnClickListener() {
-      @Override
-      public void onClick(View v) {
-        Intent startGame  = new Intent(Game.this, Game.class);
-        startGame.putExtra("Difficulty", "medium");
-        startActivity(startGame);
-
-      }
-    });
-
-    Button HardReplay = findViewById(R.id.HardDifficultySelect);
-    HardReplay.setOnClickListener(new View.OnClickListener() {
-      @Override
-      public void onClick(View v) {
-        Intent startGame = new Intent(Game.this, Game.class);
-        startGame.putExtra("Difficulty",  "hard");
-        startActivity(startGame);
-      }
-    });
-
-
+      startActivity(endGameIntent);
+    }//regular game end screen
   }//endGameScreen
 
+
+  /**
+   * disables built in back button
+   */
+  public void onBackPressed(){
+  }
 
 
 //------------------------------------------------------------------------------------------
@@ -908,4 +967,3 @@ public class Game extends AppCompatActivity {
 
 
 } // Game
-
